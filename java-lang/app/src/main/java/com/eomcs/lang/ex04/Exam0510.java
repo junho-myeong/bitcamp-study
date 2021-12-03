@@ -28,11 +28,11 @@ public class Exam0510 {
     // 배열의 크기는 int 타입의 최대 값에서 2를 뺀 값이다.
     // 배열의 최대 크기 = Integer.MAX_VALUE - 2
 
-    //int[] arr3 = new int[2147483647]; // 실행 오류 => VM의 배열 크기 제한을 초과
+    //    int[] arr3 = new int[2147483647]; // 실행 오류 => VM의 배열 크기 제한을 초과
     // Exception in thread "main" java.lang.OutOfMemoryError: Requested array size exceeds VM limit
 
-    //int[] arr3 = new int[2147483645]; // OK!
-    int[] arr3 = new int[Integer.MAX_VALUE - 2]; // OK!
+    //    int[] arr3 = new int[2147483645]; // OK! JVM이 운영체제로 부터 지정 받은 메모리가 적었어서 그걸 설정해주면 받을수잇다.
+    //    int[] arr3 = new int[Integer.MAX_VALUE - 2]; // OK!
 
     // 실행 오류 발생!
     // => Exception in thread "main" java.lang.OutOfMemoryError: Java heap space
