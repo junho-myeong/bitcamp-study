@@ -1,0 +1,61 @@
+# 실무 개발자가 갖춰야할 기본 기술
+- Web App 개발기술
+1 화면제어: HTML,CSS,Javascript,bootstrap,jquery
+2 데이터 제어: SQL,JDBC API,Mybatis프레임워크
+3 언어 및 도구: Java,VScode,Eclipse,Gradle,git
+
+# 하드웨어(hardware)
+- 하드웨어란?
+하드웨어란 명령을 받은 일을 실제로 수행하는 시스템이다. (사람으로 비유하면 신체라고 비유된다.)
+
+# 소프트웨어(software)
+- 소프트웨어란 ?
+컴퓨터에게 동작 방법을 지시하는 명령어 집합의 모임이다. (사람으로 비유하면 신체를 움직이는 뇌 라고 비유하면된다.)
+
+# 소프트웨어 분류
+- system S/W : hardware를 제어하는 역활을 한다.
+예를들면 : OS(operationg system), Driver(입출력을 담당하는 모니터, 키보드, 마우스등), TCP/IT,DirectX등이 해당된다.
+- Application S/W : 응용프로그램
+예를들면 : HWP한글,PPT,웹브라우저,카카오톡,게임등 이 잇다. 
+
+# Appication S/W 분류
+- stadalone : 로컬(local)에 설치 => 컴퓨터상에 설치되어서 원격 서버에 설치할 필요가 없는것들, 즉 인터넷연결이 필요없이 사용가능한 App
+예를들면 : hwp한글, phtoshop, 그림판, 메모장, ms office등
+- client/server(C/S) : 로컬과 원격에 설치 => 컴퓨터 상에도 설치가 되어잇어야하고, 서버에도 설치가 되어잇어야 가능 , 즉 인터넷이 연결 되어야 사용가능한 App
+예를들면 : 카카오톡, 이메일, 유튜브, 구글미트,각종 게임등
+
+# CS(client/server) 분류
+- 설치형 : 프로그램을 설치 해야만 가능한 프로그램
+예를들면 : 카카오톡, 게임등이 있다.
+- 서비스형 : 인터넷에서 설치 없이 바로 우리가 서비스 할수잇는 프로그램
+예를들면 : 네이버 메일, 구글미트,각종 웹 브라우저
+
+# HTTP(Hyper Text Transfer Protocol)
+- W3(world wide web) 상에서 정보를 주고받을 수 잇는 주소를 말한다. 주로 HTML(Hyper Text Markup Language)문서를 주고 받는데 사용된다.
+
+# 개발 도구 준비
+- VScode(Google chrome엔진 사용, Electron(javascript 라이브러리) 사용) - 단순 편집기, 웹 소스 편집기
+- github.com에 가입하기 - git S/W형상 관리 서비스 : 소스 변경 내역 관리, 소스공유 등 할수잇다.
+- gitclient 설치 - git서버(github.com)와 연동
+- 자바 개발도구(JDK)설치 - 자바 어플리케이션 빌드(컴파일,실행,디버그,문서생성,프로파일러)도구
+1 PATH설정 - java도구를 쉽게 찾을수 있도록 위치정보 등록
+2 JAVA_HOME 설정 - java 경로를 알고 싶은 프로그램을 위하여, 자바 설치 경로 등록
+- Eclipse IDE(Intergrated Development Environment) - 편집기,실행결과 출력, 디버깅 추적기 등 개발관련 도구가 구비된프로그램
+- Gradle 빌드도구 설치 - 프로젝트컴파일, 테스트, 문서생성, 패키징(배포파일생성) 등빌드 작업수행 
+
+# 형상관리 시스템(Configuration Management System)
+- S/W(소스파일)의 변경내역 관리 및 공유 = S/W 버전관리 시스템
+1 CVS(Concurrent Version Server) - 동시 버전관리 시스템, upload/download 의 기본단위가 파일이다. 파일 단위로 주고받는다
+2 SVN(Subversion) - upload/download 의 기본 단위가 파일이 아닌, 변경내용이다. cvs 방식에 비해 전송 data양이 적다.
+3 Git(git server) - 저장소(repository) 를 서버와 클라이언트 둘다 가지고 잇기 때문에 , 서버에 문제가 생겨도 변경 내용과 프로젝트를 그대로 보존 할수잇다.
+
+# CLI(Command Line Interface)
+- CLI란 ?
+가상 터미널 또는 터미널을 통해 사용자와 컴퓨터가 상호 작용하는 방식
+
+
+
+
+
+
+
