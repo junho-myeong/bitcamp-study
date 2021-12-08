@@ -12,7 +12,7 @@ public class Exam0510 {
 
     // 조건 연산자는 할당 연산자(=)의 왼편에 변수를 선언해야 한다.
     // => 선언하지 않으면 문법 오류!
-    //    (age > 18) ? System.out.println("성인이다.") : System.out.println("미성년자이다.");
+    //        (age > 18) ? System.out.println("성인이다.") : System.out.println("미성년자이다.");
 
     // 조건 연산자의 결과 값이 왼편의 변수 타입과 일치해야 한다.
     // => 결과 값이 없거나 타입이 일치하지 않으면 문법 오류!
