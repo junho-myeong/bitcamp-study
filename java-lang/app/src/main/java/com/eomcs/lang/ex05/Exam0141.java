@@ -4,9 +4,9 @@ package com.eomcs.lang.ex05;
 //
 public class Exam0141 {
   public static void main(String[] args) {
-    
+
     // 연산을 수행한 후 생성된 결과도 피연산자와 같은 타입이다.
-    
+
     int i = 5;
     int j = 2;
     float r = i / j; // int와 int의 연산 결과는 항상 int이다.
@@ -14,7 +14,7 @@ public class Exam0141 {
     // 이미 결과는 정수 2가 된다.
     // 정수 2를 float 변수에 넣으면 
     // 출력할 때 2.0이 된다.
-    System.out.println(r);
+    System.out.println(r); //시험에 나올가능성 높다
 
     // 해결책!
     // - 변수에 들어 있는 값을 다른 타입으로 바꿔라.
@@ -22,7 +22,13 @@ public class Exam0141 {
     r = (float)i / (float)j; // float / float = float
     // i / j의 값은 2.5가 되고
     // r에 저장되는 것은 2.5이다.
-    System.out.println(r);                         
+    System.out.println(r);     
+
+    // 물론 두 개의 정수 값 중 한개만 float으로 형변환 해도 된다.
+    // 왜?
+    // => 연산을 수행할때 나머지 변수가 암시적 형변환이 이루어지기 때문이다.
+    r = i /(float)j;
+    System.out.println(r);
   }
 }
 

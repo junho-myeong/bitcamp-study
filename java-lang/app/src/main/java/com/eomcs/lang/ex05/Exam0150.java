@@ -38,7 +38,7 @@ public class Exam0150 {
     //    int r6 = i + l; // 컴파일 오류!
 
     // long + float = float
-    // => long이 float으로 암시적 형변환 한 후에 연산을 수행한다.
+    // => long이 float으로 암시적 형변환 한 후에 연산을 수행한다. 롱변수에 들어잇는 변수에 값을 float 메모리에 넣고 float끼리 계산하는거다.
     //    long r7 = l + f; // 컴파일 오류!
 
     // int + float = float

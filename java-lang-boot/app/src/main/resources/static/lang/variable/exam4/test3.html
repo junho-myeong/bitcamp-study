@@ -6,6 +6,7 @@
 	</head>
 	<body>
 		<h1>배열 다루기</h1>
+    <a href="/lang/variable/exam4/test3">서버에 요청하기</a>
 		  <button id ='x-btn' type ='button'>배열 가져오기</button>
       <ul class = "content">
       </ul> 
@@ -13,20 +14,31 @@
         var xBtn = document.querySelector('#x-btn'); //querySelector 가 아닐때는 # 을 안해도 된다.
         var contentEl = document.querySelector('.content');
         xBtn.addEventListener('click' , function() {
+        	// 별도의 요청 작업을 실행한다(AJAX). 현재의 웹페이지는 그대로 두고 별도의 요청 작업을 실행할때 사용
+        	// 실무에서 AJAX를 가장 많이 만날것이다.
         	var xhr = new XMLHttpRequest();
+        	// 서버에서 응답이 왔을때 실행할 메소드(콜백함수 라고 부른다.)
         	xhr.onload = function() {
             console.log(xhr.responseText);
             // 서버에서 받은 JSON 형식의 배열을 자바스크립트 배열로 변환한다.
             var names = JSON.parse(xhr.responseText);
             console.log(names);
             var str = '';
+            // 범위 조정가능 for문
             for(var i=0;i<names.length;i++) {
             	str += `<li>${names[i]}</li>`;
             }
+            // 처음부터끝까지 for문 돌릴꺼면
+            /*
+            for(var name of names) {
+            	...
+            }*/
             console.log(str);
             contentEl.innerHTML = str;
           };
+          // 서버에 연결하는 코드
           xhr.open('get','/lang/variable/exam4/test3',true);
+          // 서버가 응답 해달라는 코드
           xhr.send();
         })
         
