@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<meta charset="UTF-8">
+	<title>변수 활용</title>
+	</head>
+	<body>
+		<h1>배열 다루기</h1>
+		  <button id ='x-btn' type ='button'>배열 가져오기</button>
+      <ul class = "content">
+      </ul> 
+      <script>
+        var xBtn = document.querySelector('#x-btn'); //querySelector 가 아닐때는 # 을 안해도 된다.
+        var contentEl = document.querySelector('.content');
+        xBtn.addEventListener('click' , function() {
+        	var xhr = new XMLHttpRequest();
+        	xhr.onload = function() {
+            console.log(xhr.responseText);
+            // 서버에서 받은 JSON 형식의 배열을 자바스크립트 배열로 변환한다.
+            var names = JSON.parse(xhr.responseText);
+            console.log(names);
+            var str = '';
+            for(var i=0;i<names.length;i++) {
+            	str += `<li>${names[i]}</li>`;
+            }
+            console.log(str);
+            contentEl.innerHTML = str;
+          };
+          xhr.open('get','/lang/variable/exam4/test3',true);
+          xhr.send();
+        })
+        
+        
+        
+        
+        
+      </script>
+	</body>
+</html>
