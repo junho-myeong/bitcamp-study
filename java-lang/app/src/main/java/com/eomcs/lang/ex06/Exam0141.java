@@ -20,6 +20,7 @@ public class Exam0141 {
     //    else
     //      System.out.println("미성년입니다.");
 
+    // 파이썬에서는 브레이스를 사용하는게 아니고 들여 쓰기로 브레이스 범위를 지정한다.
 
   }
 }

@@ -29,7 +29,7 @@ public class Exam0230 {
       default:
     }
 
-    char c = 'A'; // A문자의 유니코드 값(UTF-16) 0x41(65)을 c에 저장한다.
+    char c = 'A'; // A문자의 유니코드 값(UTF-16) 0x41(65)을 c에 저장한다. 문자열이 저장 되는게 아니고 문자에 부여된 문자 코드숫자가 저장되는거다!!!
     switch (c) {
       // case 의 값도 int 값이면 무엇이든 된다.
       case 'A': // 0x41 = 65

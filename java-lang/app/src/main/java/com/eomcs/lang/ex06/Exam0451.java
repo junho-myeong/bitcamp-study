@@ -8,6 +8,7 @@ public class Exam0451 {
 
     // 위의 방식으로 for 문을 사용할 경우
     // 변수 선언을 바깥에 둘 수 없다.
+    // 평소 사용 for 문에서는 변수를 밖에 선언해서 사용가능했다.
     String name;
     for (name : names) // 컴파일 오류!
       System.out.println(name);

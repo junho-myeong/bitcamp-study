@@ -11,6 +11,7 @@ public class Exam0460 {
     //
     // 배열은 크기가 고정되지만,
     // 컬렉션은 크기가 가변적이다.
+    // 복잡한것들 다룰때 편하다.
     ArrayList list = new ArrayList();
     list.add("홍길동");
     list.add(3.14f);

@@ -21,9 +21,9 @@ public class Exam0220 {
     // 재직여부? y
     // y
     System.out.print("이름? ");
-    System.out.println(keyboardScanner.nextLine());
+    System.out.println(keyboardScanner.nextLine()); //리턴후 출력 이라고 생각해야한다.
     System.out.print("전화? ");
-    System.out.println(keyboardScanner.nextLine());
+    System.out.println(keyboardScanner.nextLine()); // 메소드 안에 또 다른 메소드가 잇는것이다.
     System.out.print("이메일? ");
     System.out.println(keyboardScanner.nextLine());
     System.out.print("나이? ");
@@ -31,7 +31,7 @@ public class Exam0220 {
     System.out.print("재직여부? ");
     System.out.println(keyboardScanner.nextLine());
 
-    keyboardScanner.close();
+    keyboardScanner.close(); // JVM이 꺼지면 저절로하는데 습관 들여서 사용해라
   }
 }
 

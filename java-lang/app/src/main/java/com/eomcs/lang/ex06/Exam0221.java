@@ -2,7 +2,7 @@ package com.eomcs.lang.ex06;
 
 import java.util.Scanner;
 
-//# 흐름 제어문 - switch 사용 후
+//# 흐름 제어문 - switch 사용 후 , 단순 숫자 조건일때는 switch 를 사용하는게 낫다.
 //
 public class Exam0221 {
   public static void main(String[] args) {
@@ -20,7 +20,7 @@ public class Exam0221 {
         System.out.println("정보처리자격증");
         System.out.println("졸업증명서");
         System.out.println("이력서");
-        break; // 여기까지만 실행한다.
+        break; // 여기까지만 실행한다. , break를 주는게 중요하다
       case 2:
         System.out.println("졸업증명서");
         System.out.println("이력서");

@@ -6,7 +6,7 @@ public class Exam0340 {
   public static void main(String[] args) {
     int i = 0;
 
-    // 1부터 10까지 출력하기
+    // 1부터 10까지 출력하기 ,조건이 거짓이라도 일단 한번 실행해본다
     do
       System.out.println(++i);
     while (i < 10);

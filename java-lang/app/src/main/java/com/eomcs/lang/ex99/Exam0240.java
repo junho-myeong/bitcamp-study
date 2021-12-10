@@ -15,6 +15,7 @@ public class Exam0240 {
     // 해결 방법? nextInt()를 호출한 후 남아있는 엔터 코드를 읽어서 제거하라.
     keyboardScanner.nextLine(); // 남아 있는 빈 문자열의 한 줄(LF 코드)을 읽어서 버린다.
 
+    // nextLine 다음줄을 읽으라는 뜻이고 nextInt는 토큰까지만 읽어라 여서 토큰까지 읽고 엔터를 읽어 버린다
     System.out.print("이름? ");
     String name = keyboardScanner.nextLine();
 

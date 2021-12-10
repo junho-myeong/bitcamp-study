@@ -5,12 +5,13 @@ package com.eomcs.lang.ex99;
 public class Exam0210 {
   public static void main(String[] args) {
     // 1) 키보드로 입력한 데이터를 읽을 때 사용할 도구를 준비한다.
+    // System.in 이 키보드를 가르킨다
     java.io.InputStream keyboard = System.in;
 
-    // 2) InputStream은 바이트 단위로 읽는 기능이 있다.
+    // 2) InputStream은 바이트 단위로 읽는 기능이 있다. ex) ㄱ ㅏ ㄴ ㅏ ㄷ ㅏ
     //    바이트 단위로 읽어서 int나 문자열로 바꾸려면 또 코딩해야 하는 불편함이 있다.
     //    이런 불편함을 줄이기 위해 자바에서는 바이트를 개발자가 원하는 값으로
-    //    바꿔주는 기능을 제공한다.
+    //    바꿔주는 도구를 제공한다.
     //    그런 기능이 들어 있는 도구가 java.util.Scanner 이다.
     // => 키보드를 스캐너에 연결한다.
     java.util.Scanner keyboardScanner = new java.util.Scanner(keyboard);
@@ -32,7 +33,7 @@ public class Exam0210 {
     // 사용자가 입력한 문자열을 출력한다.
     System.out.println(str);
 
-    // 스캐너는 사용 후 키보드와의 연결을 끊고 닫는다.
+    // 스캐너는 사용 후 키보드와의 연결을 끊고 닫는다. 자원들은 사용하고 닫아야 하는것들이 잇다.
     keyboardScanner.close();
   }
 }
