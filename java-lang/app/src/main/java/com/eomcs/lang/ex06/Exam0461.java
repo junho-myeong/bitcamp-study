@@ -14,6 +14,7 @@ public class Exam0461 {
 
     // for 문에 컬렉션도 적용할 수 있다.
     // for (변수 선언 : 컬렉션객체) 문장;
+    // 컬렉션에 무슨 값이 있는지 모르기 때문에 Object타입으로 받는다.
     for (Object value : list)
       System.out.println(value);
   }
