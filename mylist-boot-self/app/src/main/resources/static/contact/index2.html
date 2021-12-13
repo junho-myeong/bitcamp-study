@@ -1,0 +1,53 @@
+<!-- 연락처 배열 준비 및 각 항목 확인 -->
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>연락처</title>
+</head>
+<body>
+  <h1>연락처</h1>
+  <table border="1">
+    <!-- thead는 table에 헤드 부분을 말하고 그 head는 각 컬럼에 제목을 뜻한다. -->
+    <thead>
+      <!-- tr은 각 table에 행을 말한다. -->
+      <tr>
+        <th>이름</th>
+        <th>이메일</th>
+        <th>연락처</th>
+        <th>회사</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <!-- td는 table data에 약자로 각 테이블에 들어갈 데이터 들을 말한다. -->
+        <td>명준호</td>
+        <td>wnsgh9166@naver.com</td>
+        <td>010-9032-2727</td>
+        <td>비트캠프</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <script>
+    // 연락처 배열 준비
+    var contacts = [
+      "명준호1,wnsgh9166@naver.com,010-9032-2727,bitcamp",
+      "명준호2,wnsgh9166@naver.com,010-9032-2727,bitcamp",
+      "명준호3,wnsgh9166@naver.com,010-9032-2727,bitcamp",
+      "명준호4,wnsgh9166@naver.com,010-9032-2727,bitcamp",
+      "명준호5,wnsgh9166@naver.com,010-9032-2727,bitcamp"
+    ]
+    // 배열에 대한 각 항목 확인하는 방법(두개다 같은 결과인데 배열에 모든 값을 꺼낼 때는 위에 방법이 더 효율적이다.)
+    for(contact of contacts) {
+      console.log(contact) 
+    }
+
+    for(var i =0; i<contacts.length; i++) {
+      console.log(contacts[i])
+    }
+  </script>
+</body>
+</html>

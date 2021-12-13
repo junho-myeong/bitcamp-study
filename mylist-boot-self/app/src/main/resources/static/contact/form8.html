@@ -1,4 +1,4 @@
-<!-- 등록후 목록 화면으로 이동 -->
+<!-- 최적화 - 태그 찾기를 리스너 밖에 둔다 -->
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -38,16 +38,10 @@
       // console.log(emailEl.value)
       // console.log(telEl.value)
       // console.log(companyEl.value)
-
       //4) 입력된 값을 서버에 보내기4
-      fetch(`/contact/add?name=${nameEl.value}&email=${emailEl.value}&tel=${telEl.value}&company=${companyEl.value}`)
-        .then(function(response) {
-          response.text()
-        })
-        .then(function(result) {
-          console.log(result)
-          location.href = 'index.html'
-        })
+    //   fetch(`/contact/add?name=${nameEl.value}&email=${emailEl.value}&tel=${telEl.value}&company=${companyEl.value}`)
+    //     .then()
+    //     .then()
     })
     // 5)취소 버튼 추가 , 6)리펙토링 - replace temp wuth query
     document.querySelector('#x-cancel-btn').addEventListener('click', function() {

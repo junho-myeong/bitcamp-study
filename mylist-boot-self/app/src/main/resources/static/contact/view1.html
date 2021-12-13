@@ -5,65 +5,49 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>연락처 자세히보기</title>
+  <title>새 연락처</title>
 </head>
 <body>
-  <h1>연락처 자세히 보기</h1>
+  <h1>새 연락처</h1>
   <form>
     이름*: <input type="text" id="x-name"><br>
     이메일*: <input type="text" id="x-email"><br>
     연락처*: <input type="text" id="x-tel"><br>
     회사명: <input type="text" id="x-company"><br>
     *항목은 필수 입력 항목입니다.<br>
-    <button type="button" id="x-update-btn">수정</button>
+    <button type="button" id="x-add-btn">등록</button>
     <button type="button" id="x-cancel-btn">취소</button>
-    <button type="button" id="x-delete-btn">삭제</button>
   </form>
   <script>
     var nameEl = document.querySelector('#x-name')
     var emailEl = document.querySelector('#x-email')
     var telEl = document.querySelector('#x-tel')
     var companyEl = document.querySelector('#x-company')
-
     
-    // console.log(location.href.indexOf('?')) // ? 에 위치를 알수잇게해준다.
-    // console.log(location.href.split('?'))
+    console.log(location.href.indexOf('?')) // ? 에 위치를 알수잇게해준다.
+    console.log(location.href.split('?'))
     var qsError = location.href.split('?')
     if(qsError.length == 1) {
       alert('이메일 값을 입력하시오')
       throw 'URL형식오류!'
     }
     var qs = location.href.split('?')[1]
-    // console.log(qs)
+    console.log(qs)
 
-    var params = new URLSearchParams(qs);
-    console.log(params.get('email'))
-    var email = params.get('email')
-    console.log(email)
 
-    fetch(`/contact/get?email=${email}`)
-      .then(function(response) {
-        return response.text()
-      })
-      .then(function(contact) {
-        console.log(contact.split(','))
-        var result = contact.split(',')
-        nameEl.value = result[0]
-        emailEl.value = result[1]
-        telEl.value = result[2]
-        companyEl.value = result[3]
-      })
-
-    document.querySelector('#x-update-btn').addEventListener('click', function() {
+    document.querySelector('#x-add-btn').addEventListener('click', function() {
       // 7)필수입력 항목 검사하기
-      
+      if(nameEl.value == "" || emailEl == "" || telEl ==""){
+        alert('필수항목을 기입하십쇼')
+        return
+      }
       //3) 버튼을 클릭 했을 때 입력 폼의 값을 알아내기3
       // console.log(nameEl.value)
       // console.log(emailEl.value)
       // console.log(telEl.value)
       // console.log(companyEl.value)
 
-      fetch(`/contact/update?name=${nameEl.value}&email=${emailEl.value}&tel=${telEl.value}&company=${companyEl.value}`)
+      fetch(`/contact/add?name=${nameEl.value}&email=${emailEl.value}&tel=${telEl.value}&company=${companyEl.value}`)
         .then(function(response) {
           response.text()
         })
@@ -73,10 +57,6 @@
         })
     })
     document.querySelector('#x-cancel-btn').addEventListener('click', function() {
-      location.href = 'index.html'
-    })
-    document.querySelector('#x-delete-btn').addEventListener('click', function() {
-      fetch('/contact/delete')
       location.href = 'index.html'
     })
   </script>
