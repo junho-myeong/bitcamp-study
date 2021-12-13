@@ -45,6 +45,7 @@
       return response.json()
     })
     .then(function(contacts) {
+      // console.log(contacts) // 백엔드가 잘 넘어 오나 확인 
       // 배열에 잇는거 모두 꺼낼땐 아래 방법 보다 위에 방법이 더 간단하다.
     for(var contact of contacts) {
       // console.log(contact)
@@ -53,7 +54,7 @@
       var values = contact.split(',')
       // console.log(values[0], values[1], values[2], values[3])
       var trEl = document.createElement('tr')
-      trEl.innerHTML = `<td>${values[0]}</td><td>${values[1]}</td><td>${values[2]}</td><td>${values[3]}</td>`
+      trEl.innerHTML = `<td><a href ="/contact/view.html?email=${values[1]}">${values[0]}</a></td><td>${values[1]}</td><td>${values[2]}</td><td>${values[3]}</td>`
       // console.log(trEl)
       tbodyEl.appendChild(trEl)
     }
