@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>대학별 상세정보</title>
+</head>
+<body>
+  <h1>대학별 상세정보</h1>
+  <form>
+    대학교: <input type="text" id="university-name"><br>
+    언어: <input type="text" id="korean-rate"><br>
+    수리: <input type="text" id="math-rate"><br>
+    외국어: <input type="text" id="foreign-rate"><br>
+    탐구1: <input type="text" id="sience1-rate"><br>
+    탐구2: <input type="text" id="sience2-rate"><br>
+    <button type="button" id="update-btn">수정</button>
+    <button type="button" id="cancel-btn">취소</button>
+    <button type="button" id="delete-btn">삭제</button>
+  </form>
+  <script>
+    var uName = document.querySelector('#university-name')
+    var koreanRate = document.querySelector('#korean-rate')
+    var mathRate = document.querySelector('#math-rate')
+    var foreignRate = document.querySelector('#foreign-rate')
+    var sienceRate1 = document.querySelector('#sience1-rate')
+    var sienceRate2 = document.querySelector('#sience2-rate')
+
+    console.log(location.href.indexOf('?'))
+    console.log(location.href.split('?'))
+    var qs = location.href.split('?')[1]
+    console.log(qs)
+    var params = new URLSearchParams(qs);
+    console.log(params.get('uName'))
+    var qsuName = params.get('uName')
+    fetch(`/my1/get?uName=${qsuName}`)
+    .then(function(response) {
+      return response.text()
+    }).then(function(result) {
+      console.log(result)
+      console.log(result.split(','))
+      var arr = result.split(',')
+      uName.value = arr[0]
+      koreanRate.value = arr[1]
+      mathRate.value = arr[2]
+      foreignRate.value = arr[3]
+      sienceRate1.value = arr[4]
+      sienceRate2.value = arr[5]
+    })
+
+    document.querySelector('#update-btn').addEventListener('click', function() {
+      fetch(`/my1/update?uName=${uName.value}&koreanRate=${koreanRate.value}&mathRate=${mathRate.value}&foreignRate=${foreignRate.value}&sienceRate1=${sienceRate1.value}&sienceRate2=${sienceRate2.value}`)
+        .then(function(response) {
+          return response.text()
+        })
+        .then(function(result) {
+          console.log(result)
+          location.href = 'index.html'
+        })
+    })
+    document.querySelector('#delete-btn').addEventListener('click', function() {
+      fetch("/my1/delete")
+        .then(function(response) {
+          return response.json()
+        })
+        .then(function(result) {
+          console.log(result)
+          location.href = 'index.html'
+        })
+    })
+  </script>
+</body>
+</html>
