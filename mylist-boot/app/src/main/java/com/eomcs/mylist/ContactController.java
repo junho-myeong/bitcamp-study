@@ -1,39 +1,28 @@
 package com.eomcs.mylist;
 
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-@RestController() // 클라이언트 요청을 처리 하는 역활(클라이언트가 뭘 해달라고 하면 해주는것)
+@RestController // 이클래스가 클라이언트 요청을 처리한다는 것을 표시한다. 
+// 이 표시(에노테이션)이 붙어 있어야만 스프링 부트가 인식한다.
+
 public class ContactController {
-  // 인스턴스 변수
-  // => 모든 인스턴스 메소드가 공유한다.
-  String[] contacts = new String[5];
-  int size = 0;
 
-  @GetMapping("/contact/list")
+  @RequestMapping("/contact/list") // 이 URL(unified resource locator)이 연결되면 이 메소드를 호출할것이다.
   public Object list() {
-    String[] records =new String[size];
-    for(int i = 0; i <size; i++) {
-      records[i] = contacts[i];
-    }
-    return records;
+    String[] contacts = {
+        "aaa11,aaa@test.com,1111,비트캠프",
+        "aaa22,aaa@test.com,1111,비트캠프",
+        "aaa33,aaa@test.com,1111,비트캠프",
+        "aaa44,aaa@test.com,1111,비트캠프",
+        "aaa55,aaa@test.com,1111,비트캠프"
+    };
+    return contacts;
   }
 
-  @GetMapping("/contact/add")
-  public Object add(String name,String email, String tel, String company) {
-    //String contact = // json으로 보내는게 아니다 ""가 맨 앞뒤에 없다
-    contacts[size++] = name + "," + email + "," + tel + "," + company;
-    return size;
+  @RequestMapping("/contact/add")
+  public Object add(String name, String email, String tel, String company) {
+    String contact = name + "," + email + "," + tel + "," + company;
+    return contact;
   }
-  @GetMapping("/contact/get")
-  public Object get(String email) {
-    for (int i =0; i<size;i++) {
-      if (email.equals(contacts[i].split(",")[1])) {
-        return contacts[i];
-      }
-    }
-    return "";
-  }
-
-
 }
