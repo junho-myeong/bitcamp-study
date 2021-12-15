@@ -16,7 +16,7 @@ obj1.name = "홍길동"; // => obj1.put("name", "홍길동");
 obj1.age = 20; // => obj1.put("age", 20);
 obj1.working = true; // => obj1.put("working", true);
 obj1.hello = function() { // hello 함수 객체 이면서 프로퍼티이다.
-  console.log("안녕하세요, " + this.name + "님!"); // this 는 같은 상자에 존재하는 것들을 찾는다는 뜻이다. , this가 잇으면함수가 소속된 객체 안에서 찾는다.!! , 그리고 name 만 잇으면 함수안에서 변수 찾고 밖에서 찾고 없으면 그냥 버린다.
+  console.log("안녕하세요, " + this.name + "님!"); // this 는 같은 객체에 존재하는 것들을 찾는다는 뜻이다. , this가 잇으면함수가 소속된 객체 안에서 찾는다.!! , 그리고 name 만 잇으면 함수안에서 변수 찾고 밖에서 찾고 없으면 그냥 버린다.
 }; // => obj1.put("hello", 함수);
 
 console.log(obj1);

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>exam</title>
+</head>
+<body>
+  <h1>요점 정리 - 3.함수 정의와 호출</h1>
+  
+<script>
+function plus(a, b) { //parameter 선언시 var 붙이면 안된다. plus 도 변수 명이다. 여기에는 함수에 대한 정보를 담고 잇는 주소가 담긴다
+  return a + b;
+}
+console.log(plus(10, 20)); // 리턴값이 plus(10,20) 자리에 놓이게 되는것이다.
+
+var ok;
+console.log(ok)
+
+ok = plus;
+console.log(ok(100, 200));
+
+var haha = ok;
+console.log(haha(1000, 2000));
+
+// ok = 'hello' , dynadic type binding 이여서 문자열로 바꿀수 잇다.
+// ok(100,200) 여기서는 ok의 값이 바꼇기 때문에 사용할수없다.
+
+</script>  
+</body>
+</html>
+
+
+
+
+
+
+
+
