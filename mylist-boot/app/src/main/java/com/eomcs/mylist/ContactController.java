@@ -30,24 +30,21 @@ public class ContactController {
 
   @RequestMapping("/contact/add")
   public Object add(String name, String email, String tel, String company) {
-    String contact = name + "," + email + "," + tel + "," + company;
-    contacts[size++] = contact;
+    contacts[size++] = createCSV(name, email, tel, company);
     return size; //현재 몇개를 입력했는지 알기위해 
   }
 
   @RequestMapping("/contact/get")
   public Object get(String email) {
-    for (int i = 0; i<size;i++) {
-      if(contacts[i].split(",")[1].equals(email)) {
-        updateIdx = i;
-        return contacts[i];
-      }
+    int index = indexOf(email);
+    if (index == -1) {
+      return "";
     }
-    return "";
+    return contacts[index];
   }
   @RequestMapping("/contact/update")
   public Object update(String name, String email, String tel, String company) {
-    contacts[updateIdx] = name + "," + email + "," + tel + "," + company;
+    contacts[updateIdx] = createCSV(name, email, tel, company);
     return updateIdx;
   }
   @RequestMapping("/contact/delete")
@@ -65,6 +62,26 @@ public class ContactController {
     }
     return 0;
   }
+
+  //  기능:
+  //  -입력 받은 파라미터 값을 가지고 CSV 형식으로 문자열을 만들어 준다.
+  String createCSV(String name, String email, String tel, String company) {
+    return name + "," + email + "," + tel + "," + company;
+  }
+
+  // 기능:
+  //  - 이메일로 연락처 정보를 찾는다.
+  //  - 찾은 연락처의 배열 인덱스를 리턴한다.
+  int indexOf(String email) {
+    for (int i = 0; i<size;i++) {
+      if(contacts[i].split(",")[1].equals(email)) {
+        updateIdx = i;
+        return i;
+      }
+    }
+    return -1;
+  }
+
 }
 
 
