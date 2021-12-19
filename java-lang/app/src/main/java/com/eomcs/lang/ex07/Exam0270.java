@@ -33,6 +33,9 @@ public class Exam0270 {
 
   public static void main(String[] args) {
     // 컴파일 확인하라!
+
+    // 가변 파라미터 사용 예
+    System.out.printf("%s%s\n","aaa", "bbb"); // 이게 가변 파라미터에 예이다 우리가 사용 해 왔던 이것도 가변 파라미터 이다.
   }
 }
 

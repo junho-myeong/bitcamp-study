@@ -3,55 +3,113 @@ package com.eomcs.mylist;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-@RestController()
+@RestController 
 public class ContactController {
-  String[] contacts = new String[10];
+
+  String[] contacts = new String[3];
   int size = 0;
-  int updateIdx;
 
   @RequestMapping("/contact/list")
   public Object list() {
-    //    String[] contacts = {
-    //        "명준호1,wnsgh9166@naver.com,010-9032-2727,bitcamp",
-    //        "명준호2,wnsgh9166@naver.com,010-9032-2727,bitcamp",
-    //        "명준호3,wnsgh9166@naver.com,010-9032-2727,bitcamp",
-    //        "명준호4,wnsgh9166@naver.com,010-9032-2727,bitcamp",
-    //        "명준호5,wnsgh9166@naver.com,010-9032-2727,bitcamp"
-    //    };
-    String[] arr = new String[size];
-    for(int i = 0; i<size; i++) {
-      arr[i] = contacts[i];
+    String[] arr = new String[size]; 
+    for (int i = 0; i < size; i++) { 
+      arr[i] = contacts[i]; 
     }
-    return arr;
+    return arr; 
   }
+
   @RequestMapping("/contact/add")
   public Object add(String name, String email, String tel, String company) {
-    String contact = name + "," + email + "," + tel + "," + company;
-    contacts[size++] = contact;
+    if (size == contacts.length) {
+      contacts = grow();
+    }
+    contacts[size++] = createCSV(name, email, tel, company);
     return size;
   }
+
   @RequestMapping("/contact/get")
   public Object get(String email) {
-    for(int i =0;i<size;i++) {
-      if(contacts[i].split(",")[1].equals(email)) {
-        updateIdx = i;
-        return contacts[i];
-      }
+    int index = indexOf(email);
+    if (index == -1) {
+      return "이메일이 존재하지 않습니다!";
     }
-    return "";
+    return contacts[index];
   }
+
   @RequestMapping("/contact/update")
   public Object update(String name, String email, String tel, String company) {
-    String contact = name + "," + email + "," + tel + "," + company;
-    contacts[updateIdx] = contact;
-    return updateIdx;
-  }
-  @RequestMapping("/contact/delete")
-  public Object delete() {
-    for (int i = updateIdx+1; i<size; i++) {
-      contacts[i-1] = contacts[i];
+    int index = indexOf(email);
+    if (index == -1) {
+      return "이메일이 존재하지 않습니다!";
     }
-    size--;
+    contacts[index] = createCSV(name, email, tel, company);
     return 1;
   }
+
+  @RequestMapping("/contact/delete")
+  public Object delete(String email) {
+    int index = indexOf(email);
+    if (index == -1) {
+      return "이메일이 존재하지 않습니다!";
+    }
+    remove(index);
+    return 1;
+  }
+
+  // 기능: 
+  // - 입력 받은 파라미터 값을 가지고 CSV 형식으로 문자열을 만들어 준다.
+  //
+  String createCSV(String name, String email, String tel, String company) {
+    return name + "," + email + "," + tel + "," + company; 
+  }
+
+  // 기능:
+  // - 이메일로 연락처 정보를 찾는다.
+  // - 찾은 이메일의 배열 인덱스를 리턴한다.
+  int indexOf(String email) {
+    for (int i = 0; i <size; i++) {
+      if(contacts[i].split(",")[1].equals(email)) {
+        return i;
+      }
+    }
+    return -1;
+  }
+  // 기능 :
+  // - 배열에서 지정한 항목을 삭제한다.
+  String remove(int index) {
+    String old = contacts[index];
+    for (int i =index+1; i <size; i ++) {
+      contacts[i - 1] = contacts[i];
+    }
+    size--;
+    return old;
+  }
+
+  // 기능 :
+  // - 배열의 크기를 늘린다.
+  // - 기존배열의 값을 복사해온다.
+  String[] grow() {
+    String[] arr = new String[newLength()];
+    copy(contacts, arr);
+    return arr;
+  }
+
+  // 기능:
+  // - 주어진 배열에 대해 배열의 크기를 50% 향상 시킨다.
+  int newLength() {
+    return contacts.length + (contacts.length >> 1);
+  }
+  //기능 :
+  // - 기존의 배열을 새 배열에 복사한다.
+  void copy (String[] source, String[] target) {
+    for (int i =0; i <contacts.length; i++) {
+      target[i] = source[i];
+    }
+  }
+
 }
+
+
+
+
+
