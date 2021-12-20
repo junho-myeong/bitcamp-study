@@ -4,7 +4,7 @@ package com.eomcs.lang.ex07;
 //
 public class Exam0440 {
 
-  static int m1(int value) {
+  static int m1(int value) { // 변수 자체를 주고 받는게 아니고 변수 값 을 주고 받는것이다.
     int r1 = m2(value);
     int r2 = m3(value);
     return r1 + r2;
