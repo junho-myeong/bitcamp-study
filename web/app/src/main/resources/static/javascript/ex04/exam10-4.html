@@ -39,7 +39,7 @@ console.log("--------------------------------------------");
 
 // 과목의 점수를 변경하더라도 합계와 평균은 다시 계산되기 때문에 편하다!
 scores[2].kor = 100;
-
+// 함수 선언을 다시 하기 떄문에 값을 변경하지 않아도 된다.
 for (var score of scores) {
     console.log(score.name, score.kor, score.eng, score.math, 
     		score.sum(), score.aver());

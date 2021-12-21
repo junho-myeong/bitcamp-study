@@ -18,7 +18,7 @@ function createScore(name, kor, eng, math) {
 	obj.math = math;
 	obj.sum = kor + eng + math;
 	obj.aver = obj.sum / 3;
-	return obj;
+	return obj; // 주소 번호 리턴하는것이다.
 }
 
 var scores = []; // new Array();
@@ -34,6 +34,7 @@ console.log("---------------------------------------------");
 
 // 아직 부족한 점!
 // => 특정 과목의 점수가 바뀌면 다시 합계와 평균을 계산해야 한다.
+// 주소를 찾아 가서 값을 바꾸긴 하지만 함수를 다시 호출 하지 않았고 그저 값을 넣어 준것이기 때문이다.
 scores[2].kor = 100;
 scores[2].sum = scores[2].kor + scores[2].eng + scores[2].math;
 scores[2].aver = scores[2].sum / 3;

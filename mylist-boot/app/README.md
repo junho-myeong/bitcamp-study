@@ -95,7 +95,7 @@
 - com.eomcs.mylist.contact 클래스 정의
 
 ### 2단계 - 연라처 목록은 contact 클래스의 배열로 변경한다.
-- com.eomcs.mylist.ContactController 클래스 변경
+- com.eomcs.mylist.ContactController2 클래스 변경
   - 배열 변수 변경
 
 ### 3단계 - REST API에 Contact 클래스를 적용한다.
@@ -108,6 +108,16 @@
     -indexOf() 변경
 
 ## 프론트엔드
+
+### 1단계 - 서버에서 받은 JSON 형식의 문자열을 자바스크립트 객체로 전환하여 다룬다.
+  - /contact/index.html 변경
+  - /contact/view.html 변경
+
+
+
+
+
+
 
 
 

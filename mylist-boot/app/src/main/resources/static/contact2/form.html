@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>연락처</title>
+</head>
+<body>
+  <h1>새 연락처</h1>
+  <form>
+    이름*: <input type="text" id="x-name"><br>
+    이메일*: <input type="text" id="x-email"><br>
+    전화*: <input type="text" id="x-tel"><br>
+    회사: <input type="text" id="x-company"><br>
+    별표시(*) 항목은 필수 입력입니다.<br>
+    <button type="button" id="x-add-btn">등록</button> <!--일반 버튼으로 하지 않으면 js 말고 html 이 form에서 액션으로 직접 보낸다--> 
+    <button type="button" id="x-cancel-btn">취소</button>
+  </form>
+
+  <script>
+    // Event 밖에 둔것은 이벤트 발생 때마다 찾으면 비효율적이여서 밖에 빼둔것이다.
+    var nameEl = document.querySelector('#x-name')
+    var emailEl = document.querySelector('#x-email')
+    var telEl = document.querySelector('#x-tel')
+    var companyEl = document.querySelector('#x-company')
+    // console.log(nameEl, emailEl, telEl, companyEl)
+    // of null 오류: 객체가 없다라는 뜻이다.
+
+
+    document.querySelector('#x-add-btn').addEventListener('click', function() { // 코드정리해서 사용한것이다.
+      if (nameEl.value == "" || emailEl.value == "" || telEl.value == "") {
+        window.alert('필수입력 항목이 비어있습니다.')
+        return
+      }
+      // console.log(nameEl.value, emailEl.value, telEl.value, companyEl.value) 값을 알아내는 방법
+      fetch(`/contact2/add?name=${nameEl.value}&email=${emailEl.value}&tel=${telEl.value}&company=${companyEl.value}`)
+      .then(function(resoponse) {
+        return resoponse.text() // json 형식에서는 문자열 양 쪽에 반드시 "" 이 붙어 있어야한다. , 서버에서 받은 json 형식 문자열을 ==> 자바스크립트 문자열 객체로 변환
+        // 문자열은 "" 이 있어야하고
+        // 객체는 {}
+        // 배열은 []
+        // 숫자는 그냥 123 이런식으로 json 이여야 서버에서 json 형태로 받아서 객체로 바꿀수잇다.
+      })
+      .then(function(text) {
+        console.log(text)
+        location.href = 'index.html'
+      })
+    })
+
+    document.querySelector('#x-cancel-btn').addEventListener('click', function() { //코드정리해서 사용한것이다.
+      location.href = 'index.html'
+    })
+  </script>
+
+</body>
+</html>

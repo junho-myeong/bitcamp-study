@@ -1,0 +1,53 @@
+<!-- 필수입력 항목 검사하기 -->
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>새 연락처</title>
+</head>
+<body>
+  <h1>새 연락처</h1>
+  <form>
+    이름*: <input type="text" id="x-name"><br>
+    이메일*: <input type="text" id="x-email"><br>
+    연락처*: <input type="text" id="x-tel"><br>
+    회사명: <input type="text" id="x-company"><br>
+    *항목은 필수 입력 항목입니다.<br>
+    <button type="button" id="x-add-btn">등록</button>
+    <button type="button" id="x-cancel-btn">취소</button>
+  </form>
+  <script>
+    //2) 버튼 클릭 리스너등록 , 6)리펙토링 -replace temp with query
+    document.querySelector('#x-add-btn').addEventListener('click', function() {
+      var nameEl = document.querySelector('#x-name')
+      var emailEl = document.querySelector('#x-email')
+      var telEl = document.querySelector('#x-tel')
+      var companyEl = document.querySelector('#x-company')
+
+      // 7)필수입력 항목 검사하기
+      if(nameEl.value == "" || emailEl == "" || telEl ==""){
+        alert('필수항목을 기입하십쇼')
+        return
+      }
+
+
+      //3) 버튼을 클릭 했을 때 입력 폼의 값을 알아내기3
+      // console.log(nameEl.value)
+      // console.log(emailEl.value)
+      // console.log(telEl.value)
+      // console.log(companyEl.value)
+
+      //4) 입력된 값을 서버에 보내기4
+    //   fetch(`/contact/add?name=${nameEl.value}&email=${emailEl.value}&tel=${telEl.value}&company=${companyEl.value}`)
+    //     .then()
+    //     .then()
+    })
+    // 5)취소 버튼 추가 , 6)리펙토링 - replace temp wuth query
+    document.querySelector('#x-cancel-btn').addEventListener('click', function() {
+      location.href = 'index.html'
+    })
+  </script>
+</body>
+</html>

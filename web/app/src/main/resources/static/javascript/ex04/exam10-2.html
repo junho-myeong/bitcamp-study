@@ -10,8 +10,9 @@
 "use strict"
 
 // 배열을 이용하여 여러 개의 객체를 다루기
+// 자바스크립트도 객체 배열을 만들 방법이 없고 레퍼런스 를 담는 변수를 만드는것이다.
 var scores = []; //new Array();
-scores[0] = new Object();
+scores[0] = new Object(); // scores[0] 에는 인스턴스에 주소가 잇다.
 scores[0].name = "홍길동";
 scores[0].kor = 100;
 scores[0].eng = 100;
