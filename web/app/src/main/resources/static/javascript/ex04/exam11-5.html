@@ -15,7 +15,7 @@
   }
   function f2(n, k, e, m) {
     // 상위 생성자를 명시적으로 호출한다.
-    f1.call(this, n) // 여기서 this 는 f1이 넘겨준 this이다. 잘생각해 봐야한다.
+    f1.call(this, n) // 여기서 this 는 f1이 넘겨준 this이다. 잘생각해 봐야한다. , 상속 받을때 상위 생성자를 호출하는 코드
     this.kor = k
     this.eng = e
     this.math = m

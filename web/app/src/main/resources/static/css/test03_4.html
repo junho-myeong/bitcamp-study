@@ -13,8 +13,8 @@
         대상자:상태명 {...}
         대상자[속성명] {...}
    */
-
-  div:nth-child(2) {
+    /* 가상 클래스 선택자들 */
+  div:nth-child(2) { /*div가 몇번째 자식인 상태를 말한다. div에 2번째 자식이 아니고*/
     border: 1px dashed blue;
   }
  
@@ -28,15 +28,17 @@
   li:hover { 
     text-decoration: underline;
   }
+  /* text-decoration 은 하위 태그에도 영향을 끼친다, 즉 속성을 상속한다는 뜻이다. */
 
   a:visited {
     color: gray;
   }
-
+/* 평상시 링크 색깔 */
   a:link {
     color: green;
   }
-
+/* 마우스 누른상태일때 */
+/* 포커스를 가진 태그에 대해서만 탭이 적용 된다, 주소창에서 탭 클릭해보기 */
   a:active {
     background-color: yellow;
   }

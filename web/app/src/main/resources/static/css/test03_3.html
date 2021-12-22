@@ -18,17 +18,17 @@
   }
 
   input[name$="fax"] { /* 속성의 값이 특정 문자열로 끝나는 경우*/
-    color: red;
+    background-color: red;
   }
   </style>
 </head>
 <body>
 <form action="http://www.naver.com" method="get">
-이름: <input type="text" name="name" value="홍길동"><br>
+이름: <input type="text" name="name" value="홍길동"><br> <!--name 은 쿼리스트링으로 보낼때 사용된다.-->
 암호: <input type="password" name="pwd"><br>
 이메일: <input type="text" name="email" placeholder="예)hong@test.com"><br>
 집전화: <input type="tel" name="hometel"><br>
-집팩스: <input type="tel" name="homefax"><br>
+집팩스: <input type="tel" name="homefax"><br> 
 회사전화: <input type="tel" name="officetel"><br>
 회사팩스: <input type="tel" name="officefax"><br>
 재직여부: <input type="checkbox" name="working" checked> 재직중<br>
