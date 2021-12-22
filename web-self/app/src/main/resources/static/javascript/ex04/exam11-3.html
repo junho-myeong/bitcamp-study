@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex04</title>
+  </head>
+  <body>
+    <h1>생성자2 - 객체의 생성자 정보</h1>
+    <script>
+    "use strict"
+
+    function f1() {
+    }
+
+    var obj1 = new Object(); // 생성자로 사용
+    var obj2 = new f1(); // 생성자로 사용
+
+    // 객체의 constructor 프로퍼티에는 생성자 정보가 들어있다.
+    // 그래서 해당객체가 어떤 생성자를 통해 초기화 되었는지 알수있다.
+    console.log(obj1.constructor)
+    console.log(obj1)
+    console.log("----------------------------------------------")
+    console.log(obj2.constructor)
+    console.log(obj2)
+
+    </script>
+  </body>
+</html>
