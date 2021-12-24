@@ -12,12 +12,15 @@
 "use strict"
 
 // addEventListener() 사용
+// 이벤트 정보를 갖고 싶을때는 파라미터를 줘라 !!
+// 그치만 객체는 무조건 주기 때문에 파라미터 선언 안해도 arguments배열에 담겨잇다.
 document.getElementById("btn1").addEventListener("click", function(e) {
 	console.log(
 		e.altKey, e.ctrlKey, e.button, 
 		e.offsetX, e.offsetY, 
 		e.clientX, e.clientY, 
 		e.screenX, e.screenY)
+	console.log(e)
 });
 </script>
 </body>

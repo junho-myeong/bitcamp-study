@@ -47,6 +47,7 @@ p.appendChild(text2); // <p>내용입니다.</p>
 article.appendChild(h1); // <article><h1>제목입니다.</h1></article>
 article.appendChild(p); // <article><h1>제목입니다.</h1><p>내용입니다.</p></article>
 
+if (confirm("article 태그를 추가하시겠습니까?")) {
 // 새로 만든 article 태그를 section 태그의 막내 자식태그로 붙인다.
 section.appendChild(article); 
 // <section>
@@ -54,7 +55,7 @@ section.appendChild(article);
 //   <article>...</article>
 //   <article><h1>제목입니다.</h1><p>내용입니다.</p></article>
 // </section>
-
+}
 </script>
 </body>
 </html>

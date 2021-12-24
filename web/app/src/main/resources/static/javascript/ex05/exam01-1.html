@@ -16,9 +16,11 @@
 
 <script>
 "use strict"
-// getElementById("태그아이디")
-// => Element 객체 리턴
-var e1 = document.getElementById("header4");
+
+// Document.prototype.getElementById("태그아이디")
+// => 리턴값: HTMLElenet 객체 
+var e1 = document.getElementById("header4"); //객체를 리턴하는것이다.
+ // 생성자 상속 관계 HTMLHeadingElemnt() ----> HTMLElement() ----- > Element() -----> Node() ----> EventTarget() ------> Object()
 
 console.log(e1);
 console.log(e1.name); // undefined
@@ -27,6 +29,7 @@ console.log(e1.constructor.name); // 객체의 생성자 이름
 
 console.log("----------------------------");
 
+ // 생성자 상속 관계 HTMLHeadingElemnt() ----> HTMLElement() ----- > Element() -----> Node() ----> EventTarget() ------> Object()
 console.log(e1 instanceof HTMLHeadingElement); // true
 console.log(e1 instanceof HTMLElement); // true
 console.log(e1 instanceof Element); // true

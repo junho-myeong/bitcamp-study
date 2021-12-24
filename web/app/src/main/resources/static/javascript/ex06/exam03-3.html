@@ -22,9 +22,13 @@ var el2 = document.querySelectorAll(".b2");
 
 var btnClick = function(e) {
 	alert("===> " + this.getAttribute("data-no"));
-	alert("===> " + e.target.getAttribute("data-no"));
+	alert("===> " + e.target.getAttribute("data-no")); // 타켓 방법을 좀더 추천한다.
 	for (var e of el2) {
 		e.style["background-color"] = "yellow";
+		e.style.color = 'red'
+		// -를 포함하는 경우 위에로 사용 - 포함하지 않는경우 아래로 사용
+		e.style.backgroundColor = "royalblue"
+		// 자바 스크립트 객체로 다룰 때는 이렇게 사용할수 잇게 js 에서 하나더 만들었다 
 	}
 };
 

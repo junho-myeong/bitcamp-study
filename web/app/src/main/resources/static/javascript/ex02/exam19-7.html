@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>ex02</title>
+</head>
+<body>
+<h1>반복문 - for(변수선언 of 객체)</h1>
+<script>
+"use strict"
+
+var contactMap = new Map()
+contactMap.set("홍길동","010-111-111")
+contactMap.set("임꺽정","010-222-111")
+contactMap.set("유관순","010-333-111")
+contactMap.set("안중근","010-444-111")
+
+// map 객체도(map생성자를 통해 초기화 시킨 객체) iterable 구현체이다.
+while (true) {
+  var {value,done} = obj2.next() // yeild 명령을 통해 리턴된 값을 담고 있는 객체 리턴
+if (done) {
+  break
+}
+var v = value
+console.log(v)
+}
+
+for (var v of obj) { 
+	console.log(v);
+} 
+
+console.log("-------------------------")
+
+// 위의 for...of  반복문은 실행 할때 다음문장으로 변환 되어 실행된다.
+var obj2 = getIterableObject();
+
+
+
+
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

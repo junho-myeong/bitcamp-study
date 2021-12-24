@@ -29,17 +29,25 @@ console.log(document.constructor.name)
 //  => 상속관계
 //      Document() --> Node() --> EventTarget() --> Object()  
 
-//  Object() 생성자가 추가한 함수 존재 여부 확인:
-console.log(document.toString)
+console.log(document)
+console.log(Document.prototype)
+console.log(JSON.constructor)
+// Documet()의 함수
+console.log(document.createElement) // document(d로 시작하는건 변수다, document자체에는 함수가 잇는게 아니다!!!) ----> Document.prototype(대문자 D는 함수고)
 
-//  EventTarget() 생성자가 추가한 함수 존재 여부 확인:
-console.log(document.addEventListener)
+//  Node()의 함수
+console.log(document.appendChild) // document ----> document.prototype ----> Node.prototype 
 
-//  Node() 생성자가 추가한 함수 존재 여부 확인:
-console.log(document.appendChild)
+//  EventTarget()의 함수
+console.log(document.addEventListener) // document ----> document.prototype ----> Node.prototype  -------> EventTarget.protoype 
 
-// Documet() 생성자가 추가한 함수 존재 여부 확인:
-console.log(document.createElement)
+//  Object()의 함수, 추가한 느낌이 아니고 위로 올라가면서 계속 찾는것이다.
+console.log(document.toString) // 함수를 호출한게 아니다!! 그냥 toString라고 저장된 프로퍼티를 꺼낸것이다.
+// document ----> document.prototype ----> Node.prototype  -------> EventTarget.protoype  --------> Object.protoype 에서 찾는다.
+
+
+// 프로토 타입에 들어 잇는 함수를 사용할때는 함수를 통해서 초기화된 객체를 통해서 사용해야한다. array 에서 변수에 담고 사용하는것
+// 차이 JSON 은 JSON에 객체를 만들어서 parse를 호출하는게 아니라 다이렉트로 직접 함수를 호출하는것이다.
 </script>
 </body>
 </html>

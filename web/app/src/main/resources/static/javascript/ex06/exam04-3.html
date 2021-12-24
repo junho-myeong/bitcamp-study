@@ -32,7 +32,9 @@ button {padding: 30px;}
 //
 document.getElementById("btn1").addEventListener("click", function(e) {
 	console.log("버튼1...1");
-	e.stopPropagation();
+	e.stopPropagation(); // 부모로 올라가는 bubble 만 막는것이다.
+    // 클릭한번헸을 때는 한번만 캡쳐 타켓 버블이 일어나고 그 타켓에가서 그 타켓에 해당하는 리스너를 다 실행하고 다시 올라오기 때문에 
+    // 세트로 일어 나는것이 아니다 
 });
 document.getElementById("btn1").addEventListener("click", function(e) {
     console.log("버튼1...2");

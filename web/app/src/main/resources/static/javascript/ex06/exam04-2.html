@@ -32,22 +32,22 @@ button {padding: 30px;}
 document.getElementById("btn1").addEventListener("click", function(e) {
 	console.log("버튼1...");
 }, true);
-
+// 타켓,버블 단계에서 호출되도록 설정한다.
 document.getElementById("btn2").addEventListener("click", function(e) {
     console.log("버튼2...");
 });
 
-// 캡쳐 단계에서 호출되도록 설정한다.
+// 캡쳐,타켓 단계에서 호출되도록 설정한다.
 document.getElementById("d2").addEventListener("click", function(e) {
     console.log("d2...");
 });
 
-//캡쳐 단계에서 호출되도록 설정한다.
+//캡쳐,타켓 단계에서 호출되도록 설정한다.
 document.getElementById("d1").addEventListener("click", function(e) {
     console.log("d1...");
 });
 
-//캡쳐 단계에서 호출되도록 설정한다.
+//캡쳐,타겟 단계에서 호출되도록 설정한다.
 document.body.addEventListener("click", function(e) {
     console.log("body...");
 }, true);
