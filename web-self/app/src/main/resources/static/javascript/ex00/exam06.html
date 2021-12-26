@@ -1,35 +1,35 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>exam</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ex00</title>
   <style>
     div {
       border: 1px solid red;
       min-height: 100px;
     }
   </style>
-
 </head>
 <body>
-  <h1>요점 정리 - 6.AJAX : 서버측 렌더링 방식</h1>
+  <h1>요점 정리 - 6.AJAX : 서버측 렌더링 방식(서버에다가 html작성)</h1>
   <div id="d1"></div>
   <button id="btn1">HTML 가져오기</button>
-  
+
 <script>
-var tag1 = document.getElementById("btn1");
+  var tag1 = document.getElementById('btn1')
 
-tag1.onclick = function() {
-  // 서버에 요청
-  var xhr = new XMLHttpRequest();
-  xhr.open("GET","/javascript/ex00/exam06", false);
-  xhr.send();
-  
-  // 서버가 보낸 데이터를 div 태그에 넣기
-  var tag2 = document.getElementById("d1");
-  tag2.innerHTML = xhr.responseText;
-};
+  tag1.onclick = function() {
+    // 서버에 요청하는 도구 생성
+    var xhr = new XMLHttpRequest()
+    xhr.open("GET", "/javascript/ex00/exam06", false)
+    xhr.send()
 
-</script>  
+    // 서버가 보낸 데이터를 div 태그에 넣기
+    var tag2 = document.getElementById('d1')
+    tag2.innerHTML = xhr.responseText
+  }
+</script>
 </body>
 </html>

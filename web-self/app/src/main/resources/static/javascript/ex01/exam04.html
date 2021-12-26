@@ -1,44 +1,45 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>ex01</title>
-<script>
-  console.log("11111");
-  var v1 = "aaaa";
-  // script 태그 안에 있는 자바스크립트를 실행하는 중에 오류가 발생하면 
-  // 즉시 script 태그의 실행을 중단하고 다음 태그로 간다.
-  
-  console.lag("오류 발생!"); // log() 함수의 이름을 잘못 작성하여 lag()로 작성하였다. 그래서 실행 오류!
-  var v2 = "bbbb"; //hoistion 이 발생한다. 자바 스크립트는 모든 변수 선언은 다 위로 올린다.!!!!!!!!!!!
-  console.log("11111 okok!");
-</script>
-<script>
-  console.log("22222");
-  console.lag("오류 발생!");
-  console.log("22222 okok!");
-</script>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ex01</title>
+  <script>
+    console.log("11111");
+    var v1 = "aaaa";
+    // script 태그 안에 있는 자바스크립트를 실행하는 중에 오류가 발생하면 
+    // 즉시 script 태그의 실행을 중단하고 다음 태그로 간다.
+    
+    console.lag("오류 발생!"); // log() 함수의 이름을 잘못 작성하여 lag()로 작성하였다. 그래서 실행 오류!
+    var v2 = "bbbb"; //hoisting 이 발생한다. 자바 스크립트는 모든 변수 선언은 다 위로 올린다.!!!!!!!!!!!
+    console.log("11111 okok!");
+  </script>
+  <script>
+    console.log("22222");
+    console.lag("오류 발생!");
+    console.log("22222 okok!");
+  </script>
 </head>
 <body>
-<script>
-  console.log("33333");
-  console.lag("오류 발생!");
-  console.log("33333 okok!");
-</script>
-<h1>자바스크립트 오류 발생</h1>
-<script>
-  console.log(v1);
-  console.log(v2); // v2 는 오류가 발생해서 이미 빠져 나오고 생성되어서 값이 없다고 나온다. , undefined와 not defined 차이를 알아야한다.
-  console.log("44444");
-  console.lag("오류 발생!");
-  console.log("44444 okok!");
-</script>
+  <script>
+    console.log("33333");
+    console.lag("오류 발생!");
+    console.log("33333 okok!");
+  </script>
+  <h1>자바스크립트 오류 발생</h1>
+  <script>
+    console.log(v1);
+    console.log(v2); // 여기서 v2는 첫번째 스크립트에 잇는 코드 때문에
+    // v2 자체는 호이스팅 되었다, 호이스팅이란 scirpt 실행시에 변수 선언을 먼저 하는것을 뜻한다.
+    // 그래서 v2의 값이 할당은 일어 나지 않았지만 호이스팅 때문에 변수는 선언되어잇어서
+    // 결과가 undefined라고 나오는것이다.
+    // 그래서 undefined와 not defined 에 차이를 알아야한다.
+    // undefined는 변수는 잇지만 값이 할당되지 않은상태,
+    // not defined는 변수 자체가 선언 되지 않은상태를 말한다.
+    console.log("44444");
+    console.lag("오류 발생!");
+    console.log("44444 okok!");
+  </script>
 </body>
 </html>
-
-
-
-
-
-
-

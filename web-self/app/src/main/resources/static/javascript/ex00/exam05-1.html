@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ex00</title>
+</head>
+<body>
+  <h1>요점 정리 - 5.HTML 태그와 DOM트리 객체</h1>
+  <p id="p1">오호라!</p>
+  <button id="btn1">확인!</button>
+  <script>
+    var tag1 = document.getElementById('btn1')
+
+    tag1.onclick = function() {
+      // Oberver 패턴: 리스너(어떤 이벤트에 관심을 가지고잇다가)
+      //  => 이벤트 리스너 => 이벤트 핸들러 => 콜백함수
+      //  내가 직접 콜하는것이 아니고 어떤 이벤트 이후에 프로그램이 콜하는 함수라고 해서 이렇게 부른다.
+      var tag2 = document.getElementById('p1')
+      tag2.innerHTML = '비트캠프'
+    }
+  </script>
+</body>
+</html>

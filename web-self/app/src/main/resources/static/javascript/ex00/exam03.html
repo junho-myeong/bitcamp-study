@@ -1,38 +1,33 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>exam</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ex00</title>
 </head>
 <body>
   <h1>요점 정리 - 3.함수 정의와 호출</h1>
-  
-<script>
-function plus(a, b) { //parameter 선언시 var 붙이면 안된다. plus 도 변수 명이다. 여기에는 함수에 대한 정보를 담고 잇는 주소가 담긴다
-  return a + b;
-}
-console.log(plus(10, 20)); // 리턴값이 plus(10,20) 자리에 놓이게 되는것이다.
 
-var ok;
-console.log(ok)
+  <script>
+    function plus(a,b) { //java와 달리 javascript 에서는 parmeter를 선언할때 var,const,let같은것들을 붙이면 안된다.
+      return a + b
+    }
+    console.log(plus(10,20)) // 여기서는 plus함수의 리턴값이 plus(10,20)자리에 놓이게 되는것이다.
 
-ok = plus;
-console.log(ok(100, 200));
+    var ok;
+    console.log(ok) // undefined
 
-var haha = ok;
-console.log(haha(1000, 2000));
+    ok = plus; // ok변수에 plus라는 함수의 주소를 할당하는것이다.
+    console.log(ok(100,200));
+    
+    var haha = ok // 여기서는 ok에 이미 할당된 plusk 함수의 주소가 담긴다.
+    console.log(haha(1000,2000))
 
-// ok = 'hello' , dynadic type binding 이여서 문자열로 바꿀수 잇다.
-// ok(100,200) 여기서는 ok의 값이 바꼇기 때문에 사용할수없다.
+    // ok = 'hello'
+    // ok(100,200) // error 왜냐하면 ok에는 이제 문자열이 할당 되엇기 때문에 plus라는 함수의 주소를 모른다.
+    // 이걸로 보아도 javascript는 dinamic type binding이라는 것을 알수잇다.
 
-</script>  
+  </script>
 </body>
 </html>
-
-
-
-
-
-
-
-

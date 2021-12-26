@@ -1,38 +1,35 @@
-<!-- 1. var 변수가 함수 밖에서 선언 되었을때는 글로벌 변수이다. 단, 함수 안에서 선어 되었을때는 로컬 변수이다. -->
-<!-- 2. var 변수가 함수 밖에서 선언 되었을때는 window객체에 저절로 저장된다. -->
-<!-- 3. javascript 변수는 dynamic type binding(동적 타입 바인딩) 이다 , 변수의 타입이 할당되는 값에 따라 바뀐다. -->
-<!-- 4. java 에서 변수는 static type binding(정적 타입 바인딩) 이다, 변수의 타입이 선언 되고 값을 할당해줘야한다.  -->
-<!-- 5. const로 변수를 선언 할때는 상수를 선언하는것이다. , 주의 할점은 const 변수를 선언할때 값을 무조건 초기화 해야한다. -->
-<!-- 6. for 문은 함수 블록으로 보지 않고 일반 블록으로 보기 때문에 for 문안에서의 var 변수는 글로벌 변수로 본다. 
-      단, for 가 함수 안에 포함 되어 잇으면 var 은 이 함수에 로컬 변수로 본다. -->
 <!DOCTYPE html>
-<html>
+<html lang="ko">
 <head>
   <meta charset="UTF-8">
-  <title>exam</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ex00</title>
 </head>
 <body>
-  <h1>요점 정리 - 2.변수와 제어문</h1>
-  
-<script>
-var size = 10; //var은 글로벌 변수이다.
-var message = "Hello!";
-message = true; // dynamic type binding; 변수의 타입이 할당되는 값에 따라 바뀐다. , boolean type으로 바뀐다.
-const PI = 3.14159; // 상수, const는 변수 초기화 할때도 조심해서 해야한다.
-// PI = 200; // Error
-let localVar = 100; // 지역변수
+  <h1>요점 정리 - 2. 변수와 제어문</h1>
 
-for (var i = 0; i < size; i++) {
-  console.log(i, message);
-  if (i == 5) {
-    var working = true; // var 은 global변수인다.
-    break;
-  }
-}
+  <script>
+    var size = 10; // var은 글로벌 변수이다.
+    var message = 'Hello!' 
+    message = true // javascript는 dinamic type binding 이다., 그래서 변수의 타입이 할당되는 값에 따라 바뀐다.
+    const PI = 3.14159 // 상수, const(상수)는 변수 초기화 할때도 조심해야한다.
+    // PI = 200 // error 이유는 const 는 상수이기 때문에 값을 바꿀수가 없다, 그래서 
+    //  => 자바에서 final 과 비슷하다.
+    //  => 그리고 const는 변수를 선언할때 바로 값을 할당해줘야한다.
+    let localVar = 100 // let 은 지역 변수를 나타낸다.
 
-if (working) {
-  console.log("오호라!");
-}
-</script>  
+    for (var i = 0; i <size; i++) {
+      console.log(i, message)
+      if (i == 5) {
+        var working = true
+        break
+      }
+    }
+
+    if(working) {
+      console.log('오호라!')
+    }
+  </script>
 </body>
 </html>

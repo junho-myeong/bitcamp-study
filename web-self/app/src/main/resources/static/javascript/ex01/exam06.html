@@ -1,45 +1,46 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>ex01</title>
-<script>
-  // script에 선언된 변수나 함수는 그 다음 script에서 사용할 수 있다.
-  var v1 = "Hello"; // 이변수는 window 객체에 등록된다.
-  function f1(str) {console.log(str);} // 이 함수는 window 객체에 등록된다.
-  
-  // 그러나 아래 태그를 실행하기 전에는 아래 태그에서 선언한 변수나 함수를 사용할 수 없다.
-  // console.log(v2); // 실행 오류!
-  
-  // 만약 아래의 script 태그를 실행한 후라면 그 태그에서 선언한 변수나 함수를 사용할 수 있다.
-  function f2() {console.log(v2);} // 이 함수는 window 객체에 등록된다. 그래서 아래 script 태그에서 사용 가능하다.
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ex01</title>
+  <script>
+    // script에 선언된 변수나 함수는 그다음 script에서 사용할 수 있다.
+    var v1 = "hello" // 이 변수는 window객체에 등록된다.
+    function f1(str) { //이 함수는 window 객체에 등록된다.
+      console.log(str)
+    }
 
-  f1("test1") // ok
-  
-  // 아직 v2라는 변수는 존재하지 않기 때문에 f2()를 실행하면 오류 발생!
-  // f2(); 
-</script>
+    // 그러나 아래 태그를 실행하기 전에는 아래 태그에서 선언한 변수나 함수를 사용할수 없다.
+    console.log(v2) // 실행 오류 우리가 v2라는 변수를 선언 한적이 없기 떄문이다.
+
+    // 만약 아래의 script태그를 실행한 후라면 그 태그에서 선언된 변수나 함수를 사용할수잇다.
+    function f2() { // 이함수는 window 객체에 등록된다. 그래서 아래 script 태그에서 사용 가능하다.
+      console.log(v2)
+    }
+    f1("test1") //ok
+    
+    // 아직 v2라는 변수는 존재하지 않기 때문에 f2()를 실행하면 오류 발생!!
+    // f2()
+  </script>
 </head>
 <body>
-<h1>script 태그에 선언된 자바스크립트의 사용 범위</h1>
+  <h1>script 태그에 선언된 자바스크립트의 사용 범위</h1>
 
-<script>
-  // 이전 script 태그에서 정의한 모든 변수와 함수를 그대로 사용할 수 있다.
-  console.log(v1); // 변수 앞에 객체를 지정하지 않으면 window 객체에서 찾는다.
-  console.log(window.v1) // 실제로는 window 객체에 등록 되어 있기 때문에 window를 붙여서 사용하는것이다., 즉 window 객체를 명시 해도 되는것이다.
-  f1("안녕하세요!"); // 함수 앞에 객체를 지정하지 않으면 window 객체에서 찾는다.
-  window.f1("안녕하세요2") // 즉 window 객체를 명시 해도 되는것이다.
-  
-  var v2 = "반가워요!"; // 이 변수는 window 객체에 등록 된다.
-  f2(); // 위에서 v2 변수를 만들었기 때문에 f2()를 호출하더라도 오류가 발생하지 않는다.
-  
-</script>
+  <script>
+    // 이전 script 태그에서 정의한 모든 변수와 함수를 그래도 사용할 수 있다.
+    console.log(v1) // 변수앞에 객체를 지정하지 않으면 window 객체에서 찾는다.
+    console.log(window.v1) // 실제로는 window 객체에 등록 되어 있기 때문에 window를 붙여서 사용해야한다.
+    f1('안녕하세요') // 함수 앞에 객체를 지정하지 않으면 window 객체에서 찾는다.
+    window.f1("안녕하세요2") // 즉 window 객체를 명시 해도 되는것이다.
+
+    var v2 = '반가워요' // 이 변수는 window 객체에 등록 된다.
+    f2() // 위에서 v2 변수를 만들었기 때문에 f2를 호출하더라도 오류가 발생하지 않는다.
+    // 여기서 중요한것은 함수선언도 호이스팅 된다는것이다.,
+    // 원래 위에 태그에서 16번째 줄에서 오류가 발생했기 때문에 이 script태그를 빠져 나가야한다.
+    // 그치만 f2 를 실행할수잇는 이유는 함수 선언이 호이스팅 되었기 때문에 
+    // 아래에서 v2 변수만 잇다면 실행 가능한것이였다.
+  </script>
 </body>
 </html>
-
-
-
-
-
-
-
