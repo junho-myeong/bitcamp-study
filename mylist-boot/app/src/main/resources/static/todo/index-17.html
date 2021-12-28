@@ -52,8 +52,8 @@
         }
         tr.innerHTML = `<td><input type="checkbox" ${checkedOption} onchange="checkTodo(${i}, event.target.checked)"></td>
         <td data-no="${i}" ${titleTdOption}><span>${todoList[i].title}</span></td>
-        <td><button type="button" onclick="updateTodo(${i})">변경</td>
-        <td><button type="button" onclick="deleteTodo(${i})">삭제</td>`;
+        <td><button type="button" onclick="updateTodo(${i})">변경</button></td>
+        <td><button type="button" onclick="deleteTodo(${i})">삭제</button></td>`;
         tbody.appendChild(tr);
       }
     });
@@ -93,7 +93,6 @@
  }
 
  function updateTodo(no) {
-  titleInput.style["display"] = "";
    // 현재 Todo 항목을 편집 중인 상태에서 변경 버튼을 눌렀다면
    if (titleInput.parentNode instanceof HTMLTableCellElement) {
      // 다른 항목을 편집하기 위해 이동하기 전에 편집 전의 상태로 되돌린다.
