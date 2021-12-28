@@ -43,21 +43,17 @@
 ### 3단계 - Todo 체크 기능 추가한다.
 
 - /todo/index.html 변경
-  - index-07.html: 체크 박스 추가하기
-  - index-08.html: 체크 박스에 리스너 등록하기
-  - index-09.html: 체크 박스를 선택할 때 제목에 취소선 토글하기
-  - index-10.html: 체크 박스를 서버의 REST API와 연동하기
-  - index-11.html: 서버에서 받아 온 데이터의 상태에 따라 체크 상자의 UI를 처리한다.
+  - index-07.html : 체크 박스 추가하기
+  - index-08.html : 체크 박스에 리스너 등록하기
+  - index-09.html : 체크 박스를 선택할 때 제목에 취소선 출력하기
+  - index-10.html : 체크 박스를 서버의 REST API와 연동하기
+  - index-11.html : 서버에서 받아 온 데이터의 상태에 따라 check 상자의 ui를 처리한다.
 
 ### 4단계 - Todo 제목을 변경한다.
-
 - /todo/index.html 변경
-  - index-12.html: 변경 버튼을 추가한다.
-  - index-13.html: 변경 버튼을 누르면 선택된 Todo의 제목을 외부에 만든 input 상자에 출력한다.
-  - index-14.html: 변경 버튼을 누르면 Todo 제목 자리에 입력 상자를 넣는다.
-  - index-15.html: span 태그를 사용하여 Todo 제목의 출력을 제어한다.
-  - index-16.html: Todo 입력 상자에 keyup 이벤트 리스너를 등록한다.
-  - index-17.html: Todo 제목을 변경한 후 엔터 키를 쳤을 때 서버에 보낸다.
+  - index-12.html : 변경 버튼을 추가한다.
+  - index-13.html : 변경 버튼을 누려면 ui를 편집 모드로 전환한다.
+  
 
 
 
