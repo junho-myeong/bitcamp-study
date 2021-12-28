@@ -91,4 +91,17 @@
 ### 2단계 - ArrayList를 그대로 복사해서 ArrayList2로 만든다
 - com.eomcs.mylist.ArrayList2 클래스 변경
   - ArrayList 코드를 그대로 가져온다.
+  - 레퍼런스 배열의 타입을 Object로 변경 하니까 ArrayList를 복사했을 때 변경할 게 없다.
+
+# 04.2 다형성의 활용: 클래스 활용 연습
+  - TodoList 만들기
+
+## 백엔드 개발 실습
+
+### 1단계 - 게스글 요청을 처리할 REST API 만든다.
+  - com.eomcs.mylist.Board 클래스 생성
+    - 게스글 데이터를 저장할 수 있는 메모리를 설계한다.
+    - 게시글 데이터 타입을 정의한다.
+  - com.eomcs.mylist.ArrayList3 클래스 생성
+
 #
