@@ -29,11 +29,7 @@
 <input type="text" id="x-title-input">
 
 <script type="text/javascript">
-  "use strict"
-
   var titleInput = document.querySelector("#x-title-input");
-  // titleInput.style["display"] = "none";
-
   var tbody = document.querySelector("#x-todo-table tbody")
 
   fetch("/todo/list")
@@ -51,7 +47,7 @@
           titleTdOption = "class='todo-checked'";
         }
         tr.innerHTML = `<td><input type="checkbox" ${checkedOption} onchange="checkTodo(${i}, event.target.checked)"></td>
-        <td data-no="${i}" ${titleTdOption}><span>${todoList[i].title}</span></td>
+        <td data-no="${i}" ${titleTdOption}>${todoList[i].title}</td>
         <td><button type="button" onclick="updateTodo(${i})">변경</td>
         <td><button type="button" onclick="deleteTodo(${i})">삭제</td>`;
         tbody.appendChild(tr);
@@ -93,39 +89,9 @@
  }
 
  function updateTodo(no) {
-   // 현재 Todo 항목을 편집 중인 상태에서 변경 버튼을 눌렀다면
-   if (titleInput.parentNode instanceof HTMLTableCellElement) {
-     // 다른 항목을 편집하기 위해 이동하기 전에 편집 전의 상태로 되돌린다.
-     titleInput.parentNode.querySelector("span").style["display"] = "";
-   }
    var titleTd = document.querySelector(`tbody td[data-no="${no}"]`);
-   var titleSpan = titleTd.querySelector("span");
-   titleSpan.style["display"] = "none";
-   titleInput.value = titleSpan.innerHTML;
-   titleTd.appendChild(titleInput);
+   titleInput.value = titleTd.innerHTML;
  }
-
- titleInput.onkeyup = function(e) {
-   var no = titleInput.parentNode.getAttribute("data-no");
-   var originTitle = titleInput.parentNode.querySelector("span").innerHTML;
-   if (e.keyCode == 13 && titleInput.value != "" && originTitle != titleInput.value) {
-     fetch(`/todo/update?index=${no}&title=${titleInput.value}`)
-       .then(function(response) {
-         return response.json();
-       })
-       .then(function(result) {
-         if (result == 0) {
-           window.alert("변경하지 못했습니다!");
-         } else {
-           console.log("변경했습니다.");
-           titleInput.parentNode.querySelector("span").innerHTML = titleInput.value;
-           titleInput.parentNode.querySelector("span").style["display"] = "";
-           titleInput.style["display"] = "none";
-           document.body.appendChild(titleInput);
-         }
-       });
-   }
- };
 </script>
 
 </body>
