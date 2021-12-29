@@ -32,7 +32,7 @@ public class TodoController {
       return 0;  // 인덱스가 무효해서 설정하지 못했다.
     }
 
-    ((Todo) ArrayList2.list[index]).done = done;
+    ArrayList2.list[index].done = done;
     return 1; // 해당 항목의 상태를 변경했다.
   }
 

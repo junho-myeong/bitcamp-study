@@ -1,6 +1,7 @@
 package com.eomcs.mylist;
 
-public class ArrayList2 {
+public class ArrayList3 {
+  // ArrayList class 는 배열에 기능에 대한 함수가 담겨잇다.
 
   static Object[] list = new Object[5];
   static int size = 0;

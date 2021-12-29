@@ -1,6 +1,6 @@
 package com.eomcs.mylist;
 
-public class ArrayList2 {
+public class ArrayList {
 
   static Object[] list = new Object[5];
   static int size = 0;
@@ -41,9 +41,6 @@ public class ArrayList2 {
   }
 
   static Object remove(int index) {
-    if (index < 0 || index >= size) { // 값이 저장된 위치가 무효한 인덱스라면 
-      return null;
-    }
     Object old = list[index];
     for (int i = index + 1; i < size; i++) {
       list[i - 1] = list[i];
