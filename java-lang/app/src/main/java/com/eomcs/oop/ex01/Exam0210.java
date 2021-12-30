@@ -7,7 +7,7 @@ public class Exam0210 {
     // 여러 개의 인스턴스 주소 저장하기
 
     // 1) 성적 정보를 저장할 메모리를 설계한다.
-    class Score {
+    class Score { // main메서드 안에 잇기 때문에 main메서드 안에서만 사용가능하다.
       String name;
       int kor;
       int eng;

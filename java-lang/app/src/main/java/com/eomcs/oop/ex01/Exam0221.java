@@ -15,6 +15,7 @@ public class Exam0221 {
       float aver;
     }
 
+
     Score[] arr = new Score[3];
 
     arr[0] = new Score();

@@ -16,14 +16,13 @@ public class Exam0114 {
   public static void main(String[] args) {
 
     // 클래스를 이용하면 성적 정보와 같은 여러 개의 값을 한 번에 리턴 받을 수 있다.
-    Score s = createScore("홍길동", 100, 100, 100);
-
+    Score s = createScore("홍길동", 100, 100, 100); // 팩토리메서드(객체를 만드는 메서드)
+    Score s1 = createScore("김구", 90, 90 ,90);
     printScore(s);
+    printScore(s1);
   }
 
   static void printScore(Score s) {
-    s.sum = s.kor + s.eng + s.math;
-    s.aver = s.sum / 3;
     System.out.printf("%s: %d, %d, %d, %d, %.1f\n",
         s.name, s.kor, s.eng, s.math, s.sum, s.aver);
   }
@@ -31,13 +30,17 @@ public class Exam0114 {
   // 클래스를 이용하면 성적 정보를 하나로 묶어 리턴할 수 있다.
   // - Score 인스턴스를 생성하여 리턴한다.
   // - 더 정확하게 표현하면, Score 인스턴스를 생성한 후 그 주소를 리턴한다.
+  // 객체 생성 과정이 너무 복잡한경우 별도의 메서드에서 객체를 생성해서 그 생성된 객체를
+  // 리턴하는것이 낫다.
   static Score createScore(String name, int kor, int eng, int math) {
     Score s = new Score();
 
-    s.name = "홍길동";
-    s.kor = 100;
-    s.eng = 90;
-    s.math = 80;
+    s.name = name;
+    s.kor = kor;
+    s.eng = eng;
+    s.math = math;
+    s.sum = s.kor + s.eng + s.math;
+    s.aver = s.sum / 3;
 
     return s; // s에 저장된 인스턴스의 주소를 리턴한다.
     // 강사님! 로컬 변수는 메서드 호출이 끝난 다음에 삭제된다고 했는데

@@ -15,6 +15,14 @@ public class Exam0220 {
       float aver;
     }
 
+    int[] i1 = new int[3];
+    i1[0] = 10;
+    i1[1] = 10;
+    i1[2] = 10;
+    int[] i2 = {1, 2, 3};
+    System.out.println(i1[0]);
+    System.out.println(i2);
+
     // 배열 문법을 이용하면 한 번에 여러 개의 레퍼런스를 선언할 수 있다.
     // - 문법:
     //     클래스명[] 배열명 = new 클래스명[레퍼런스개수];
