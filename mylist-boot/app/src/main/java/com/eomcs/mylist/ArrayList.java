@@ -2,62 +2,67 @@ package com.eomcs.mylist;
 
 public class ArrayList {
 
-  static Object[] list = new Object[5];
-  static int size = 0;
+  // 인스턴스 필드(변수)
+  // => 인스턴스 필드는 new 명령을 통해 생성한다.
+  Object[] list = new Object[5];
+  int size = 0;
 
-  static void add(Object obj) {
-    if (size == list.length) { 
-      list = grow();
+  // 인스턴스 주소를 앞쪽에서 받으려면 static 키워드를 붙이면 안된다.
+  // non-static 메서드로 정의해야한다.
+  // 그리고 메서드가 호출 될때 받은 인스턴스를 사용하려면 내장 변수 this를 이용한다.
+  void add(Object obj) { // 앞쪽에서 보내준 주소를 this라는 변수에 담는다.
+    if (this.size == this.list.length) { 
+      this.list = this.grow();
     }
-    list[size++] = obj;
+    this.list[this.size++] = obj;
   }
 
-  static Object[] grow() {
-    Object[] arr = new Object[newLength()];
-    copy(list, arr);
+  Object[] grow() {
+    Object[] arr = new Object[this.newLength()];
+    this.copy(arr);
     return arr;
   }
 
-  static int newLength() {
-    return list.length + (list.length >> 1);
+  int newLength() {
+    return this.list.length + (this.list.length >> 1);
   }
 
-  static void copy(Object[] source, Object[] target) {
-    int length = source.length;
-    if (target.length < source.length) {
+  void copy(Object[] target) {
+    int length = this.list.length;
+    if (target.length < this.list.length) {
       length = target.length;
     }
     for (int i = 0; i < length; i++) {
-      target[i] = source[i];
+      target[i] = this.list[i];
     }
   }
 
-  static Object[] toArray() {
-    Object[] arr = new Object[size]; 
-    for (int i = 0; i < size; i++) { 
-      arr[i] = list[i]; 
+  Object[] toArray() {
+    Object[] arr = new Object[this.size]; 
+    for (int i = 0; i < this.size; i++) { 
+      arr[i] = this.list[i]; 
     }
     return arr; 
   }
 
-  static Object remove(int index) {
-    if (index < 0 || index >= size) { // 값이 저장된 위치가 무효한 인덱스라면 
+  Object remove(int index) {
+    if (index < 0 || index >= this.size) { // 값이 저장된 위치가 무효한 인덱스라면 
       return null;
     }
-    Object old = list[index];
-    for (int i = index + 1; i < size; i++) {
-      list[i - 1] = list[i];
+    Object old = this.list[index];
+    for (int i = index + 1; i < this.size; i++) {
+      this.list[i - 1] = this.list[i];
     }
-    size--;
+    this.size--;
     return old;
   }
 
-  static Object set(int index, Object obj) {
-    if (index < 0 || index >= size) { // 값이 저장된 위치가 무효한 인덱스라면 
+  Object set(int index, Object obj) {
+    if (index < 0 || index >= this.size) { // 값이 저장된 위치가 무효한 인덱스라면 
       return null;
     }
-    Object old = list[index];
-    list[index] = obj;
+    Object old = this.list[index];
+    this.list[index] = obj;
     return old;
   }
 }

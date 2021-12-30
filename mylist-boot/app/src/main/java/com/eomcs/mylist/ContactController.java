@@ -6,16 +6,21 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController 
 public class ContactController {
 
+  // Contact 객체 목록을 저장할 메모리 준비
+  // => Object[] list = new Object[5];
+  // => int size = 0;
+  ArrayList contactList = new ArrayList(); // ArrayList에 설계도에 따라 메모리 준비하는 단계
+
   @RequestMapping("/contact/list")
   public Object list() {
-    return ArrayList.toArray(); 
+    return contactList.toArray(); 
   }
 
   @RequestMapping("/contact/add")
   public Object add(Contact contact) {
     //    System.out.println(contact);
-    ArrayList.add(contact);
-    return ArrayList.size;
+    contactList.add(contact);
+    return contactList.size;
   }
 
 
@@ -25,8 +30,7 @@ public class ContactController {
     if (index == -1) {
       return "";
     }
-
-    return ArrayList.list[index];
+    return contactList.list[index];
   }
 
   @RequestMapping("/contact/update")
@@ -36,7 +40,7 @@ public class ContactController {
       return 0;
     }
 
-    return ArrayList.set(index, contact) == null ? 0 : 1;
+    return contactList.set(index, contact) == null ? 0 : 1;
   }
 
   @RequestMapping("/contact/delete")
@@ -46,13 +50,13 @@ public class ContactController {
       return 0;
     }
 
-    ArrayList.remove(index);
+    contactList.remove(index);
     return 1;
   }
 
-  static int indexOf(String email) {
-    for (int i = 0; i < ArrayList.size; i++) {
-      Contact contact =  (Contact) ArrayList.list[i];
+  int indexOf(String email) {
+    for (int i = 0; i < contactList.size; i++) {
+      Contact contact =  (Contact) contactList.list[i];
       if (contact.email.equals(email)) { 
         return i;
       }
