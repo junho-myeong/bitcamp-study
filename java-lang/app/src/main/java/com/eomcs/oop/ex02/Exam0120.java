@@ -25,13 +25,14 @@ public class Exam0120 {
     }
     // 클래스 메서드
     // - static이 붙은 메서드이다.
-    // - 특정 인스턴스에 대해 사용하는 것이 아니라, 모든 인스턴스에 대해 사용할 수 있다.
+    // - 특정 인스턴스에 대해 사용하는 것이 아니라, 모든 인스턴스에 대해 사용할 수 있다. !! 중요 모든 static메서드(즉 클래스 메서드는)모든 인스턴스에 대해 사용할수잇다.
     // - 특정 인스턴스의 값을 다루고 싶다면 파라미터로 그 인스턴스의 주소를 받아야 한다.
   }
 
   public static void main(String[] args) {
-    
-    Score s = new Score();
+
+    Score s = new Score(); // s에는 인스턴스에 주소가 담긴다.
+    Score t = new Score();
     s.name = "홍길동";
     s.kor = 100;
     s.eng = 90;
@@ -40,11 +41,12 @@ public class Exam0120 {
     // 다음은 Score의 값을 다루는 연산자가 없을 때의 예이다.
     // core.sum = score.kor + score.eng + score.math; 
     // score.average = score.sum / 3f;
-    
-    // 사용자 정의 데이터 타입의 값을 연산자를 사용하여 다뤄보자!
-    Score.calculate(s);
 
+    // 사용자 정의 데이터 타입의 값을 연산자를 사용하여 다뤄보자!
+    Score.calculate(s); // 모든 인스턴스에서 사용가능하다.
+    Score.calculate(t); 
     System.out.printf("%s, %d, %d, %d, %d, %.1f\n", s.name, s.kor, s.eng, s.math, s.sum, s.average);
+
   }
 }
 

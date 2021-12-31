@@ -7,7 +7,7 @@ public class Exam0610 {
 
     // 같은 패키지에 소속된 클래스 사용
     // - 공개, 비공개 상관없이 사용할 수 있다.
-    com.eomcs.oop.ex01.X obj1;
+    com.eomcs.oop.ex01.X obj1; // package private
     com.eomcs.oop.ex01.Y obj2;
 
 
@@ -15,7 +15,7 @@ public class Exam0610 {
     //
     // - X2 클래스는 public 이 아니다.
     // - 따라서 다른 패키지의 클래스는 X2를 사용할 수 없다.
-    //com.eomcs.oop.ex01.sub.X2 obj3; // 컴파일 오류!
+    //    com.eomcs.oop.ex01.sub.X2 obj3; // 컴파일 오류! , X2는 package private 이다 
 
     // - Y2 클래스는 public으로 공개된 클래스이다.
     com.eomcs.oop.ex01.sub.Y2 obj4;

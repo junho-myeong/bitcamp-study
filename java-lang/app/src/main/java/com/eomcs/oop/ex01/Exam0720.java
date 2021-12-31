@@ -1,6 +1,8 @@
 package com.eomcs.oop.ex01;
 
 // # import : 사용 후
+
+
 //
 // - import 명령은 package 명령 다음에 와야 한다.
 // - 클래스 선언 전에 와야 한다.
@@ -17,7 +19,7 @@ public class Exam0720 {
     // 문법:
     //      import 패키지명.클래스명;
     //
-    Y2 obj;
+    Y2 obj; // 컴파일러가 자동으로 앞에 패키지를 붙인다.
     obj = new Y2();
   }
 }

@@ -8,7 +8,7 @@ public class Exam0110 {
   // - 인스턴스 변수를 사용하여 학생의 성적 데이터를 담을 메모리를 설계한다.
   //
   static class Score {
-    // 인스턴스 변수
+    // 인스턴스 변수(insatance variable, instance field)
     // - new 명령으로 생성되는 변수이다.
     // - 데이터를 개별적으로 다루고 싶을 때 인스턴스 변수로 선언한다.
     //
@@ -29,7 +29,7 @@ public class Exam0110 {
     Score score = new Score();
 
     // - 클래스로 만든 메모리는 레퍼런스를 통해 접근한다.
-    score.name = "홍길동";
+    score.name = "홍길동"; // 변수 또는 필드
     score.kor = 100;
     score.eng = 90;
     score.math = 85;

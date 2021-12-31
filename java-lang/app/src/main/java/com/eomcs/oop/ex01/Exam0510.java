@@ -11,10 +11,10 @@ package com.eomcs.oop.ex01;
 // - 패키지 멤버 클래스는 접근 권한이 있다면 누구든 사용할 수 있다.
 //
 // bin/main/com/eomcs/oop/ex01/A.class
-class A {}
+class A {} // package member class (top level class)
 
 // => bin/main/com/eomcs/oop/ex01/Exam0510.class
-public class Exam0510 {
+public class Exam0510 { //package member class, top level class
 
   // 중첩 클래스(nested class)
   // - 다른 클래스 안에 정의된 클래스
@@ -69,7 +69,7 @@ public class Exam0510 {
     B obj2 = new B();
 
     // 스태틱 멤버는 논-스태틱 중첩 클래스(인스턴스 멤버)를 사용할 수 없다.
-    // C obj3 = new C(); // 컴파일 오류!
+    //     C obj3 = new C(); // 컴파일 오류!
 
     // 다른 메서드에 정의된 로컬 클래스는 사용할 수 없다.
     // D obj4 = new D(); // 컴파일 오류!
