@@ -32,7 +32,8 @@ public class Exam0120 {
   public static void main(String[] args) {
 
     Score s = new Score(); // s에는 인스턴스에 주소가 담긴다.
-    Score t = new Score();
+    //    Score1 t = new Score(); Score1에 인스터스가 존재한다면
+    // Score.calculate(t) 이렇게 사용가능
     s.name = "홍길동";
     s.kor = 100;
     s.eng = 90;
@@ -44,7 +45,7 @@ public class Exam0120 {
 
     // 사용자 정의 데이터 타입의 값을 연산자를 사용하여 다뤄보자!
     Score.calculate(s); // 모든 인스턴스에서 사용가능하다.
-    Score.calculate(t); 
+    //    Score.calculate(t); 
     System.out.printf("%s, %d, %d, %d, %d, %.1f\n", s.name, s.kor, s.eng, s.math, s.sum, s.average);
 
   }

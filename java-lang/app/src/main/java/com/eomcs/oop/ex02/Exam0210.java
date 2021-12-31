@@ -10,9 +10,15 @@ public class Exam0210 {
 
     // 계산 결과를 담을 변수를 준비한다.
     int result = 0;
+    Exam0210 test = new Exam0210();
+
 
     // 메서드를 호출하여 작업을 수행하고,
     // 리턴 결과는 로컬 변수에 저장한다.
+    int test1 = Exam0210.plus(10, 20);
+    int test2 = test.plus1(30, 20);
+    System.out.println(test1);
+    System.out.println(test2);
     result = plus(2, 3);
     result = minus(result, 1);
     result = multiple(result, 7);
@@ -22,7 +28,10 @@ public class Exam0210 {
   }
 
   static int plus(int a, int b) {
-    return a + b;
+    return a + b; 
+  }
+  int plus1(int a, int b) {
+    return a + b; // 로컬 변수를 사용하는것이기 때문에 this 를 사용하면 안된다.(this는 인스턴스 변수 사용할때 사용하는 인스턴스 메서드 사용할때)
   }
 
   static int minus(int a, int b) {
