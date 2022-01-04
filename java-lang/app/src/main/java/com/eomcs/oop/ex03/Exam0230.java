@@ -11,9 +11,11 @@ public class Exam0230 {
     // => 클래스의 모든 코드는 Method Area 영역에 로딩 된다.
     public void plus(int value) {
       this.result += value;
+      System.out.println(this.result);
     }
     public void minus(int value) {
       this.result -= value;
+      System.out.println(this.result);
     }
   }
 

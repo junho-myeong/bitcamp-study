@@ -14,7 +14,7 @@ public class Exam0320 {
     float average;
 
     // 다음 메서드와 같이 인스턴스 변수를 사용하는 경우 인스턴스 메서드로 정의한다.
-    public void compute() {
+    public void compute() { // static 넣는 순간 this 라는 내장 변수는 사라진다.
       // 내장 변수 this에는 compute()를 호출할 때 넘겨준 인스턴스 주소가 들어 있다.
       this.sum = this.kor + this.eng + this.math;
       this.average = this.sum / 3f;
