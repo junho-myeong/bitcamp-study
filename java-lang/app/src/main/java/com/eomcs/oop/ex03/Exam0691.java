@@ -22,8 +22,8 @@ public class Exam0691 {
   }
 
   public static void main(String[] args) {
-    System.out.println(A.a); // ? 29
-    System.out.println(B.b); // ? 51
+    System.out.println(A.a); // ? 
+    System.out.println(B.b); // ? 
 
     // 클래스 로딩 절차
     // 1) 클래스를 Method Area에 로딩한다.

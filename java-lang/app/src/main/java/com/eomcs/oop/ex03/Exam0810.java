@@ -1,4 +1,4 @@
-// 변수 초기화 문장(variable initializer) - 변수 초기화 문장
+// 인스터스 변수 초기화 문장(variable initializer) - 변수 초기화 문장
 package com.eomcs.oop.ex03;
 
 public class Exam0810 {

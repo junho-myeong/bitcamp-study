@@ -5,6 +5,7 @@ public class Exam0850 {
 
   static class A {
 
+    // 필드 초기화 문장(variable initializer)
     int b = 200;
     int c;
 
