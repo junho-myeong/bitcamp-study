@@ -27,7 +27,7 @@ public class Exam0113 {
         (byte)0xeb, (byte)0x98, (byte)0xa5  // 똥
     };
 
-    String s1 = new String(bytes);
+    String s1 = new String(bytes, "UTF-8");
     System.out.println(s1);
 
     // 생성자에 바이트 배열을 넘길 때
