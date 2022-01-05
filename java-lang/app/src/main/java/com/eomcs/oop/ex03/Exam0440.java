@@ -14,7 +14,10 @@ public class Exam0440 {
     Score() {
       // 다른 생성자를 호출할 때는 this()를 사용한다.
       // 단, 생성자의 첫 문장으로 와야 한다.
-      this("이름없음"); // Score(String) 생성자 호출
+      this("이름없음");  // 문자열 하나를 받는 생성자를 호출하라는 뜻이다.
+      // Score(String) 생성자 호출, this하고 생성자중에 문자열을 받는 
+      // 생성자를 찾는다
+      // 여기서 this는 다른 생성자를 가르키는것이다.
 
       System.out.println("Score()");
     }
@@ -25,7 +28,7 @@ public class Exam0440 {
       this(name, 0, 0, 0); // Score(String, int, int, int) 생성자 호출
 
       System.out.println("Score(String)");
-    }
+    } // 이함수가 끝나고 그 값을 위에 생성자에 리턴한다.
 
     Score(String name, int kor, int eng, int math) {
       System.out.println("Score(String,int,int,int) 호출!");
@@ -34,9 +37,10 @@ public class Exam0440 {
       this.eng = eng;
       this.math = math;
       this.compute();
-    }
+    } // 이함수가 끝나고 그 값을 위에 생성자에 리턴한다.
 
     public void compute() {
+      // this("오호라~~") // 일반 메서드에서는 생성자를 호출할 수 없다!!, 즉 생
       this.sum = this.kor + this.eng + this.math;
       this.average = this.sum / 3f;
     }

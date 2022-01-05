@@ -35,10 +35,12 @@ public class Exam0420 {
   public static void main(String[] args) {
     // Score 클래스에는 기본 생성자가 없기 때문에
     // 다음 문장은 컴파일 오류이다!
-    //    Score s0 = new Score();
+    //  Score s0 = new Score(); => 우리가 생성자를 만들었기 때문에 컴파일러가 기본
+    // 생성자를 만들지 않아서 오류 나는것이다.
 
     // Score 인스턴스를 만든 후에는 
     // 생성자를 호출할 때 그 생성자의 파라미터 값을 주어야 한다.
+    // 파라미터 갯수와 파라미터의 순서가 꼭 맞아야만 동작한다.
     Score s1 = new Score("홍길동", 100, 90, 77);
     Score s2 = new Score("임꺽정", 80, 88, 87);
 
