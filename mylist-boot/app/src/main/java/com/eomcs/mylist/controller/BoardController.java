@@ -8,7 +8,12 @@ import com.eomcs.util.ArrayList;
 
 @RestController 
 public class BoardController {
-  ArrayList boardList = new ArrayList();
+  ArrayList boardList;
+
+  public BoardController() {
+    boardList = new ArrayList();
+    System.out.println("BoardController 호출됨!!");
+  }
 
   @RequestMapping("/board/list")
   public Object list() {
