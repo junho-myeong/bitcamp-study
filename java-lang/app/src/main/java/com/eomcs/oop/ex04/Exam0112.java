@@ -40,7 +40,7 @@ public class Exam0112 {
     // => 즉 bytes 배열에 EUC-KR의 코드 값이 들어 있다고 알려준다.
     //    그러면 JVM은 바이트 배열에 들어 있는 값을 제대로 유니코드 바꿀 것이다.
     // 
-    String s2 = new String(bytes, "EUC-KR");
+    String s2 = new String(bytes, "EUC-KR"); // 설정을 안해주면 cpu와 OS에 따라 같은 실행이 안될수 잇으니까 꼭 알려주는게 좋다 !!
     System.out.println(s2);
   }
 }

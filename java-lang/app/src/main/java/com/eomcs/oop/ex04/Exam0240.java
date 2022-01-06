@@ -28,6 +28,7 @@ public class Exam0240 {
     long currMillis = System.currentTimeMillis();
 
     // 생성자 활용
+    // util패키지에 잇는 Date 보다 sql에 잇는 Date를 더 많이 사용한다.
     java.sql.Date today = new java.sql.Date(currMillis);
 
     // 인스턴스 메서드 활용 

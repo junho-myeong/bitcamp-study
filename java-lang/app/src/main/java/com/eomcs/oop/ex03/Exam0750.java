@@ -45,6 +45,8 @@ public class Exam0750 {
 
   public static void main(String[] args) {
     A obj1 = new A();
+    // 스태틱 초기화 블록은 클래스가 로딩 될때 한번만 나오지만 인스턴스 초기화 블록은 인스턴스를 생성할때 마다 나온다.
+    A obj2 = new A();
     System.out.printf("a=%d, b=%d, c=%d\n", obj1.a, obj1.b, obj1.c);
   }
 }

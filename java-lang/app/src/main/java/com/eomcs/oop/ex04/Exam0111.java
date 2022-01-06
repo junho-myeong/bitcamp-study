@@ -5,7 +5,7 @@ public class Exam0111 {
 
   public static void main(String[] args) throws Exception {
     // 생성자를 호출하여 문자열 인스턴스를 초기화시킨다.
-    String s0 = new String(); // default constructor 호출!
+    String s0 = new String(); // default constructor 호출! , s0도 레퍼런스이다. 
     System.out.println(s0);
 
     // => 문자열 리터럴을 사용하여 String 인스턴스를 초기화시키기.

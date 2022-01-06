@@ -4,10 +4,10 @@ package com.eomcs.basic.ex02;
 public class Exam0114 {
   public static void main(String[] args) {
 
-    String s1 = new String("Hello");
+    String s1 = new String("Hello"); // Heap영역에 인스턴스 생성
 
-    // 먼저 상수풀에 String 객체를 생성해보자.
-    String s2 = "Hello";
+    // 먼저 상수풀에 String 객체를찾는다. 없으면 새로 만든다.
+    String s2 = "Hello"; // String pool 영역에 인스턴스 생성
 
     // intern()
     // - 지정된 String 객체를 상수풀에서 찾는다.
