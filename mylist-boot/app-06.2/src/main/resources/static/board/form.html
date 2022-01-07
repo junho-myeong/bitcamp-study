@@ -2,19 +2,15 @@
 <html lang="en" dir="ltr">
 <head>
   <meta charset="utf-8">
-  <title>읽은 책 등록</title>
+  <title>게시글</title>
 </head>
 <body>
 
-<h1>읽은 책 등록</h1>
+<h1>새 게시글</h1>
 
 <form>
 제목*: <input id="x-title" type="text"><br>
-저자: <input id="x-author"><br>
-출판사: <input id="x-press" type="text"><br>
-페이지: <input id="x-page" type="number" value="0"><br>
-가격: <input id="x-price" type="number" value="0"><br>
-소감문: <textarea id="x-feed" type="text" rows="10" cols="60" placeholder="소감문 작성해주세요"></textarea><br>
+내용*: <textarea id="x-content" cols="60" rows="10"></textarea><br>
 별표(*) 항목은 필수 입력입니다.<br>
 <button id="x-add-btn" type="button">등록</button>
 <button id="x-cancel-btn" type="button">취소</button>
@@ -22,19 +18,15 @@
 
 <script type="text/javascript">
   var xTitle = document.querySelector("#x-title");
-  var xAuthor = document.querySelector("#x-author");
-  var xPress = document.querySelector("#x-press");
-  var xPage = document.querySelector("#x-page");
-  var xPrice = document.querySelector("#x-price");
-  var xFeed = document.querySelector("#x-feed");
+  var xContent = document.querySelector("#x-content");
 
   document.querySelector("#x-add-btn").onclick = function() {
-    if (xTitle.value == "") {
+    if (xTitle.value == "" || xContent.value == "") {
       window.alert("필수 입력 항목이 비어 있습니다.");
       return;
     }
 
-    fetch(`/book/add?title=${xTitle.value}&author=${xAuthor.value}&press=${xPress.value}&page=${xPage.value}&price=${xPrice.value}&feed=${xFeed.value}`)
+    fetch(`/board/add?title=${xTitle.value}&content=${xContent.value}`)
       .then(function(response) {
         return response.text();
       })

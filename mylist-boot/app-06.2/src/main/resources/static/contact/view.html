@@ -2,32 +2,24 @@
 <html lang="en" dir="ltr">
 <head>
   <meta charset="utf-8">
-  <title>책 리스트 상세보기</title>
+  <title>연락처</title>
 </head>
 <body>
 
-<h1>책 리스트 상세보기</h1>
+<h1>연락처 상세</h1>
 
 <form>
-  제목*: <input id="x-title" type="text"><br>
-  저자: <input id="x-author"><br>
-  출판사: <input id="x-press" type="text"><br>
-  페이지: <input id="x-page" type="number"><br>
-  가격: <input id="x-price" type="number"><br>
-  소감문: <textarea id="x-feed" type="text" rows="10" cols="60" ></textarea><br>
-  별표(*) 항목은 필수 입력입니다.<br>
+이메일*: <input id="x-email" type="text" readonly><br>
+이름*: <input id="x-name" type="text"><br>
+전화*: <input id="x-tel" type="text"><br>
+회사: <input id="x-company" type="text"><br>
+별표(*) 항목은 필수 입력입니다.<br>
 <button id="x-update-btn" type="button">변경</button>
 <button id="x-delete-btn" type="button">삭제</button>
 <button id="x-cancel-btn" type="button">취소</button>
 </form>
 
 <script type="text/javascript">
-  var xTitle = document.querySelector("#x-title");
-  var xAuthor = document.querySelector("#x-author");
-  var xPress = document.querySelector("#x-press");
-  var xPage = document.querySelector("#x-page");
-  var xPrice = document.querySelector("#x-price");
-  var xFeed = document.querySelector("#x-feed");
 
   // 1) URL에서 쿼리스트링(query string)을 추출한다.
   var arr = location.href.split("?");
@@ -43,38 +35,39 @@
 
   // 2) 쿼리 스트링에서 email 값을 추출한다.
   var params = new URLSearchParams(qs);
-  var index = params.get("index");
+  var email = params.get("email");
 
-  if (index == null) {
-    alert("독서록 번호가 없습니다.");
+  if (email == null) {
+    alert("이메일 값이 없습니다.");
     throw "파라미터 오류!";
   }
-  console.log(index);
+  console.log(email);
 
-
+  var xName = document.querySelector("#x-name");
+  var xEmail = document.querySelector("#x-email");
+  var xTel = document.querySelector("#x-tel");
+  var xCompany = document.querySelector("#x-company");
 
   // 3) 서버에서 데이터 가져오기
-  fetch(`/book/get?index=${index}`)
+  fetch(`/contact/get?email=${email}`)
     .then(function(response) {
       return response.json();
     })
-    .then(function(book) {
+    .then(function(contact) {
       // 4) 연락처 상세 정보를 화면에 출력한다.
-      xTitle.value = book.title;
-      xAuthor.value = book.author;
-      xPress.value = book.press;
-      xPage.value = book.page;
-      xPrice.value = book.price;
-      xFeed.value = book.feed;
+      xName.value = contact.name;
+      xEmail.value = contact.email;
+      xTel.value = contact.tel;
+      xCompany.value = contact.company;
     });
 
   document.querySelector("#x-update-btn").onclick = function() {
-    if (xTitle.value == "") {
+    if (xName.value == "" || xTel.value == "") {
       window.alert("필수 입력 항목이 비어 있습니다.");
       return;
     }
 
-    fetch(`/book/update?index=${index}&title=${xTitle.value}&author=${xAuthor.value}&press=${xPress.value}&page=${xPage.value}&price=${xPrice.value}&feed=${xFeed.value}`)
+    fetch(`/contact/update?name=${xName.value}&email=${xEmail.value}&tel=${xTel.value}&company=${xCompany.value}`)
       .then(function(response) {
         return response.text();
       })
@@ -89,7 +82,7 @@
   };
 
   document.querySelector("#x-delete-btn").onclick = function() {
-    fetch(`/book/delete?index=${index}`)
+    fetch(`/contact/delete?email=${email}`)
       .then(function(response) {
         return response.json();
       })
