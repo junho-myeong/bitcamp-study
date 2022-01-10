@@ -1,12 +1,33 @@
 package com.eomcs.io;
-// 기존 코드를 자신의 코드마냥 사용 하겠다고 사용한다.
-// extends
-public class FileReader2 extends java.io.FileReader{
-  // 슈퍼 클래스에 생성자는 바로 사용할 수 없다.
-  // 서브 클래스에 생성자를 통해 사용해야 한다.
-  public FileReader2(String filename) throws Exception {
 
-    // 다음과 같이 슈퍼 클래스에 생성자를 호출 해야한다.
-    super(filename);
+import java.io.FileReader;
+
+// 기존 코드를 자신의 코드인냥 사용하기 위해 해당 클래스를 포함한다.
+public class FileReader2{
+  // 기존의 클래스 포함!
+  FileReader in;
+  public FileReader2(String filename) throws Exception {
+    // 기존 객체를 준비한다.
+    in = new FileReader(filename);
   }
+  public String readLine() throws Exception {
+    StringBuilder buf = new StringBuilder();
+    int c;
+    // 입력을 수행하기 위해 이 클래스가 포함하고 있는 기존 객체를 이용한다.
+    while ((c = in.read()) != -1) {
+      if (c == '\n') { 
+        return buf.toString();
+      } else if(c == '\r') {
+
+      } else {
+        buf.append((char) c);
+      }
+    }
+    return buf.toString();
+  }
+  //  자원 해제하라는 요청이 들어오면 실제 일을 하는 객체에게 전달한다.
+  public void close() throws Exception {
+    in.close();
+  }
+
 }

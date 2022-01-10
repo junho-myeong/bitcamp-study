@@ -73,7 +73,7 @@ public class TodoController {
     Object[] arr = todoList.toArray();
     for (Object obj: arr) {
       Todo todo = (Todo) obj;
-      out.println(todo.toCsvString());
+      out.write(todo.toCsvString());
     }
     out.close(); // 파일이랑 systemin 같은것들은 사용하고 닫아 주는 습관 들이기
     return 0;
