@@ -21,6 +21,8 @@ public class Exam0130 {
     Calendar c2 = Calendar.getInstance();
     System.out.println(c1 == c2);
 
+    // calendar 객체는 인스턴스 변수를 사용하지 않고 스태틱 변수를 사용한다.
+    // 그래서 인스턴스를 만들기 보다는 스태틱 메서드를 직접 사용한다.
     System.out.println(c1.get(1));
     System.out.println(c2.get(Calendar.YEAR));
 

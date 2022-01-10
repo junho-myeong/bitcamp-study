@@ -20,6 +20,7 @@ public class Exam0210 {
     // 두 문자열을 연결하여 새 문자열을 만들자!
     // String 객체는 immutable 객체이다
     // 기술 면접에서 자주 나온다 immutable객체 
+    // immutable 객체란 변하지 않는 객체를 말한다.
     String s2 = s1.concat(", world!");
     System.out.println(s1); // 기존 인스턴스의 값은 변경하지 않는다.
     System.out.println(s2); // 새로 문자열을 만든다.
@@ -54,6 +55,7 @@ public class Exam0210 {
     // String 클래스에도 특정 인스턴스가 아닌 일반용으로 
     // 문자열을 다룰 수 있는 메서드를 제공한다.
     // 즉 "클래스 메서드=스태틱 메서드"를 제공한다.
+    // 클래스 메서드는 주로 파라미터로 값을 받아서 그걸이용해서 함수를 실행한다는 특징이 있다.
 
     // => 형식을 갖춘 문자열을 만들기
     String s4 = String.format("%s님 반갑습니다", "홍길동");

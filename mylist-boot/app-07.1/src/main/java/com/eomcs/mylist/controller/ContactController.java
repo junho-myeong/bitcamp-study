@@ -1,5 +1,6 @@
 package com.eomcs.mylist.controller;
 
+import java.io.FileReader;
 import java.io.FileWriter;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -15,7 +16,7 @@ public class ContactController {
     contactList = new ArrayList();
     System.out.println("ContactController() 호출됨!!!");
 
-    com.eomcs.io.FileReader2 in = new com.eomcs.io.FileReader2("contacts.csv");
+    FileReader in = new FileReader("contacts.csv");
 
     StringBuilder buf = new StringBuilder();
     int c;
