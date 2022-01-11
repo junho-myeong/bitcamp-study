@@ -1,4 +1,5 @@
 // 기존 클래스에 코드를 추가한다.
+// 원본에 그대로 추가한 케이스.
 package com.eomcs.oop.ex05.b;
 
 public class Car {
@@ -26,6 +27,7 @@ public class Car {
       boolean sunroof, boolean auto) {
     // 이 클래스의 다른 생성자를 먼저 호출할 수 있다.
     // => 이때 this()를 사용한다.
+    // 다른 생성자를 호출 할때는 this를 맨 위에 올려야 한다.
     this(model, maker, capacity);
 
     this.sunroof = sunroof;

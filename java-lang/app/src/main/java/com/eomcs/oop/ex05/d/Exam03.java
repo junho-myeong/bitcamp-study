@@ -18,9 +18,18 @@ public class Exam03 {
     s.math = 100;
     s.music = 100;
     s.art = 100;
-    s.compute();
+    s.compute(); // 오버라이딩 해서 제정의 해서 사용한것이다.
+
+    Score s1 = new Score();
+    s1.name = "홍길동";
+    s1.kor = 100;
+    s1.eng = 100;
+    s1.math = 100;
+    s1.compute(); // 기존의 상속 받기 전에 클래스에 잇는 함수를 사용하는 방법
+    // 상속 받기 전에 함수를 사용하는 방법은 그 인스턴스를 찾아가서 사용하면 된다.
 
     System.out.printf("%s: %d(%.1f)\n", s.name, s.sum, s.aver);
+    System.out.printf("%s: %d(%.1f)\n", s1.name, s1.sum, s1.aver);
   }
 }
 

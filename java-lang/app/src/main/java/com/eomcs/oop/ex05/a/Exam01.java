@@ -3,6 +3,7 @@ package com.eomcs.oop.ex05.a;
 
 public class Exam01 {
   public static void main(String[] args) {
+    // 디폴트 메서드로 인스턴스 필드 초기화 시키기 
     Car c1 = new Car();
     c1.maker = "비트자동차";
     c1.model = "티코";
