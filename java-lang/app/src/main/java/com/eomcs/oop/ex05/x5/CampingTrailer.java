@@ -1,4 +1,4 @@
-package com.eomcs.oop.ex05.x4.app3;
+package com.eomcs.oop.ex05.x5;
 
 public class CampingTrailer {
   public String aircon;

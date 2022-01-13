@@ -1,11 +1,9 @@
-package com.eomcs.oop.ex05.x4.app4;
+package com.eomcs.oop.ex05.x4.app5;
 
-import com.eomcs.oop.ex05.x4.app1.Car;
+import com.eomcs.oop.ex05.x4.app3.TrailerCar;
 
-public class HybridCar extends Car{
-  //하이브리드 자동차 기능 추가
+public class HybridTrailerCar extends TrailerCar{
   int kwh;
-
   public void chargeBattery(int kwh) {
     this.kwh = kwh;
   }
@@ -19,5 +17,4 @@ public class HybridCar extends Car{
       super.run();
     }
   }
-
 }

@@ -10,7 +10,7 @@ public class CarTest4 {
     //
 
     Engine car = new Engine();
-    //    car.chargeBattery(170);
+    car.chargeBattery(170);
     car.start();
     car.run();
     car.stop();

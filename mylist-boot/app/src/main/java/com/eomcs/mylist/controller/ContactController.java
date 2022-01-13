@@ -1,5 +1,9 @@
 package com.eomcs.mylist.controller;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.PrintWriter;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.eomcs.mylist.domain.Contact;
@@ -24,10 +28,11 @@ public class ContactController {
     contactList = new ArrayList();
     System.out.println("ContactController() 호출됨!");
 
-    com.eomcs.io.FileReader2 in = new com.eomcs.io.FileReader2("contacts.csv");
+    BufferedReader in = new BufferedReader(new FileReader("contacts.csv"));
+
 
     String line;
-    while ((line = in.readLine()).length() != 0) {// 파일에서 한 문자를 읽는다. 더이상 읽을 문자가 없으면 반복문을 종료하다.
+    while ((line = in.readLine()) != null) {// read
       contactList.add(Contact.valueOf(line)); // 파일에서 읽은 한 줄의CSV 데이터로 객체를 만든후 목록에 등록한다..
     }
     in.close();
@@ -78,7 +83,7 @@ public class ContactController {
 
   @RequestMapping("/contact/save")
   public Object save() throws Exception {
-    com.eomcs.io.FileWriter2 out = new com.eomcs.io.FileWriter2("contacts.csv"); // 따로 경로를 지정하지 않으면 파일은 프로젝트 폴더에 생성된다.
+    PrintWriter out = new PrintWriter(new FileWriter("contact.csv"));
 
     Object[] arr = contactList.toArray();
     for (Object obj : arr) {

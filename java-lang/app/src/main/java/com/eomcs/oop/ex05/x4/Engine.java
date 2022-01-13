@@ -7,6 +7,4 @@ public class Engine {
   public void run() {
     System.out.println("씽씽달린다!");
   }
-
-
 }

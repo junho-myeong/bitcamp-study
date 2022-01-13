@@ -12,7 +12,7 @@ public class Engine {
     }
     // 트레일러 장착 기능이 추가 되었다면 다음과 같이 run()메서드를 변경 해야한다.
     if (trailer == null) {
-      System.out.println("씽씽 달린다!");
+      System.out.println("엔진이 돈다!");
     }else {
       System.out.println("조심히 움직인다.");
     }
