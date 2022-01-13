@@ -8,6 +8,7 @@ public class Exam0120 {
   //   자신(서브클래스 입장에서)의 역할에 맞지 않는 메서드가 있다면,
   //   자신(서브클래스 입장에서)의 역할에 맞춰 상속받은 메서드를 재정의하여
   //   프로그래밍의 일관성을 확보하는 문법이다.
+  //   단 메서드 시그니처는 같아야한다. 
   //
 
   static class A {
@@ -39,6 +40,7 @@ public class Exam0120 {
     // 
     // * 메서드 시그너처(method signature) = 함수 프로토타입(function prototype)
     //       메서드명, 파라미터 타입/개수/순서
+    @Override
     void print() {
       System.out.println("A3.print():");
       System.out.printf("  => this.name(%s)\n", this.name);
@@ -58,4 +60,6 @@ public class Exam0120 {
     obj.print(); // A3에서 재정의한 print() 호출
 
   }
+  //  오버 로딩은 파라미터는 다르지만 같은 기능을 하는 메서드라면 메서드 이름을 똑같이 사용함으로써 코드의 일관성을 할수잇게 해준다
+  //  상속받은 메서드가 서브클래스에 역활에 맞지 않다면 서브클래스에 역활에 맞춰 메서드를 재 정의 하는것잇다.
 }

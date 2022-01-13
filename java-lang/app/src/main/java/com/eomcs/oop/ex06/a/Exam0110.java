@@ -1,4 +1,4 @@
-// 다형성 - 다형적 변수(polymorphic variables)
+// 다형성 - 다형적 변수(polymorphic variables) : 여러가지 타입을 사용하는것을 말한다.
 package com.eomcs.oop.ex06.a;
 
 public class Exam0110 {

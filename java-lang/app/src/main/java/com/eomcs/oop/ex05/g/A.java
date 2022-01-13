@@ -8,7 +8,7 @@ public class A /*extends Object*/ {
     // 다음과 같이 수퍼 클래스의 기본 생성자를 호출하라는 명령을
     // 생성자의 첫 줄에 추가한다.
     super(); // 즉 개발자가 붙이지 않으면 자동으로 붙인다.
-    //    this("name", "email");
+    //        this("name", "email");
 
     // 헐.. 강사님, A 클래스의 수퍼 클래스는 없는데요?
     // => 클래스를 정의할 때 수퍼 클래스를 지정하지 않으면,
@@ -19,10 +19,10 @@ public class A /*extends Object*/ {
     System.out.println("A() 생성자!");
     this.v1 = 100;
   }
-  //  A(String name, String email) {
-  //    System.out.println(name);
-  //    System.out.println(email);
-  //  }
+  //    A(String name, String email) {
+  //      System.out.println(name);
+  //      System.out.println(email);
+  //    }
 }
 
 

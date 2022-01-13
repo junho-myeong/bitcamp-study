@@ -1,9 +1,8 @@
-package com.eomcs.oop.ex05.x1.test3;
+package com.eomcs.oop.ex05.x1.upgrade2;
 
-// 기능추가:
-//  -곱하기 계산 기능을 수행
-// 해결책?
-//  => 기존 코드에 곱하기 기능을 추가한다.
+// 2) 계산기 기능 확장 방법2 - 기존 코드 복제 후 변경하기
+//  -곱하기 계산 기능을 추가
+//  => 기존 Calculrator클래스를 복사해서 곱하기 기능 추가하기
 public class CalculratorTest {
   public static void main(String[] args) {
     Calculrator2 c1 = new Calculrator2();

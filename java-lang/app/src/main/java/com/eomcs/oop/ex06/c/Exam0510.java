@@ -27,9 +27,9 @@ public class Exam0510 {
   public static void main(String[] args) {
     A4 obj1 = new A4();
 
-    System.out.println(obj1.name);
-    System.out.println(obj1.age);
-    System.out.println(obj1.working);
+    System.out.println(obj1.name); // "A"
+    System.out.println(obj1.age); //  40
+    System.out.println(obj1.working); // false
     System.out.println("-----------------------------");
 
     // 레퍼런스를 형변환 하면 오버라이딩 하기 전,

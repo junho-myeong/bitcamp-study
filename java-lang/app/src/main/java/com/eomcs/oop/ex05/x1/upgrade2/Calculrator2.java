@@ -1,4 +1,4 @@
-package com.eomcs.oop.ex05.x1.test3;
+package com.eomcs.oop.ex05.x1.upgrade2;
 
 // 기존의 Calculrator 클래스를 복제한후 추가한다.
 public class Calculrator2 {

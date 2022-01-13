@@ -24,6 +24,7 @@ public class Exam0110 {
       System.out.printf("  => this.name(%s)\n", this.name);
       System.out.printf("  => this.tel(%s)\n", this.tel);
       System.out.printf("  => this.working(%s)\n", this.working);
+      // 이 부분을 중복해서 코딩해야한다.
       System.out.printf("  => this.age(%s)\n", this.age);
     }
   }

@@ -1,7 +1,7 @@
 // 위임을 통한 기능 확장 방식
-package com.eomcs.oop.ex05.x1.test5;
+package com.eomcs.oop.ex05.x1.upgrade4;
 
-import com.eomcs.oop.ex05.x1.test1.Calculrator;
+import com.eomcs.oop.ex05.x1.Calculrator;
 
 public class Calculrator2{
   // plus(), minus()는 기존의 Calculrator 클래스에게 위임한다.

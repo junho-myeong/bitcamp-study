@@ -16,7 +16,7 @@ public class Exam0210 {
     // 레퍼런스가 실제 하위 인스턴스를 가리키고 있다 하더라도,
     // 레퍼런스 타입의 범위를 벗어나서 사용할 수 없다.
     //    c.sunroof = true; // 컴파일 오류!
-    //    c.auto = true;    // 컴파일 오류!
+    //        c.auto = true;    // 컴파일 오류!
 
     // 왜?
     // => 자바 컴파일러는 레퍼런스가 실제 어떤 인스턴스를 가리키는지 따지지 않고
@@ -29,6 +29,7 @@ public class Exam0210 {
     ((Sedan)c).auto = true;    // OK!
 
     // => 또는 인스턴스의 원래 클래스 레퍼런스에 저장한 다음에 사용.
+    // 이렇게 임시변수에 담아 놓고 사용하는 경우가 많다
     Sedan s = (Sedan)c;
     s.sunroof = true;
     s.auto = true;
