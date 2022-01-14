@@ -14,20 +14,18 @@ public class TodoController {
 
   ArrayList todoList = new ArrayList();
 
-  public TodoController() throws Exception{
-    System.out.println("TodoController 호출됨!!");
+  public TodoController() throws Exception {
+    System.out.println("TodoController() 호출됨!");
 
-    BufferedReader in = new BufferedReader(new FileReader("Todo.csv"));
+    BufferedReader in = new BufferedReader(new FileReader("todos.csv"));
 
     String line;
-    while ((line = in.readLine()) != null) { // 더이상 읽을 데이터가 없으면 null을 리턴한다
-      todoList.add(new Todo(line)); // 스태틱 메서드를 사용
-      //      System.out.print((char) c);
+    while ((line = in.readLine()) != null) { // 더이상 읽을 데이터가 없으면 null을 리턴한다.
+      todoList.add(Todo.valueOf(line)); 
     }
+
     in.close();
   }
-
-
 
   @RequestMapping("/todo/list")
   public Object list() {
@@ -45,8 +43,9 @@ public class TodoController {
     if (index < 0 || index >= todoList.size()) {
       return 0;
     }
+
     Todo old = (Todo) todoList.get(index);
-    todo.setDone(old.isDone()); // 기존의 체크 정보는 그대로 가져가야한다.
+    todo.setDone(old.isDone()); // 기존의 체크 정보를 그대로 가져가야 한다.
 
     return todoList.set(index, todo) == null ? 0 : 1;
   }
@@ -66,19 +65,23 @@ public class TodoController {
     if (index < 0 || index >= todoList.size()) {
       return 0;
     }
+
     todoList.remove(index);
     return 1;
   }
+
   @RequestMapping("/todo/save")
   public Object save() throws Exception {
-    PrintWriter out = new PrintWriter(new FileWriter("contact.csv"));
+    PrintWriter out = new PrintWriter(new FileWriter("todos.csv")); // 따로 경로를 지정하지 않으면 파일은 프로젝트 폴더에 생성된다.
+
     Object[] arr = todoList.toArray();
-    for (Object obj: arr) {
+    for (Object obj : arr) {
       Todo todo = (Todo) obj;
       out.println(todo.toCsvString());
     }
-    out.close(); // 파일이랑 systemin 같은것들은 사용하고 닫아 주는 습관 들이기
-    return 0;
+
+    out.close();
+    return arr.length;
   }
 }
 
