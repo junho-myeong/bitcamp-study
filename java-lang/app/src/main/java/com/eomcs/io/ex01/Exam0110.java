@@ -6,6 +6,7 @@ import java.io.File;
 public class Exam0110 {
 
   public static void main(String[] args) throws Exception {
+
     // File 클래스
     // => 디렉토리나 파일을 다룰 때 사용하는 클래스이다.
     // => 디렉토리나 파일을 생성, 삭제, 변경할 수 있다.
