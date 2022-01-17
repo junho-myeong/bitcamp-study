@@ -3,6 +3,8 @@
 //  => binary 파일에 입출력을 다룰때 사용한다.
 //  => binary란 일반 text파일과 같은 파일이 아닌 특정 기능을 수행하는 파일들을 말한다.
 //  => 예를들어 pdf,jpg 같은 파일들을 말한다.
+//  => 메모장 같은 편집기로 편집후 다시 읽을수 잇다 text파일 이라고하고
+//  => 그게 아니면 binary 파일이라고 한다.
 package com.eomcs.io.ex02;
 
 import java.io.FileOutputStream;

@@ -5,6 +5,7 @@ import java.io.File;
 import java.io.FileInputStream;
 
 public class Exam0410 {
+  // fileformat 은 파일의 형식을 말하는것이다.
 
   public static void main(String[] args) throws Exception {
 
