@@ -9,7 +9,8 @@ public class Exam0610 {
 
   public static void main(String[] args) throws Exception {
 
-    class JavaFilter implements FilenameFilter {
+    class JavaFilter implements FilenameFilter { // interface에 대해 공부하기. 규칙을 따른다고 했으면 그 규칙대로 무조건 만들어줘야한다
+      // interface는 규칙이기 때문에 instance를 만들수 없다
       @Override
       public boolean accept(File dir/* 부모 경로 */, String name /* 파일,디렉토리 이름 */) {
         // 이 메서드는 list()에서 호출한다.
@@ -34,7 +35,8 @@ public class Exam0610 {
     JavaFilter javaFilter = new JavaFilter();
 
     // 2) 필터를 사용하여 디렉토리의 목록을 가져오기
-    String[] names = dir.list(javaFilter);
+    String[] names = dir.list(javaFilter); // 배열을 리턴 하는것이다.
+    // list는 인터페이스에 인스턴스를 요구하는것이 아니라 인스턴스 규칙에 따라 만든 클래스에 객체 주소를 요구하는것이다
 
     for (String name : names) {
       System.out.println(name);

@@ -12,6 +12,8 @@ public class Exam0210 {
 
     // 현재 파일 정보 조회
     //
+    // java 밑에 default package라는 패키지가 존재하는것이 아니고 보기 편하라고 
+    // 이클립스가 만들어 준것이다.
     File file1 = new File("./src/main/java/Hello2.java");
     System.out.printf("파일명: %s\n", file1.getName());
     System.out.printf("파일크기: %d\n", file1.length());
@@ -27,6 +29,7 @@ public class Exam0210 {
     // 존재하지 않는 폴더인 경우 정보를 알아낼 수 없다. 모두 false
     System.out.printf("디렉토리여부: %b\n", file1.isDirectory());
     System.out.printf("파일여부: %b\n", file1.isFile());
+    // 둘중에 하나만 해도 파일인지 폴더인지 파악 할수잇다.
     System.out.printf("감춤여부: %b\n", file1.isHidden());
     System.out.printf("존재여부: %b\n", file1.exists());
     System.out.printf("실행가능여부: %b\n", file1.canExecute());

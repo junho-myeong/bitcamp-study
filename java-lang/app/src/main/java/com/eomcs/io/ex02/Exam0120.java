@@ -18,7 +18,7 @@ public class Exam0120 {
     //    0 ~ 255까지의 값을 읽기 때문이다.
     //    byte는 -128 ~ 127까지의 값만 저장한다.
     int b = in.read(); // 읽은 값은 0x4d 이다.
-    System.out.printf("%02x\n", b);
+    System.out.printf("%02x\n", b); // 2자리를 출력하고 혹시 한자리가 비면 한자리는 0 으로출력하라
 
     System.out.printf("%02x\n", in.read());
     System.out.printf("%02x\n", in.read());

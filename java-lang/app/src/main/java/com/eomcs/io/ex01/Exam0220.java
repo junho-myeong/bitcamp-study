@@ -28,6 +28,8 @@ public class Exam0220 {
     System.out.printf("디렉토리여부: %b\n", file1.isDirectory());
     System.out.printf("파일여부: %b\n", file1.isFile());
     System.out.printf("감춤여부: %b\n", file1.isHidden());
+    // 존재 여부를 파악 하는것이 가장 먼저 하는것이 좋다. 왜냐하면 잇는지 없는지가
+    // 가장 중요하기 때문이다.
     System.out.printf("존재여부: %b\n", file1.exists());
     System.out.printf("실행가능여부: %b\n", file1.canExecute());
   }

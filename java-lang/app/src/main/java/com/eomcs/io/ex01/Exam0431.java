@@ -16,6 +16,7 @@ public class Exam0431 {
     System.out.println(dir.getCanonicalPath());
 
     // 먼저 디렉토리를 생성한다.
+    // 디렉토리가 존재하지 않으면 mkdirs를 하면 된다.
     if (dir.mkdirs()) {
       System.out.println("디렉토리를 생성하였습니다.");
     } else {

@@ -1,4 +1,8 @@
 // Byte Stream - 바이트 단위로 출력하기
+// byte 단위로 입출력 사용하는 이유는 ? 
+//  => binary 파일에 입출력을 다룰때 사용한다.
+//  => binary란 일반 text파일과 같은 파일이 아닌 특정 기능을 수행하는 파일들을 말한다.
+//  => 예를들어 pdf,jpg 같은 파일들을 말한다.
 package com.eomcs.io.ex02;
 
 import java.io.FileOutputStream;
@@ -21,8 +25,8 @@ public class Exam0110 {
     // 2) 1바이트를 출력한다.
     // => write(int) : 1바이트를 출력하는 메서드이다.
     //    파라미터의 타입이 int라고 해서 4바이트를 출력하는 것이 아니다.
-    //    오직 1바이트만 출력한다.
-    out.write(0x7a6b5c4d); // 출력하는 값은 0x4d 이다.
+    //    오직 맨 끝 1바이트만 출력한다.
+    out.write(0x7a6b5c4d); // 출력하는 값은 0x4d 이다. 맨 뒤에 1byte만 출력한다
     out.write(2);     // 0x00000002
     out.write(40);    // 0x00000028
     out.write(100);   // 0x00000064
