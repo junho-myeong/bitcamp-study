@@ -11,6 +11,7 @@ public class Exam0310 {
         (byte) 0x81, (byte) 0xea, (byte) 0xb0, (byte) 0x84, 0x00, 0x00, 0x00, 0x1b, 0x01};
 
     // 바이트 배열에서 데이터를 읽는 도구
+    // 메모리에서 데이터를 읽는것이다.
     ByteArrayInputStream in = new ByteArrayInputStream(buf);
 
     // 보통 바이트 배열에서 데이터를 읽을 때 인덱스를 가지고 직접
