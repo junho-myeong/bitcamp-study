@@ -4,7 +4,7 @@ package com.eomcs.io.ex06;
 public class Exam0130 {
 
   public static void main(String[] args) throws Exception {
-    BufferedFileInputStream in = new BufferedFileInputStream("temp/jls11.pdf");
+    BufferedFileInputStream in = new BufferedFileInputStream("temp/jls17.pdf");
 
     int b;
 
@@ -14,7 +14,7 @@ public class Exam0130 {
     while ((b = in.read()) != -1)
       callCount++; // 파일을 끝까지 읽는다.
 
-    // => BufferedInputStream의 read() 메서드는
+    // => BufferedFileInputStream의 read() 메서드는
     //    FileInputStream에서 상속 받은 메서드를 이용하여
     //    바이트 배열로 데이터를 왕창 가져온 다음
     //    그 배열에서 1바이트를 리턴한다.

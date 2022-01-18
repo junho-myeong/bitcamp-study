@@ -12,6 +12,7 @@ public class Exam0430 {
     // 데코레이터를 붙인다.
     // => 버퍼 기능 + 한 줄 읽기 기능
     BufferedReader in2 = new BufferedReader(in);
+    // FileReader 와 BufferedReader에 파라미터를 보고 주객체 인지 데코레이터 인지 확인이 가능하다
 
     System.out.println(in2.readLine());
 

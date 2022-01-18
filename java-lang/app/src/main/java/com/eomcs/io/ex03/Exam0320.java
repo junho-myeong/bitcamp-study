@@ -22,6 +22,8 @@ public class Exam0320 {
       System.out.printf("%c(%04x) ", buf[i], (int) buf[i]);
 
     System.out.println();
+    String str = new String(buf, 10, count);
+    System.out.println(str);
 
   }
 

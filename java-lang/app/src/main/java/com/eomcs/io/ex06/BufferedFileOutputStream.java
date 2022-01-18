@@ -11,6 +11,7 @@ public class BufferedFileOutputStream extends FileOutputStream {
     super(filename);
   }
 
+  // 오버라이딩:
   @Override
   public void write(int b) throws IOException {
     if (cursor == buf.length) { // 버퍼가 다차면
@@ -30,13 +31,11 @@ public class BufferedFileOutputStream extends FileOutputStream {
   }
 
 
-  @Override
-  public void close() throws IOException {
-    this.flush();
-    super.close();
-  }
 
-
+  // 버퍼를 사용했을때는 특히 주의해야한다.
+  // 버퍼가 꽉 찼을 때만 파일에 내보내기 때문에
+  // 버퍼에 잔여 데이터가 남아 잇을 가능성이 높다
+  // 버퍼에 잔여 데이터를 강제로 출력하도록 상속 받은 다음 메서드를 재정의 한다.
   @Override
   public void flush() throws IOException {
     if (cursor > 0) {
@@ -45,6 +44,13 @@ public class BufferedFileOutputStream extends FileOutputStream {
     }
   }
 
+  // 항상 입출력 스트림을 사용한 다음에는 자원 해제를 위해 close()클 호출해야한다.
+  // close()가 호출될 때 버퍼의 잔여 데이터를 내보내도록 상속 받은 메서드를 재정의 한다.
+  @Override
+  public void close() throws IOException {
+    this.flush();
+    super.close();
+  }
 }
 
 

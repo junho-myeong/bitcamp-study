@@ -16,7 +16,9 @@ public class Exam0120 {
     int size = in.read(); // 이름이 저장된 바이트 배열의 수
     byte[] buf = new byte[size];
     in.read(buf); // 이름 배열 개수 만큼 바이트를 읽어 배열에 저장한다.
-    member.name = new String(buf, "UTF-8");
+    member.name = new String(buf, "UTF-8"); // UTF-8 규칙에 따라서 문자에 대한 숫자 값이 저장된 배열을 String으로 바꿔줘
+    // utf-8 캐릭터 셋이 저장된
+    // jvm에서 읽을수 잇는 utf-16으로 바꿔준다
 
     // 2) 나이(int) 읽기
     member.age = in.read() << 24;
@@ -33,6 +35,7 @@ public class Exam0120 {
     in.close();
 
     System.out.printf("%s\n", member);
+    System.out.printf("%s,%d,%s\n", member.name,member.age,member.gender);
   }
 }
 
