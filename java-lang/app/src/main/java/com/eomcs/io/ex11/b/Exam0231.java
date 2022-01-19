@@ -7,6 +7,9 @@ public class Exam0231 {
     String name;
 
     // 복제 기능을 수행하려면 clone()을 오버라이딩 해야 한다.
+    // overriding 은 메서드 시그니쳐가 같아야한다
+    // modifier는 더 넓은 범위로 변경가능
+    // 리턴 타입은 서브 클래스도 가능
     @Override
     public Score clone() throws CloneNotSupportedException {
       return (Score) super.clone();

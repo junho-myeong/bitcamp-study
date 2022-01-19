@@ -4,7 +4,7 @@ package com.eomcs.io.ex11.b;
 public class Exam0232 {
 
   // 이 클래스는 복제 가능하다고 설정한다.
-  static class Score implements Cloneable {
+  static class Score implements Cloneable { // 이클래스에 인스턴스는 복제할수잇다 이런 뜻이다.
     // Cloneable 인터페이스에는 메서드가 없다.
     // 따라서 이 인터페이스를 구현하는 클래스는 메서드를 정의할 필요가 없다.
     // 이 인터페이스 목적은 복제 가능 여부를 설정하는 용도이다.
