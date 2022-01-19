@@ -7,7 +7,7 @@ public class Contact {
   String company;
 
   public Contact() {
-    System.out.println("Contact() 호출됨");
+    System.out.println("Contact() 호출됨!");
   }
 
   @Override

@@ -24,7 +24,7 @@ public class Exam0410 {
     //   - 즉 DataOutputStream은 OutputStream 객체에만 연결할 수 있다.
     //   - BufferedOutputStream은 OutputStream 의 자식이 아니기 때문에
     //     DataOutputStream에 연결할 수 없다.
-    DataOutputStream out3 = new DataOutputStream(out2); // 컴파일 오류!
+    DataOutputStream out3 = new DataOutputStream(out2); // 컴파일 오류!, inputStram 클래스를 파라미터로 요구한다.
 
     Member member = new Member();
     member.name = "AB가각간";

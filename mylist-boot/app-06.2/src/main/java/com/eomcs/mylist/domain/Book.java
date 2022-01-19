@@ -2,7 +2,6 @@ package com.eomcs.mylist.domain;
 
 import java.sql.Date;
 
-// 다른 패키지에서 사용하기 위해 public으로 클래스를 공개한다.
 public class Book {
   String title;
   String author;
@@ -12,9 +11,6 @@ public class Book {
   Date readDate;
   String feed;
 
-  // getter 와 setter 가 없으면 스피링 부트는 객체를 생성한후 만들어진 인스턴스에 
-  // 값을 넣을 방법이 없기 때문에 꼭 setter가 잇어야 한다. 즉 인스턴스만 잇고 그 
-  // 값을 넣을 방법이 없다라는 뜻이다.
   public String getTitle() {
     return title;
   }
@@ -45,10 +41,10 @@ public class Book {
   public void setPrice(int price) {
     this.price = price;
   }
-  public java.sql.Date getReadDate() {
+  public Date getReadDate() {
     return readDate;
   }
-  public void setReadDate(java.sql.Date readDate) {
+  public void setReadDate(Date readDate) {
     this.readDate = readDate;
   }
   public String getFeed() {
@@ -57,13 +53,6 @@ public class Book {
   public void setFeed(String feed) {
     this.feed = feed;
   }
-  @Override
-  public String toString() {
-    return "Book [title=" + title + ", author=" + author + ", press=" + press + ", page=" + page
-        + ", price=" + price + ", readDate=" + readDate + ", feed=" + feed + "]";
-  }
-
-
 
 
 }

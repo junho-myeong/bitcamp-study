@@ -7,11 +7,10 @@ public class ArrayList {
   Object[] list = new Object[5];
   int size = 0;
 
-
   // 인스턴스 주소를 앞쪽에서 받으려면 static 키워드를 붙이면 안된다.
-  // non-static 메서드로 정의해야한다.
-  // 그리고 메서드가 호출 될때 받은 인스턴스를 사용하려면 내장 변수 this를 이용한다.
-  public void add(Object obj) { // 앞쪽에서 보내준 주소를 this라는 변수에 담는다.
+  // 즉 non-static 메서드로 정의해야 한다.
+  // 그리고 메서드가 호출될 때 받은 인스턴스를 사용하려면 내장 변수 this를 이용해야 한다.
+  public void add(Object obj) {
     if (this.size == this.list.length) { 
       this.list = this.grow();
     }
@@ -68,13 +67,12 @@ public class ArrayList {
   }
 
   public int size() {
-    return this.size; // this는 생략을 해도 가능하긴하다,컴파일러가 자동으로 쳐준다.
+    return this.size;
   }
+
   public Object get(int index) {
     return this.list[index];
   }
-
-
 
 }
 

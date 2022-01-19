@@ -8,11 +8,11 @@ import com.eomcs.util.ArrayList;
 @RestController 
 public class ContactController {
 
-  ArrayList contactList; // ArrayList에 설계도에 따라 메모리 준비하는 단계
+  ArrayList contactList;
 
   public ContactController() {
     contactList = new ArrayList();
-    System.out.println("ContactController() 호출됨!!!");
+    System.out.println("ContactController() 호출됨!");
   }
 
   @RequestMapping("/contact/list")

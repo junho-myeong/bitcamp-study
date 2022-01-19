@@ -7,15 +7,9 @@ public class Board {
   java.sql.Date createdDate;
 
   public Board() {
-    System.out.println("Board() 호출됨");
+    System.out.println("Board() 호출됨!");
   }
 
-
-  @Override
-  public String toString() {
-    return "Board [title=" + title + ", content=" + content + ", viewCount=" + viewCount
-        + ", createdDate=" + createdDate + "]";
-  }
   public String getTitle() {
     return title;
   }
@@ -41,5 +35,9 @@ public class Board {
     this.createdDate = createdDate;
   }
 
-
+  @Override
+  public String toString() {
+    return "Board [title=" + title + ", content=" + content + ", viewCount=" + viewCount
+        + ", createdDate=" + createdDate + "]";
+  }
 }

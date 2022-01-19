@@ -8,7 +8,7 @@ public class Exam0110 {
 
   public static void main(String[] args) throws Exception {
     FileOutputStream fileOut = new FileOutputStream("temp/members.data");
-    DataOutputStream out = new DataOutputStream(fileOut);
+    DataOutputStream out = new DataOutputStream(fileOut); // DataoutputStream은 원래 자바의 데코레이터이다!!
 
     Member member = new Member();
     member.name = "AB가각간";

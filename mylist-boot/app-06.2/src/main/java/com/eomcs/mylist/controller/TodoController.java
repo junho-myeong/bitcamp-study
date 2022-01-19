@@ -11,7 +11,7 @@ public class TodoController {
   ArrayList todoList = new ArrayList();
 
   public TodoController() {
-    System.out.println("TodoController 호출됨!!");
+    System.out.println("TodoController() 호출됨!");
   }
 
   @RequestMapping("/todo/list")
@@ -30,8 +30,9 @@ public class TodoController {
     if (index < 0 || index >= todoList.size()) {
       return 0;
     }
+
     Todo old = (Todo) todoList.get(index);
-    todo.setDone(old.isDone()); // 기존의 체크 정보는 그대로 가져가야한다.
+    todo.setDone(old.isDone()); // 기존의 체크 정보를 그대로 가져가야 한다.
 
     return todoList.set(index, todo) == null ? 0 : 1;
   }

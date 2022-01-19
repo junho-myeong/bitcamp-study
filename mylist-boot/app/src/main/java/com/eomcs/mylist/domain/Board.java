@@ -2,7 +2,7 @@ package com.eomcs.mylist.domain;
 
 import java.sql.Date;
 
-public class Board {
+public class Board implements java.io.Serializable { // 인터페이스 인데 메서드 선언을 안해도 되는이유는, 여기 안에는 메서드가 없다
   String title;
   String content;
   int viewCount;

@@ -1,9 +1,11 @@
 package com.eomcs.mylist.controller;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.PrintWriter;
+import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
+import java.io.DataInputStream;
+import java.io.DataOutputStream;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.eomcs.mylist.domain.Todo;
@@ -17,11 +19,19 @@ public class TodoController {
   public TodoController() throws Exception {
     System.out.println("TodoController() 호출됨!");
 
-    BufferedReader in = new BufferedReader(new FileReader("todos.csv"));
+    DataInputStream in = new DataInputStream(new BufferedInputStream(new FileInputStream("todo.data")));
 
-    String line;
-    while ((line = in.readLine()) != null) { // 더이상 읽을 데이터가 없으면 null을 리턴한다.
-      todoList.add(Todo.valueOf(line)); 
+
+    while (true) { // 더이상 읽을 데이터가 없으면 null을 리턴한다.
+      try {
+        Todo todo = new Todo();
+        todo.setTitle(in.readUTF());
+        todo.setDone(Boolean.valueOf(in.readUTF()));
+        todoList.add(todo); 
+      } catch (Exception e) {
+        break;
+      }
+
     }
 
     in.close();
@@ -72,15 +82,18 @@ public class TodoController {
 
   @RequestMapping("/todo/save")
   public Object save() throws Exception {
-    PrintWriter out = new PrintWriter(new FileWriter("todos.csv")); // 따로 경로를 지정하지 않으면 파일은 프로젝트 폴더에 생성된다.
+    FileOutputStream out = new FileOutputStream("todo.data"); 
+    BufferedOutputStream out1 = new BufferedOutputStream(out);
+    DataOutputStream out2 = new DataOutputStream(out1);
 
     Object[] arr = todoList.toArray();
     for (Object obj : arr) {
       Todo todo = (Todo) obj;
-      out.println(todo.toCsvString());
+      out2.writeUTF(todo.getTitle());
+      out2.writeUTF(String.valueOf(todo.isDone()));
     }
 
-    out.close();
+    out2.close();
     return arr.length;
   }
 }

@@ -1,4 +1,5 @@
 // 포함 관계로 기능 확장하기 - FileInputStream + BufferedInputStream
+// 위임 기법을 사용하는 방법(포함관계) - 데코레이터는 아니다
 package com.eomcs.io.ex08;
 
 import java.io.FileInputStream;

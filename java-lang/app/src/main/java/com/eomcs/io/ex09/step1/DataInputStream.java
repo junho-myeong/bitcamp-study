@@ -5,7 +5,7 @@ package com.eomcs.io.ex09.step1;
 import java.io.IOException;
 import java.io.InputStream;
 
-public class DataInputStream extends InputStream {
+public class DataInputStream extends InputStream { // InputStream에 자손으로 갔다
 
   InputStream 연결부품;
 

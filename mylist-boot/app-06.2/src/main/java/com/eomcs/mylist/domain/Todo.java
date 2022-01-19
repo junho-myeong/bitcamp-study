@@ -5,7 +5,7 @@ public class Todo {
   boolean done;
 
   public Todo() {
-    System.out.println("Todo() 호출됨");
+    System.out.println("Todo() 호출됨!");
   }
 
   public String getTitle() {

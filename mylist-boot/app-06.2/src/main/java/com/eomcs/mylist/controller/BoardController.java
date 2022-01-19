@@ -8,11 +8,11 @@ import com.eomcs.util.ArrayList;
 
 @RestController 
 public class BoardController {
-  ArrayList boardList;
+
+  ArrayList boardList = new ArrayList();
 
   public BoardController() {
-    boardList = new ArrayList();
-    System.out.println("BoardController 호출됨!!");
+    System.out.println("BoardController() 호출됨!");
   }
 
   @RequestMapping("/board/list")
@@ -35,7 +35,8 @@ public class BoardController {
       return "";
     }
     Board board = (Board) boardList.get(index);
-    board.setViewCount((board.getViewCount()+1));  //직접 변수에 접근하는게 아니고 메서드를 통해서 접근하는 방법이다.
+    board.setViewCount(board.getViewCount() + 1);
+
     return board;
   }
 
