@@ -2,10 +2,10 @@ package com.eomcs.mylist.controller;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
-import java.io.DataInputStream;
-import java.io.DataOutputStream;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.eomcs.mylist.domain.Todo;
@@ -19,22 +19,15 @@ public class TodoController {
   public TodoController() throws Exception {
     System.out.println("TodoController() 호출됨!");
 
-    DataInputStream in = new DataInputStream(new BufferedInputStream(new FileInputStream("todo.data")));
+    try {
+      ObjectInputStream in = new ObjectInputStream(new BufferedInputStream(new FileInputStream("todo.ser")));
 
+      todoList = (ArrayList) in.readObject();
 
-    while (true) { // 더이상 읽을 데이터가 없으면 null을 리턴한다.
-      try {
-        Todo todo = new Todo();
-        todo.setTitle(in.readUTF());
-        todo.setDone(Boolean.valueOf(in.readUTF()));
-        todoList.add(todo); 
-      } catch (Exception e) {
-        break;
-      }
-
+      in.close();
+    } catch (Exception e) {
+      System.out.println("할일 데이터 로딩중에 오류가 발생했습니다.");
     }
-
-    in.close();
   }
 
   @RequestMapping("/todo/list")
@@ -82,19 +75,14 @@ public class TodoController {
 
   @RequestMapping("/todo/save")
   public Object save() throws Exception {
-    FileOutputStream out = new FileOutputStream("todo.data"); 
+    FileOutputStream out = new FileOutputStream("todo.ser"); 
     BufferedOutputStream out1 = new BufferedOutputStream(out);
-    DataOutputStream out2 = new DataOutputStream(out1);
+    ObjectOutputStream out2 = new ObjectOutputStream(out1);
 
-    Object[] arr = todoList.toArray();
-    for (Object obj : arr) {
-      Todo todo = (Todo) obj;
-      out2.writeUTF(todo.getTitle());
-      out2.writeUTF(String.valueOf(todo.isDone()));
-    }
+    out2.writeObject(todoList);
 
     out2.close();
-    return arr.length;
+    return todoList.size();
   }
 }
 

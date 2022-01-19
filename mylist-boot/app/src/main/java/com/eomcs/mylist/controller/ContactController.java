@@ -2,10 +2,10 @@ package com.eomcs.mylist.controller;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
-import java.io.DataInputStream;
-import java.io.DataOutputStream;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.eomcs.mylist.domain.Contact;
@@ -20,25 +20,15 @@ public class ContactController {
     contactList = new ArrayList();
     System.out.println("ContactController() 호출됨!");
 
-    DataInputStream in = new DataInputStream(new BufferedInputStream(new FileInputStream("contacts.data")));
+    try {
+      ObjectInputStream in = new ObjectInputStream(new BufferedInputStream(new FileInputStream("contacts.ser")));
 
+      contactList = (ArrayList) in.readObject();
 
-
-    while (true) { // readLine()이 null을 리턴한다면 파일을 다 읽었다는 것이다.
-      try {
-        Contact contact = new Contact();
-        contact.setName(in.readUTF());
-        contact.setEmail(in.readUTF());
-        contact.setTel(in.readUTF());
-        contact.setCompany(in.readUTF());
-        contactList.add(contact);
-      } catch (Exception e){
-        break;
-      }
-
+      in.close();
+    } catch (Exception e) {
+      System.out.println("연락처 데이터를 로딩하는 중에 오류 발생했습니다!");
     }
-
-    in.close();
   }
 
   @RequestMapping("/contact/list")
@@ -87,21 +77,14 @@ public class ContactController {
   @RequestMapping("/contact/save")
   public Object save() throws Exception {
 
-    FileOutputStream out = new FileOutputStream("contacts.data"); 
+    FileOutputStream out = new FileOutputStream("contacts.ser"); 
     BufferedOutputStream out1 = new BufferedOutputStream(out);
-    DataOutputStream out2 = new DataOutputStream(out1);
+    ObjectOutputStream out2 = new ObjectOutputStream(out1);
 
-    Object[] arr = contactList.toArray();
-    for (Object obj : arr) {
-      Contact contact = (Contact) obj;
-      out2.writeUTF(contact.getName());
-      out2.writeUTF(contact.getEmail());
-      out2.writeUTF(contact.getTel());
-      out2.writeUTF(contact.getCompany());
-    }
+    out2.writeObject(contactList);
 
     out2.close();
-    return arr.length;
+    return contactList.size();
   }
 
   int indexOf(String email) {
