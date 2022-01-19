@@ -8,10 +8,10 @@ public class Exam0120 {
 
   public static void main(String[] args) throws Exception {
 
-    FileInputStream in = new FileInputStream("temp/jls11.pdf");
+    FileInputStream in = new FileInputStream("temp/jls17.pdf");
     BufferedInputStream in2 = new BufferedInputStream(in);
 
-    FileOutputStream out = new FileOutputStream("temp/jls11_3.pdf");
+    FileOutputStream out = new FileOutputStream("temp/jls17_3.pdf");
     BufferedOutputStream out2 = new BufferedOutputStream(out);
 
     int b;

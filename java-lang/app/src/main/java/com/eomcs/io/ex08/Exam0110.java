@@ -8,7 +8,7 @@ public class Exam0110 {
   public static void main(String[] args) throws Exception {
 
     // 실제 파일을 읽는 일을 수행하는 객체를 준비한다.
-    FileInputStream in = new FileInputStream("temp/jls11.pdf");
+    FileInputStream in = new FileInputStream("temp/jls17.pdf");
 
     // 기존의 FileInputStream에 버퍼 기능을 덧붙이기 위해서
     // 상속 대신 포함하는 방식을 사용한다.

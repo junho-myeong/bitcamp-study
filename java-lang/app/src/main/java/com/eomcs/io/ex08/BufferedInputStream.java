@@ -4,7 +4,8 @@ import java.io.IOException;
 import java.io.InputStream;
 
 public class BufferedInputStream {
-  InputStream in;
+  InputStream in; // 추상 클래스에 레퍼런스가 잇다는것은 그 서브 클래스에 주소를 받겠다 라는 뜻이지, 
+  // 추상 클래스에 인스턴스를 만들겠다는 것이 아니다.
 
   byte[] buf = new byte[8192];
   int size; // 배열에 저장되어 있는 바이트의 수
