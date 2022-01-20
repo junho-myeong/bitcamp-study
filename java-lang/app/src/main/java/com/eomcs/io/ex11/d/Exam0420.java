@@ -19,6 +19,8 @@ public class Exam0420 {
     // 테스트3:
     // - Member 클래스에서 age 필드를 제거한 후 데이터 읽기
     // - 결과 => OK!
+    // 테스트4:
+    // - 단 Member 클래스에 필드에 타입을 바꾸는것은 무조건 에러가 난다.
     Member member = (Member) in.readObject();
 
     in.close();
