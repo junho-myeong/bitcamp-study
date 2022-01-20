@@ -17,6 +17,7 @@ public class Exam0110 {
 
 
     // String을 내보낼때는 처음에 몇개의 데이터가 String인지 나타내준다 
+    // DataOutputStram 을 사용하면 직접 필드에 접근해서 Data를 내보내야 한다.
     out.writeUTF(member.name);
     out.writeInt(member.age);
     out.writeBoolean(member.gender);

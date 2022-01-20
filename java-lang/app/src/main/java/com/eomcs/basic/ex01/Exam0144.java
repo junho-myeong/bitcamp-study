@@ -21,6 +21,8 @@ public class Exam0144 {
     }
 
     // hashCode()를 오버라이딩하면 원하는 값을 리턴할 수 있다.
+    // 잘못 오버라이딩 한 예이고
+    // 해시코드가 주소가 아니라는것을 말하는 예이다
     @Override
     public int hashCode() {
       // 무조건 모든 Score 인스턴스가 같은 해시코드를 갖게 하자!

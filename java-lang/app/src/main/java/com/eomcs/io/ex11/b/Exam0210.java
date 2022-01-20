@@ -1,4 +1,4 @@
-// 인스턴스 입출력 - ObjectOutputStream으로 인스턴스 출력하기
+// 인스턴스 입출력 - ObjectOutputStream으로 인스턴스 출력하기 (인스턴스를 출력하는것이기 때문에 method는 출력 되는것이 아니다)
 package com.eomcs.io.ex11.b;
 
 import java.io.FileOutputStream;

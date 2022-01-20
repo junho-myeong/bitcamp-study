@@ -12,6 +12,7 @@ public class Exam0162 {
     System.out.println(classInfo.getName()); //[Ljava.lang.String;
 
     // 배열 항목의 타입 정보를 가져온다.
+    // 배열의 String 이잇으면 한 항목만 가져와서 정보 출력
     Class compTypeInfo = classInfo.getComponentType();
     System.out.println(compTypeInfo.getName()); //java.lang.String
 

@@ -21,7 +21,7 @@ public class Exam0220 {
     ObjectInputStream in = new ObjectInputStream(fileIn);
 
     // Serialize로 출력된 데이터를 읽어 다시 원래의 객체로 만들기
-    Member member = (Member) in.readObject();
+    Member member = (Member) in.readObject(); // 생성자를 따로 호출하지 않고 값을 저장한다.
 
     in.close();
 
