@@ -31,6 +31,7 @@ public class Exam0224 {
     // primitive type의 값을 객체로 다룰 수 있다.
     int i = 100;
     obj = i; // auto-boxing 규칙에 따라 Integer.valueOf(i) 문장으로 변환한다.
+    // 객체 주소에 프리머티브 타입을 저장하는것이 아니다 !!
 
     // obj 레퍼런스에 들어 있는 값이
     // int의 wrapper 클래스인지 확인해보자!

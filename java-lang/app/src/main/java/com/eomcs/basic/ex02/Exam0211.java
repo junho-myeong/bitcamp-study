@@ -45,6 +45,7 @@ public class Exam0211 {
 
   // wapper 클래스는 primitive type의 값을 객체로 다룰 수 있게 해준다.
   // primitive type에 상관없이 Object 타입의 파라미터로 값을 받을 수 있다.
+  // 그래서 메서드를 한개만 만들어도 된다.
   static void m(Object value) { // 모든 객체를 받을 수 있다.
     System.out.printf("wrapper value=%s\n", value);
   }

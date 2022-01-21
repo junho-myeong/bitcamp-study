@@ -3,7 +3,7 @@ package com.eomcs.basic.ex02;
 
 public class Exam0210 {
   public static void main(String[] args) {
-    // 자바는 primitive data 를 객체처럼 다룰 수 있도록
+    // 자바는 primitive type에 data 를 객체처럼 다룰 수 있도록
     // 각 타입에 대응하는 클래스를 제공한다.
     // 예)
     Byte b = new Byte((byte)100);               // ==> byte
@@ -32,7 +32,10 @@ public class Exam0210 {
 
 
     // Wrapper 클래스의 인스턴스를 생성할 때는 생성자 대신 클래스 메서드를 사용하라.
-    Byte b2 = Byte.valueOf((byte)100);
+    // 자바에서 정수는 기본적으로 4바이트 int이다
+    // 이렇게 객체를 만들어 주는 메서드를 
+    // "factory method"라 부른다. 
+    Byte b2 = Byte.valueOf((byte)100); // 100 은 원래 4바이트 int형 리터릴이다. 할당연산자일때는 byte = 100; 이 허락 되지만 파라미터에서는 바이트에 int리터럴로 숫자를 넣으면 안된다.
     Short s2 = Short.valueOf((short)20000);
     Integer i2 = Integer.valueOf(3000000);
     Long l2 = Long.valueOf(60000000000L);
