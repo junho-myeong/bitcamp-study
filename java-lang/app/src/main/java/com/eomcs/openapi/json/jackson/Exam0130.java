@@ -1,17 +1,16 @@
 // JSON 문자열 --> 객체 : JSON 문자열에는 클래스 정보가 없다.
-// serialize는 클래스 정보가 잇다.
-package com.eomcs.openapi.json.gson;
+package com.eomcs.openapi.json.jackson;
 
-import com.google.gson.Gson;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class Exam0130 {
-  public static void main(String[] args) {
+  public static void main(String[] args) throws Exception {
 
     // 1) JSON 문자열 준비
-    String jsonStr = "{\"no\":100,\"name\":\"홍길동\",\"email\":\"hong@test.com\",\"password\":\"1111\",\"photo\":\"hong.gif\",\"tel\":\"010-2222-1111\",\"registeredDate\":\"9월 16, 2021\"}";
+    String jsonStr = "{\"no\":100,\"name\":\"홍길동\",\"email\":\"hong@test.com\",\"password\":\"1111\",\"photo\":\"hong.gif\",\"tel\":\"010-2222-1111\",\"registeredDate\":1642991103724}";
 
     // 2) JSON 처리 객체 준비
-    Gson gson = new Gson();
+    ObjectMapper mapper = new ObjectMapper();
 
     // 3) JSON 문자열을 가지고 객체 만들기
     // - JSON 문자열에서 프로퍼티 이름과 일치하는 필드가 객체에 있다면 값을 설정해 준다. 
@@ -24,8 +23,12 @@ public class Exam0130 {
     //     photo                      X
     //     tel                        X
     //     registeredDate             registeredDate
-    // 
-    Board b = gson.fromJson(jsonStr, Board.class);
+    // - 주의!!
+    // Gson과 달리 JSON 프로퍼티에 해당하는 객체 프로퍼티가 없다면 예외가 발생한다.
+    // - @JsonIgnoreProperties 에노테이션을 사용하여 JSON프로퍼티중에 무시할 항목을 지정해야한다.
+    //
+    //
+    Board b = mapper.readValue(jsonStr, Board.class);
 
     System.out.println(b);
   }

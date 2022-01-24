@@ -2,6 +2,8 @@ package com.eomcs.openapi.json.gson;
 
 import java.sql.Date;
 
+
+
 public class Board {
   private int no;
   private String title;
