@@ -6,12 +6,10 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.PrintWriter;
 import com.eomcs.mylist.domain.Board;
-import com.eomcs.util.ArrayList;
 
-public class CsvBoardDao {
-  ArrayList boardList = new ArrayList();
+public class CsvBoardDao extends AbstractBoardDao { // variables initializer
 
-  public CsvBoardDao() throws Exception {
+  public CsvBoardDao(){
     try {
       BufferedReader in = new BufferedReader(new FileReader("boards.csv"));
 
@@ -26,7 +24,8 @@ public class CsvBoardDao {
 
 
   }
-  public void save() throws Exception {
+  @Override
+  protected void save() throws Exception {
     PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter("boards.csv")));
 
     Object[] arr = boardList.toArray();
@@ -37,39 +36,5 @@ public class CsvBoardDao {
     out.flush(); // 찌끄래기도 다 출력하도록 요구하는것이다.
     out.close();
   }
-  public int countAll() {
-    return boardList.size();
-  }
-
-  public Object[] findAll() {
-    return boardList.toArray();
-  }
-  public void insert(Board board) {
-    boardList.add(board);
-  }
-
-  public Board findByNo(int no) {
-    if (no < 0 || no >= boardList.size()) {
-      return null;
-    }
-    return (Board) boardList.get(no);
-  }
-
-  public int update(int no, Board board) {
-    if (no < 0 || no >= boardList.size()) {
-      return 0;
-    }
-    boardList.set(no, board);
-    return 1;
-  }
-
-  public int delete(int no) {
-    if (no < 0 || no >= boardList.size()) {
-      return 0;
-    }
-    boardList.remove(no);
-    return 1;
-  }
-
 
 }
