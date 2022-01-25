@@ -6,10 +6,9 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-import org.springframework.stereotype.Repository;
 import com.eomcs.util.ArrayList;
 
-@Repository
+
 public class SerialBoardDao extends AbstractBoardDao {
 
   String filename = "boards.ser";
