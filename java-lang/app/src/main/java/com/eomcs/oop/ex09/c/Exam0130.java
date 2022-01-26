@@ -42,6 +42,8 @@ public class Exam0130 {
     // ProtocolC 규칙 준수!
     @Override
     public void rule3() {System.out.println("rule3()");}
+
+    public void m1() {}
   }
 
   void test() {
@@ -60,6 +62,7 @@ public class Exam0130 {
     c.rule1(); // OK
     c.rule2(); // OK
     c.rule3(); // OK
+    //    c.m1(); // 컴파일 오류
     System.out.println("-------------------------------");
 
 
@@ -67,12 +70,14 @@ public class Exam0130 {
     //    b.rule1(); // 컴파일 오류!
     b.rule2(); // OK
     //    b.rule3(); // 컴파일 오류!
+    //  b.m1(); // 컴파일 오류
     System.out.println("-------------------------------");
 
     a.rule0(); // OK
     a.rule1(); // OK
     //    a.rule2(); // 컴파일 오류!
     //    a.rule3(); // 컴파일 오류!
+    //  a.m1(); // 컴파일 오류
     System.out.println("-------------------------------");
   }
 

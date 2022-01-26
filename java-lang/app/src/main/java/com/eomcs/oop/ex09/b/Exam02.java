@@ -16,7 +16,7 @@ interface MyInterface2 {
   public final int v3 = 300;
   public static int v4 = 400;
 
-  int v5 = 500; // 모두 생략된 상태!
+  int v5 = 500; // 모두 생략된 상태!(왜냐 상수는 변수 선언시에 값을 바로 초기화 시켜야한다)
 }
 
 // 인터페이스 필드 사용

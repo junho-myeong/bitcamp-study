@@ -1,12 +1,11 @@
-// 인터페이스 다중 구현이 불가한 경우!
-// 오버로드 보기
+// 메서드의 시그너쳐가 다르다면 당연히 다중구현 가능
 package com.eomcs.oop.ex09.c;
 
 
-public class Exam0230 {
+public class Exam0231 {
 
   interface ProtocolA {
-    void rule0();
+    void rule0(int a);
     void rule1();
   }
 

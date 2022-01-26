@@ -1,18 +1,22 @@
-// 인터페이스 다중 구현이 불가한 경우!
+// 디폴트 메서드의 다중구현
 // 오버로드 보기
 package com.eomcs.oop.ex09.c;
 
 
-public class Exam0230 {
+public class Exam0310 {
 
   interface ProtocolA {
-    void rule0();
     void rule1();
+    default void rule3() {
+      System.out.println("**protocolA rule3()**");
+    }
   }
 
   interface ProtocolB {
-    int rule0();
     void rule2();
+    default void rule3() {
+      System.out.println("===>protocolB rule3()");
+    }
   }
 
   // 다중 인터페이스를 구현이 불가한 경우,
