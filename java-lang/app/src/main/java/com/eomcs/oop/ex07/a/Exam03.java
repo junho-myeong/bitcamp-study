@@ -22,18 +22,21 @@ class A3Sub extends A3 {
     System.out.println("A3Sub.m1() 호출됨!");
   }
 
-  public void m2() {
+  public void m2() { // 인스턴스 메서드
     System.out.println("A3Sub.m2() 호출됨!");
   }
 }
 
 public class Exam03 {
   public static void main(String[] args) {
+    // 레퍼런스 선언은 가능하다
+    // 왜냐 하면 서브 클래스의 주소를 담을수 잇기 때문에
     A3 obj;
 
     // 추상 클래스의 인스턴스는 생성 불가!
     //    obj = new A3(); // Error!
-
+    //    obj.m1() 호출 이 불가하기 때문에 인스턴스 생성 불가
+    //
     // 추상 메서드를 구현한 서브 클래스 만이 인스턴스 생성 가능!
     obj = new A3Sub();
 
@@ -46,12 +49,14 @@ public class Exam03 {
     // - 레퍼런스가 실제 가리키는 객체가 A3Sub 라 하더라도
     //   레퍼런스 타입의 범위를 넘어서 메서드를 호출할 수는 없다.
     //    obj.m2(); // 컴파일 오류!
+    //    위에 예는 컴파일 자체가 오류를 띄운다
 
-    // - 물론 실제 인스턴스 타입으로 형벼환 후에는 가능한다.
+    // - 물론 실제 인스턴스 타입으로 형변환 후에는 가능하다.
+    // obj한테 A3Sub 라고 가정을 시키고 실행 시켜보는 것이다.
     ((A3Sub)obj).m2();
   }
 
-  static void test(A3 obj) {
+  static void test(A3 obj) { // 서브클래스에 인스턴스 주소를 받겠다는 뜻이다.
     obj.m1();
     // 엥? 
     // obj는 A3의 레퍼런스이다.

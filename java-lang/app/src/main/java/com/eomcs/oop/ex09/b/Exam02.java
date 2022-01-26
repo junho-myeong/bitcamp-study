@@ -11,6 +11,7 @@ interface MyInterface2 {
   public static final int v1 = 100;
 
   // public, static, final 을 생략할 수 있다.
+  // 생략 된거지 인스턴스 변수가 아니다 절대 !!!!!!!!!
   static final int v2 = 200;
   public final int v3 = 300;
   public static int v4 = 400;

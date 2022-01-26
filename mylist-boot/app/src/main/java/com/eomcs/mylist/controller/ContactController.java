@@ -1,14 +1,10 @@
 package com.eomcs.mylist.controller;
 
-import java.io.BufferedWriter;
-import java.io.FileWriter;
-import java.io.PrintWriter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.eomcs.mylist.dao.ContactDao;
 import com.eomcs.mylist.domain.Contact;
-import com.fasterxml.jackson.databind.ObjectMapper;
 
 @RestController 
 public class ContactController {
@@ -43,13 +39,7 @@ public class ContactController {
 
   @RequestMapping("/contact/delete")
   public Object delete(String email) throws Exception {
-    int index = indexOf(email);
-    if (index == -1) {
-      return 0;
-    }
-
-    contactDao.delete(index);
-    return 1;
+    return contactDao.delete(email);
   }
 
 
