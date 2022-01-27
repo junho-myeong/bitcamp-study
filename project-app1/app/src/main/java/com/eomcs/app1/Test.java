@@ -1,13 +1,18 @@
 package com.eomcs.app1;
 
+import java.util.Arrays;
+
 public class Test {
 
   public static void main(String[] args) {
-    // TODO Auto-generated method stub
-    String[] s1 = {"dd", "ff", "gg"};
-    System.out.println(s1.length);
+    String str = "aaa bbb ccc ddd";
 
-    System.out.println();
+    String[] values = str.split(" ");
+    System.out.println(values.length);
+    String[] values2 = Arrays.copyOfRange(values, 1, values.length);
+    for (String v : values2) {
+      System.out.println(v);
+    }
 
   }
 

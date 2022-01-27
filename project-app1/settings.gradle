@@ -8,7 +8,6 @@
  */
 
 rootProject.name = 'project-app1'
-// 빌드 그레이들이 가능하게 하는 코드 app 뿐만 아니라 폴더에서도 실행 가능하게 하는거다
 include('app')
 include('app-client')
 include('app-server')

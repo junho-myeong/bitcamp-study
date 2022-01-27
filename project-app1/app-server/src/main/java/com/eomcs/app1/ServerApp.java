@@ -10,46 +10,32 @@ public class ServerApp {
   public static void main(String[] args) throws Exception {
     System.out.println("[계산기 서버]");
 
-    // 1) 클라이언트 App의 연결을 준비한다.
-    // - 기다리는 쪽이기 때문에 파라미터에 IP주소는 필요없고
-    // - 포트번호만 잇으면 된다.
+    //1) 클라이언트 App의 연결을 준비한다.
     ServerSocket serverSocket = new ServerSocket(8888);
 
-    // 2) 클라이언트의 연결 요청을 승인한다.
-    //      - 리턴 값은 클라이언트와 연결된 정보
+    //2) 클라이언트의 연결 요청을 승인한다.
+    //   - 리턴 값은 클라이언트와 연결된 정보
     System.out.println("클라이언트의 연결을 기다림!");
-    Socket socket = serverSocket.accept(); // 클라이언트가 연결될 때 까지 리턴하지 않는다.
+    Socket socket = serverSocket.accept(); // 클라이언트가 연결될 때까지 리턴하지 않는다.
     System.out.println("클라이언트와 연결됨!");
 
     // 클라이언트와 데이터를 주고 받을 입출력 도구를 준비한다.
     Scanner in = new Scanner(socket.getInputStream());
     PrintStream out = new PrintStream(socket.getOutputStream());
 
-    // 클라이언트와 주고 받는 순서가 맞아야한다.
-    // - 먼저 받는다
+    // 클라이언트와 주고 받는 순서가 맞아야 한다.
     String request = in.nextLine();
-    System.out.println("이름:" + request);
+    System.out.println("이름: " + request);
 
-    // 서버가 응답
-    out.println(request + "님 반갑습니다!!");
+    out.println(request + "님 반갑습니다.");
 
     // 클라이언트와의 연결을 끊음
-    // - 서버는 실행 되고잇지만 클라이언트와의 연결 종료
     socket.close();
-    System.out.println("클라이언트와 연결 종료!!!");
+    System.out.println("클라이언트 연결 종료!");
 
     // 서버쪽 연결 도구 종료!
-    // - 서버 자체를 꺼버리는것
     serverSocket.close();
-    System.out.println("서버 종료");
-
-
-
-
-
-
-
-
+    System.out.println("서버 종료!");
   }
 
 }

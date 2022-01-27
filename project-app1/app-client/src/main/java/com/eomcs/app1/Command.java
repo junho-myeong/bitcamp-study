@@ -20,6 +20,7 @@ public class Command {
   public String getString(int paramIndex) {
     return (String) this.params.get(paramIndex);
   }
+
   public int getInt(int paramIndex) {
     return Integer.parseInt((String) this.params.get(paramIndex));
   }
