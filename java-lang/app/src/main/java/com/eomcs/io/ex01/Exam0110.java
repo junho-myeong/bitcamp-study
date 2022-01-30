@@ -19,7 +19,7 @@ public class Exam0110 {
     //
     File currentDir = new File("./src/main/java");
     System.out.printf("폴더명: %s\n", currentDir.getName());
-    System.out.printf("경로: %s\n", currentDir.getPath());
+    System.out.printf("경로: %s\n", currentDir.getPath()); // 프로젝트 디렉토리에서 부터 경로
     System.out.printf("절대경로: %s\n", currentDir.getAbsolutePath());
     System.out.printf("계산된 절대경로: %s\n", currentDir.getCanonicalPath());
 

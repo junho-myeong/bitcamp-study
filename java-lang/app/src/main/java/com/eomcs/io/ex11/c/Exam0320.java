@@ -1,4 +1,5 @@
 // 인스턴스 입출력 - 직렬화 유효성 검사
+// serialversionUID 확인하기
 package com.eomcs.io.ex11.c;
 
 import java.io.FileInputStream;
