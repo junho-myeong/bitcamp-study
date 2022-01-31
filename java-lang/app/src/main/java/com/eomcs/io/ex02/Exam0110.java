@@ -13,6 +13,7 @@ public class Exam0110 {
 
   public static void main(String[] args) throws Exception {
 
+
     // 1) 파일로 데이터를 출력하는 객체를 준비한다.
     // - new FileOutputStream(파일경로)
     // - 지정된 경로에 해당 파일을 자동으로 생성한다.

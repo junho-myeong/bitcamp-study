@@ -1,4 +1,5 @@
 // Character Stream - String 출력하기
+// String 배열이 아닌 String 객체 출력하기
 package com.eomcs.io.ex03;
 
 import java.io.FileWriter;
