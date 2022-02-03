@@ -1,4 +1,5 @@
 // 서버 만들기
+// 대기열에 관한 주제를 다룬다
 package com.eomcs.net.ex02;
 
 import java.net.ServerSocket;
@@ -6,6 +7,7 @@ import java.util.Scanner;
 
 // 서버(server)?
 // => 네트워크 연결을 기다리는 쪽을 가리킨다.
+// => 서비스를 제공 하는 쪽을 가리킨다.
 public class Server0110 {
   public static void main(String[] args) throws Exception {
     // 중간에 실행을 잠깐 멈출 때 사용하기 위함.
@@ -13,7 +15,7 @@ public class Server0110 {
 
     System.out.println("서버 실행!");
     // 1) 네트워크 연결을 기다리는 역할을 수행할 객체를 준비
-    // => new ServerSocket(포트번호)
+    // => new ServerSocket(포트번호(호스트의 포트번호))
     // => 현재 실행 중인 프로그램과 포트 번호가 중복되어서는 안된다.
     ServerSocket ss = new ServerSocket(8888);
     // 포트번호
@@ -24,6 +26,7 @@ public class Server0110 {
 
     // 잠깐 멈추기
     keyboard.nextLine(); // 사용자가 엔터를 칠 때까지 리턴하지 않는다.
+    // 이클립스에서 실행해 보고 커멘드창에서 같이 실행하면 이미 사용중이라고 나온다
 
     ss.close();
     System.out.println("서버 종료!");
