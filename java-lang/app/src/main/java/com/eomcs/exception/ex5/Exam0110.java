@@ -26,7 +26,7 @@ public class Exam0110 {
     } 
   }
 
-  public static void main(String[] args) {
+  public static void main(String[] args) { // NumberFormatException은 RuntimeException에 하위 이기 때문에 메서드 선언 부에 따로 선언하지 않아도 괜찮다
     Board board = read();
     System.out.println("---------------------");
     System.out.printf("번호: %d\n", board.getNo());

@@ -14,6 +14,7 @@ public class Exam0120 {
         break;
 
       try {
+        // 메서드가 어떤 예외를 발생시키는지 알아 내는 방법은 throws 안에 글을 읽어 본다
         int v1 = keyScan.nextInt();
         int v2 = keyScan.nextInt();
 

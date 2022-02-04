@@ -29,6 +29,8 @@ public class Exam0641 {
     } catch (Exception e) {
       // close()가 호출된 후 catch 블록이 실행된다.
       System.out.println("예외 발생!: " + e.getMessage());
+      // finally와 차이점은 finally는 예외 먼저 잡고 그다음 finally (try catch finally)
+      // 여기는 예외 발생하면 try resource catch
     }
   }
 }

@@ -22,6 +22,7 @@ public class Server0110 {
       InputStream in = null;
 
       try {
+        // 트라이문 안에 변수 선언하면 finally에서 접근 할수 없다.
         // accept()
         // - 대기열에서 클라이언트 정보를 한 개 꺼내 소켓을 만들어 클라이언트와 연결한다.
         // - 만약 대기열에 클라이언트 정보가 없다면 클라이언트가 접속할 때까지 기다리다.
@@ -68,7 +69,8 @@ public class Server0110 {
         System.out.println("클라인트에게 데이터를 보냈음.");
 
       } catch (Exception e) {
-        e.printStackTrace();
+
+        e.printStackTrace(); // 메서드 별로 따라 올라가면서 추적해달라
 
       } finally {
         try {out.close();} catch (Exception e) {}
@@ -79,10 +81,15 @@ public class Server0110 {
 
 
     } catch (Exception e) {
+      System.out.println("상세 예외 정보:");
       e.printStackTrace();
 
     } finally {
-      try { keyboard.close(); } catch (Exception e) {}
+      System.out.println("키보드 자원 해제 및 서버소켓 자원 해제");
+      // ketboared.close()는 예외가 발생해도 안던진다는 말이다
+      keyboard.close();
+      // Exception 예외를 던질때 RuntimeException예외와 다르게 조심히 다뤄야한다.
+      // 보통은 close하다가 예외 발생하면 그냥 무시하기 때문에 본체에 아무것도 쓰지 않는다.
       try { serverSocket.close();} catch (Exception e) {}
     }
     System.out.println("서버 종료!");

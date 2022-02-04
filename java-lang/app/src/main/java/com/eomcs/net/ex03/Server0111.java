@@ -12,6 +12,7 @@ public class Server0111 {
 
 
     try (Scanner keyboard = new Scanner(System.in);
+        // 변수 선언 문만 들어 올수 잇다(오토 클러저블 구현체만)
         ServerSocket serverSocket = new ServerSocket(8888)) {
 
       System.out.println("클라이언트의 연결을 기다리고 있음.");

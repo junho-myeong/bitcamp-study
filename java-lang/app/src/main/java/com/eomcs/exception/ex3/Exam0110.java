@@ -13,7 +13,7 @@ public class Exam0110 {
   static void m() {
     // 예외를 호출자에게 알려주는 문법
     // => throw [Throwable 객체];
-    //    throw new String("예외가 발생했습니다!"); // 컴파일 오류!
+    //    throw new String("예외가 발생했습니다!"); // 컴파일 오류!, String 타입은 Thorwable객체가 아니다
     throw new RuntimeException("예외가 발생했습니다!");
   }
 
