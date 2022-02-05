@@ -17,6 +17,7 @@ public class Receiver4 {
     Socket socket = serverSocket.accept();
     System.out.println("클라이언트가 연결됨.");
 
+    // OutputStream으로 보내고 받으면 binary파일을 보내고 받을수 잇다.
     PrintStream out = new PrintStream(socket.getOutputStream());
     DataInputStream in = new DataInputStream(socket.getInputStream());
 

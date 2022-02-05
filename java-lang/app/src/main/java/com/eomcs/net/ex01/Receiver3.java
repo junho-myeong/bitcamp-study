@@ -13,6 +13,7 @@ public class Receiver3 {
 
     Scanner keyScan = new Scanner(System.in);
 
+    // 대기열에서 하나씩 처리하기 때문에 하나의 일이 끝나면 또 다른 객체를 생성한다.
     ServerSocket serverSocket = new ServerSocket(8888);
     Socket socket = serverSocket.accept();
 

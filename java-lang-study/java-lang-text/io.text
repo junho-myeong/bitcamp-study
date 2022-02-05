@@ -101,4 +101,4 @@
       => FileWriter클래스이다.
     - FileWriter에 writer() 메서드는 FileOutputStream과 다르게 2바이트씩 읽어서 출력한다. 왜냐하면 FileWriter클래스는 문자 단위로 읽기 때문이다.
     - FileOutputStream 라든지 FileInputStream라든지 둘다 내보낼때 지정하지 않으면 utf-16을 읽어서 utf-8로 내보내고 utf-8을 읽어서 utf-16으로 자동 변환해서 JVM이 실행할수 잇는 UTF-16으로 실행하는것이다.
-    
+  

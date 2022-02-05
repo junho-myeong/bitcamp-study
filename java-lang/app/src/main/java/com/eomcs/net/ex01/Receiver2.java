@@ -20,6 +20,7 @@ public class Receiver2 {
     Scanner in = new Scanner(socket.getInputStream());
 
     // 클라이언트가 보낸 문자열을 수신한다.
+    // 수신하기 전까지 리턴하지않기 때문에 이 코드에서 머무른다.
     String str = in.nextLine();
     System.out.println(str);
 
