@@ -26,6 +26,9 @@ public class Client0160 {
       // 버퍼를 사용할 때는
       // 데이터를 보내기 위해 반드시 flush()를 호출해야 한다.
       // => 버퍼에 남아 있는 데이터를 연결된 출력 스트림을 이용하여 내보낸다.
+      // lan카드에 간것이 아니고 buffered객체에 담겨 잇는 상태라서 보냈다고 생각하지만
+      // buffered객체에 잇다
+      // 여기서 는 autocloseable이 안먹는 이유는 밑에까지다 실행하지 못해서 이다.
       System.out.println("서버에 데이터를 보냈음!");
 
       String str = in.nextLine();

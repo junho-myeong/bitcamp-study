@@ -17,6 +17,7 @@ public class Server0120 {
 
       while (true) {
         // 한 클라이언트와 대화가 끝다면 다음 클라이언트와 대화를 한다.
+        // 그다음 고객과 연결한다.
         try (Socket socket = serverSocket.accept();
             BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
             PrintWriter out = new PrintWriter(socket.getOutputStream())) {
