@@ -1,4 +1,5 @@
 // stateful 방식의 이점 활용 - 계산기 서버 만들기
+// stateful 방식을 사용하면 중간 계산 결과를 유지할 필요가 없다.
 package com.eomcs.net.ex04.stateful2;
 
 import java.io.DataInputStream;
