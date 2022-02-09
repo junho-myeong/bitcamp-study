@@ -1,4 +1,5 @@
 // stateless 방식에서 클라이언트를 구분하고 작업 결과를 유지하는 방법
+// 세션 아이디를 발급함으로써 클라이언트를 구분하고 작업 결과를 유지한다.
 package com.eomcs.net.ex04.stateless2;
 
 import java.io.DataInputStream;
@@ -47,7 +48,7 @@ public class CalcServer {
       int value = in.readInt();
 
       // 클라이언트를 위한 기존 값 꺼내기
-      Integer obj = resultMap.get(clientId);
+      Integer obj = resultMap.get(clientId); // key와 value로 구분한다
       int result = 0;
 
       if (obj != null) {
@@ -74,6 +75,7 @@ public class CalcServer {
           result *= value;
           break;
         case "/":
+          Thread.sleep(10000);
           result /= value;
           break;
         default:
