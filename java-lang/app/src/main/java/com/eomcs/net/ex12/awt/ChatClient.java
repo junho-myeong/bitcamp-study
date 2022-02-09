@@ -1,11 +1,19 @@
+// awt에서 제공하는것을 토대로 window제작하기
 package com.eomcs.net.ex12.awt;
 
+import java.awt.BorderLayout;
+import java.awt.Button;
+import java.awt.FlowLayout;
 import java.awt.Frame;
+import java.awt.Panel;
+import java.awt.TextArea;
+import java.awt.TextField;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
 public class ChatClient extends Frame {
 
+  private static final long serialVersionUID = 1L;
   public ChatClient() {
     super("계산기");
     // 익명생성자를 호출 하는 방법
@@ -21,6 +29,31 @@ public class ChatClient extends Frame {
       }
     }); // 컴퓨터에 모니터를 연결하는것이라고 생각하면 된다.
     this.setSize(400, 300);
+    Panel topPanel = new Panel(new FlowLayout(FlowLayout.LEFT));
+    topPanel.setLayout(new FlowLayout(FlowLayout.LEFT));
+    TextField addressTf = new TextField(30);
+    topPanel.add(addressTf);
+
+    TextField portTf = new TextField(4);
+    topPanel.add(portTf);
+
+    Button connectBtn = new Button("연결");
+    topPanel.add(connectBtn);
+
+    this.add(topPanel, BorderLayout.NORTH);
+
+    TextArea messageListTa = new TextArea();
+    this.add(messageListTa, BorderLayout.CENTER);
+
+    Panel bottomPanel = new Panel();
+    TextField messageTf = new TextField(20);
+    bottomPanel.add(messageTf);
+
+    Button sendBtn = new Button("보내기");
+    bottomPanel.add(sendBtn);
+    bottomPanel.setLayout(new FlowLayout(FlowLayout.LEFT));
+
+    this.add(bottomPanel, BorderLayout.SOUTH);
     this.setVisible(true);
   }
   public static void main(String[] args) {
