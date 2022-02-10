@@ -30,8 +30,20 @@ public class ChatClient extends JFrame {
   Socket socket;
   DataInputStream in;
   DataOutputStream out;
+  String nickname;
   public ChatClient() {
-    super("계산기");
+    String title = "대화명을 입력하세요\n (2자 이상)";
+    while (true) {
+      nickname = JOptionPane.showInputDialog(title);
+      if (nickname == null) {
+        System.exit(0);
+      }else if (nickname != null && nickname.length() >= 2) {
+        break;
+      }
+      title = "대화명을 다시 입력하세요\n(2자 이상)";
+    }
+    this.setTitle("채팅!! - " + nickname);
+    System.out.println(nickname);
     // 익명생성자를 호출 하는 방법
     // 그래서 슈퍼 클래스의 생성자를 호출 해야한다.
     // 익명으로 클래스를 호출 하는것이다.
@@ -90,6 +102,10 @@ public class ChatClient extends JFrame {
     contentPane.add(bottomPanel, BorderLayout.SOUTH);
 
     messageTf.addActionListener(this::sendMessage);
+
+
+
+
     this.setVisible(true);
   }
   public static void main(String[] args) throws Exception {
@@ -115,6 +131,8 @@ public class ChatClient extends JFrame {
       socket = new Socket(addressTf.getText(), Integer.parseInt(portTf.getText()));
       in = new DataInputStream(socket.getInputStream());
       out = new DataOutputStream(socket.getOutputStream());
+      out.writeUTF(nickname);
+      out.flush();
 
       new MessageReceiver(in).start();
 

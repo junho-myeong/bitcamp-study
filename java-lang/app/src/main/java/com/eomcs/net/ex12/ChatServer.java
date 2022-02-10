@@ -53,7 +53,8 @@ public class ChatServer {
           DataInputStream in = new DataInputStream(socket.getInputStream());
           DataOutputStream out = new DataOutputStream(socket.getOutputStream())){
         clientOutputStreams.add(out);
-        out.writeUTF("환영합니다!\n");
+        String nickname = in.readUTF();
+        out.writeUTF(nickname + "님 환영합니다!\n");
         while (true) {
           String message = in.readUTF();
           if (message.equals("\\quit")) {
@@ -61,8 +62,7 @@ public class ChatServer {
             out.flush();
             break;
           }
-          sendMessage(message);
-
+          sendMessage(String.format("[%s] %s", nickname,  message));
         }
 
       } catch (Exception e) {
