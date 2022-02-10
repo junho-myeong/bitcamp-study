@@ -30,14 +30,21 @@ public class ChatServer {
     }
   }
 
+  @SuppressWarnings("unchecked")
   public void sendMessage(String message) {
+    ArrayList deleteStreams = new ArrayList();
     for (int i = 0; i <clientOutputStreams.size(); i++) {
       DataOutputStream out = (DataOutputStream) clientOutputStreams.get(i);
       try {
         out.writeUTF(message);
       } catch (Exception e) {
-
+        System.out.println("전송 오류:" + message);
+        //        clientOutputStreams.remove(i);
+        deleteStreams.add(out); // remove로 삭제시 땡겨지기 때문에 지금 삭제가 아니고 모아둔다
       }
+    }
+    for (Object deleteStream : deleteStreams) { // 삭제명단에 등록된 출력 스트림을 제거한다.
+      clientOutputStreams.remove(deleteStream);
     }
   }
   class RequestHandler extends Thread {
@@ -58,8 +65,9 @@ public class ChatServer {
         while (true) {
           String message = in.readUTF();
           if (message.equals("\\quit")) {
-            out.writeUTF("Goodbye");
+            out.writeUTF("<![QUIT[]>"); // 연결을 끊겠다는 특별한 메세지를 클라이언트에게 보낸다.
             out.flush();
+            clientOutputStreams.remove(out); // 메세지 출력 목록에서 연결을 끊은 클라이언트는 제거한다.
             break;
           }
           sendMessage(String.format("[%s] %s", nickname,  message));

@@ -27,6 +27,7 @@ public class ChatClient extends JFrame {
   JTextField portTf = new JTextField(4);
   JTextField messageTf = new JTextField(35);
   JTextArea messageListTa = new JTextArea();
+  JButton connectBtn = new JButton("연결");
   Socket socket;
   DataInputStream in;
   DataOutputStream out;
@@ -52,6 +53,12 @@ public class ChatClient extends JFrame {
     this.addWindowListener(new WindowAdapter() {
       @Override
       public void windowClosing(WindowEvent e) {
+        if (connectBtn.getText().equals("종료")) {
+          try {
+            out.writeUTF("\\quit");
+            out.flush();
+          } catch (Exception ex) {}
+        }
         try { in.close();} catch (Exception ex) {}
         try { out.close();} catch (Exception ex) {}
         try { socket.close();} catch (Exception ex) {}
@@ -68,7 +75,7 @@ public class ChatClient extends JFrame {
     topPanel.add(addressTf);
     topPanel.add(portTf);
 
-    JButton connectBtn = new JButton("연결");
+
     class MyActionListener implements ActionListener {
       @Override
       public void actionPerformed(ActionEvent e) {
@@ -123,21 +130,32 @@ public class ChatClient extends JFrame {
 
   }
   public void connectChatServer(ActionEvent e) {
-    System.out.println("서버에 연결하기!!");
-    System.out.println(addressTf.getText());
-    System.out.println(portTf.getText());
+    if (connectBtn.getText().equals("연결")) {
+      System.out.println("서버에 연결하기!!");
+      System.out.println(addressTf.getText());
+      System.out.println(portTf.getText());
 
-    try {
-      socket = new Socket(addressTf.getText(), Integer.parseInt(portTf.getText()));
-      in = new DataInputStream(socket.getInputStream());
-      out = new DataOutputStream(socket.getOutputStream());
-      out.writeUTF(nickname);
-      out.flush();
+      try {
+        socket = new Socket(addressTf.getText(), Integer.parseInt(portTf.getText()));
+        in = new DataInputStream(socket.getInputStream());
+        out = new DataOutputStream(socket.getOutputStream());
+        out.writeUTF(nickname);
+        out.flush();
 
-      new MessageReceiver(in).start();
+        new MessageReceiver(in).start();
 
-    } catch(Exception ex) {
-      JOptionPane.showMessageDialog(this, "서버에 연결중 오류 발생","통신오류", JOptionPane.ERROR_MESSAGE);
+      } catch(Exception ex) {
+        JOptionPane.showMessageDialog(this, "서버에 연결중 오류 발생","통신오류", JOptionPane.ERROR_MESSAGE);
+      }
+      connectBtn.setText("종료");
+    } else {
+      try {
+        out.writeUTF("\\quit");
+        out.flush();
+
+      } catch (Exception ex) {}
+      connectBtn.setText("연결");
+      messageListTa.setText("");
     }
   }
   public void sendMessage(ActionEvent e) {
@@ -165,6 +183,9 @@ public class ChatClient extends JFrame {
       while (true) {
         try {
           String message = in.readUTF();
+          if (messageListTa.equals("<![QUIT[]>")) { // 서버에서 연결을 끊겠다는 메세지가 오면 스테드를 종료 한다.
+            break; // 스레드 종료! run()메서드의 실행을 마치면 스레드는 종료한다.
+          }
           messageListTa.append(message + "\n");
 
 
