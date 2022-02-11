@@ -7,6 +7,22 @@ public class Exam0210 {
     void print();
   }
 
+  class X {
+    public X() {
+      System.out.println("Hello!");
+    }
+    public X(int i) {
+      System.out.println("Hello!");
+    }
+    public X(String s) {
+      System.out.println("Hello!");
+    }
+    // 인스턴스 블럭은 여러 생성자에서 공통으로 가져야 할때 사용한다. 생성자에 맨 앞부분으로 들어간다
+    {
+      System.out.println("abc#");
+    }
+  }
+
   public static void main(final String[] args) {
 
     A obj = new A() {

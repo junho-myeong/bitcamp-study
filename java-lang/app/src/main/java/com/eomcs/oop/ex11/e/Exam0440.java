@@ -32,6 +32,7 @@ public class Exam0440 {
     m1(obj);
 
     // 3) 익명 클래스를 파라미터 자리에 바로 삽입
+    // 실무에서 가장 많이 사용한다.
     m1(new A() {
       @Override
       public void print() {

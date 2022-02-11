@@ -10,7 +10,7 @@ public class Exam0310 {
   }
 
   public static void main(final String[] args) {
-    A obj = new A() {
+    A obj = new A() { // 익명클래스로 하면 A 클래스를 상속 받은 효과이다.
       @Override
       public void print() {
         System.out.println("정말 반갑습니다!");

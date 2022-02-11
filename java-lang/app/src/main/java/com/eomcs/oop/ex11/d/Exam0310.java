@@ -1,4 +1,5 @@
 // local class에서 바깥 메서드의 로컬 변수 접근
+// local 클래스에서 로컬 변수에 맞게 필드와 생성자를 변형한다.
 package com.eomcs.oop.ex11.d;
 
 class D {
