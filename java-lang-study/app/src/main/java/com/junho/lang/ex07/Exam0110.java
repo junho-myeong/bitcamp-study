@@ -8,6 +8,7 @@ public class Exam0110 {
     System.out.println("밑변의 길이는?");
     int totalLen = sc.nextInt();
     sc.close();
+    System.out.println("test");
 
     int starLen = 1;
     while (starLen <= totalLen) {
