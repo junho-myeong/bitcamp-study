@@ -32,4 +32,8 @@ public class MyList {
     arr[--size] = null; // 배열의 크기를 줄이고 마지막 항목에 잇는 값을 null로 초기화 해서 가비지를 줄인다.
     return old;
   }
+
+  public Iterator iterator() {
+    return new ListIterator(this);
+  }
 }

@@ -1,6 +1,4 @@
-// 중첩 클래스란?
-// 중첩 클래스란 클래스의 사용범위를 제한하기 위한 문법이다.
-package com.eomcs.oop.ex11.overview.step1;
+package com.eomcs.oop.ex11.overview.step7;
 
 import java.util.Arrays;
 
@@ -34,4 +32,25 @@ public class MyList {
     arr[--size] = null; // 배열의 크기를 줄이고 마지막 항목에 잇는 값을 null로 초기화 해서 가비지를 줄인다.
     return old;
   }
+
+  public Iterator iterator() {
+    // anonymous class(익명 클래스)
+    // - 클래스의 이름이 없다
+    // - 그래서 클래스 클래스를 정의한후 따로 인스턴스를 생성할 수 없다.
+    // - 그래서 클래스 정의와 인스턴스 생성이 합쳐져 잇다.
+    // 
+    return new Iterator() {
+      int cursor;
+      @Override
+      public boolean hasNext() {
+        return cursor < MyList.this.size();
+      }
+      @Override
+      public Object next() {
+        return MyList.this.get(cursor++);
+      }
+    };
+  }
+
+
 }

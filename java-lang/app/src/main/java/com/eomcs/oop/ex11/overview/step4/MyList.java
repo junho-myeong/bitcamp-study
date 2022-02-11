@@ -1,6 +1,4 @@
-// 중첩 클래스란?
-// 중첩 클래스란 클래스의 사용범위를 제한하기 위한 문법이다.
-package com.eomcs.oop.ex11.overview.step1;
+package com.eomcs.oop.ex11.overview.step4;
 
 import java.util.Arrays;
 
@@ -33,5 +31,30 @@ public class MyList {
     }
     arr[--size] = null; // 배열의 크기를 줄이고 마지막 항목에 잇는 값을 null로 초기화 해서 가비지를 줄인다.
     return old;
+  }
+
+  public Iterator iterator() {
+    return new ListIterator(this);
+  }
+
+  // static nested class(스태틱 중첩 클래스)
+  // - ListIterator는 MyList 클래스에서만 직접 사용된다.
+  // - 중첩 클래스 문법을 사용하여 명확하게 ListIterator의 사용범위를 제한한다.
+  //
+  static class ListIterator implements Iterator {
+    MyList list;
+    int cursor;
+
+    public ListIterator (MyList list) {
+      this.list = list;
+    }
+    @Override
+    public boolean hasNext() {
+      return cursor < list.size();
+    }
+    @Override
+    public Object next() {
+      return list.get(cursor++);
+    }
   }
 }
