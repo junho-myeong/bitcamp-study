@@ -1,10 +1,9 @@
-package com.eomcs.algorithm.data_structure.linkedlist2;
+package com.eomcs.algorithm.data_structure.linkedlist2.step4;
 
 public class LinkedList {
   Node head;
   Node tail;
   int size;
-
 
   // create
   public void add(Object value) {
@@ -23,23 +22,16 @@ public class LinkedList {
   public void add(int index, Object value) {
     Node node = getNode(index);
     Node newNode = new Node(value);
-
-    if (node.prev != null) { // 첫번째 노드가 아니라면
-      node.prev.next = newNode; // 앞 노드 뒤의 노드를 새 노드로 설정.
-      newNode.prev = node.prev; // 새 노드에 앞 노드 설정
-      newNode.next = node; // 새 노드에 다음 노드를 현재 노드로 설정.
-      node.prev = newNode; // 현재 노드에 앞 노드로 새 노드를 설정.
-
-      size++;
-    } else if(node == head) {
-      head = newNode; // 새 노드를 첫번째 노드로 만든다.
-      newNode.next = node.prev;
-      node.prev = newNode;
-      newNode.next = node;
+    if (node.prev != null) {
+      node.prev.next = newNode; // 앞 노드 뒤의 노드를 새 노드로 설정
+    }
+    newNode.prev = node.prev; // 새 노드의 앞 노드 설정
+    node.prev = newNode; // 현재 노드의 앞 노드를 새 노드로 설정
+    newNode.next = node; // 새 노드의 다음 노드를 현재 노드로 설정. 
+    if (node == head) { // 첫 번째 노드라면
+      head = newNode; // 새 노드를 첫 번째 노드로 만든다.
     }
     size++;
-
-
   }
 
   public int size() {
@@ -97,6 +89,62 @@ public class LinkedList {
     return old; // 변경되기 전에 값을 리턴한다.
   }
 
+  public Iterator iterator() {
+    // local Class 활용 예
+    // => 특정 메서드 안에서만 사용될 때
+    // 
+    class ListIterator implements Iterator{
 
+      int cursor;
 
+      // 다음에 값이 잇는지 확인
+      @Override
+      public boolean hasNext() {
+        return cursor < LinkedList.this.size();
+      }
+      // 현재 위치 값에서 값 꺼내기
+      @Override
+      public Object next() {
+        return LinkedList.this.get(cursor++);
+      }
+    }
+    return new ListIterator(); //
+  }
+
+  // 범위 축소
+  // satic Nested Class 활용 예
+  // => 특정 클래스 내부에서만 사용되는 클래스일 때
+  // => 바깥 클래스의 인스턴스 맴버를 사용하지 않을때
+  private static class Node { // 바깥클래스에 인스턴스 맴버를 사용하지 않기 때문에 static으로 해준다
+    Node prev;
+    Object value;
+    Node next;
+
+    public Node(Object value) {
+      this.value = value;
+    }
+
+    public Node getPrev() {
+      return prev;
+    }
+    public void setPrev(Node prev) {
+      this.prev = prev;
+    }
+    public Object getValue() {
+      return value;
+    }
+    public void setValue(Object value) {
+      this.value = value;
+    }
+    public Node getNext() {
+      return next;
+    }
+    public void setNext(Node next) {
+      this.next = next;
+    }
+    @Override
+    public String toString() {
+      return "Node [prev=" + prev + ", value=" + value + ", next=" + next + "]";
+    }
+  }
 }

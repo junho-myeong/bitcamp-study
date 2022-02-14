@@ -1,4 +1,4 @@
-package com.eomcs.oop.ex11.h.test;
+package com.eomcs.algorithm.data_structure.linkedlist2.step3;
 
 public class LinkedList {
   Node head;
@@ -90,22 +90,7 @@ public class LinkedList {
   }
 
   public Iterator iterator() {
-    // Anonymous class 활용 예2
-    // => 오직 한개의 인스턴스만 생성할 경우
-    // => return 문, 할당문, 파라미터 전달하는 곳에 놓기
-    return new Iterator(){
-      int cursor;
-      // 다음에 값이 잇는지 확인
-      @Override
-      public boolean hasNext() {
-        return cursor < LinkedList.this.size();
-      }
-      // 현재 위치 값에서 값 꺼내기
-      @Override
-      public Object next() {
-        return LinkedList.this.get(cursor++);
-      }
-    }; 
+    return this.new ListIterator(); //
   }
 
   // 범위 축소
@@ -142,6 +127,24 @@ public class LinkedList {
     @Override
     public String toString() {
       return "Node [prev=" + prev + ", value=" + value + ", next=" + next + "]";
+    }
+  }
+  //non-static Nested Class(= inner class) 활용 예
+  // => 특정 클래스의 안에서만 사용될 때
+  // => 바깥 클래스의 인스턴스 맴버를 사용할 때
+  private class ListIterator implements Iterator{
+
+    int cursor;
+
+    // 다음에 값이 잇는지 확인
+    @Override
+    public boolean hasNext() {
+      return cursor < LinkedList.this.size();
+    }
+    // 현재 위치 값에서 값 꺼내기
+    @Override
+    public Object next() {
+      return LinkedList.this.get(cursor++);
     }
   }
 }

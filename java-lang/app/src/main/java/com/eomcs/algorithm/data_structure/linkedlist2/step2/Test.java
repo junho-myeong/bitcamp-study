@@ -1,4 +1,4 @@
-package com.eomcs.oop.ex11.h.test;
+package com.eomcs.algorithm.data_structure.linkedlist2.step2;
 
 public class Test {
 
@@ -41,7 +41,7 @@ public class Test {
   static void printList(LinkedList list) {
     // Iterator를 통해 목록에서 값 꺼내기
     // Iterator 디자인 패턴 적용
-    Iterator iterator = list.iterator();
+    Iterator iterator = new ListIterator(list);
     while (iterator.hasNext()) {
       System.out.print(iterator.next() + ",");
     }

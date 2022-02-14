@@ -1,4 +1,4 @@
-package com.eomcs.oop.ex11.h.test;
+package com.eomcs.algorithm.data_structure.linkedlist2.step5;
 
 public class LinkedList {
   Node head;
@@ -90,10 +90,10 @@ public class LinkedList {
   }
 
   public Iterator iterator() {
-    // Anonymous class 활용 예2
+    // Anonymous class 활용 예
     // => 오직 한개의 인스턴스만 생성할 경우
-    // => return 문, 할당문, 파라미터 전달하는 곳에 놓기
-    return new Iterator(){
+    // 
+    Iterator obj = new Iterator(){
       int cursor;
       // 다음에 값이 잇는지 확인
       @Override
@@ -105,7 +105,8 @@ public class LinkedList {
       public Object next() {
         return LinkedList.this.get(cursor++);
       }
-    }; 
+    };
+    return obj; //
   }
 
   // 범위 축소

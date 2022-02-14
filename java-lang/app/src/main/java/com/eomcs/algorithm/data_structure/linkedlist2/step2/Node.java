@@ -1,4 +1,4 @@
-package com.eomcs.algorithm.data_structure.linkedlist2;
+package com.eomcs.algorithm.data_structure.linkedlist2.step2;
 
 public class Node {
   Node prev;

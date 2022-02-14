@@ -1,4 +1,4 @@
-package com.eomcs.algorithm.data_structure.linkedlist2;
+package com.eomcs.algorithm.data_structure.linkedlist2.step4;
 
 public class Test {
 
@@ -34,13 +34,16 @@ public class Test {
     list.add(0, "김구2");
     System.out.println(list.size);
     printList(list);
-    list.add(7, "김상옥");
+    list.add(6, "김상옥");
     printList(list);
   }
 
   static void printList(LinkedList list) {
-    for (int i = 0 ; i < list.size ; i++) {
-      System.out.print(list.get(i) + ",");
+    // Iterator를 통해 목록에서 값 꺼내기
+    // Iterator 디자인 패턴 적용
+    Iterator iterator = list.iterator();
+    while (iterator.hasNext()) {
+      System.out.print(iterator.next() + ",");
     }
     System.out.println();
     System.out.println("------------------------------------------------");
