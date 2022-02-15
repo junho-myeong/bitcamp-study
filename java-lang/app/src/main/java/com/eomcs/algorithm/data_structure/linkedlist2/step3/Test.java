@@ -1,3 +1,6 @@
+// step2와의 차이점은 현재 ListIterator와 Node클래스는
+// LinkedList에서만 사용되고 잇기 때문에
+// 사용 범위를 축소하기 위해 Nested Class로 바꿔준것이다.
 package com.eomcs.algorithm.data_structure.linkedlist2.step3;
 
 public class Test {

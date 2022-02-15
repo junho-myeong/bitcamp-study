@@ -1,3 +1,5 @@
+// step3와의 차이점은 특정 메서드 안에서만 사용되는 클래스라면
+// local class로 사용하는것이 유지보수에 좋다
 package com.eomcs.algorithm.data_structure.linkedlist2.step4;
 
 public class Test {

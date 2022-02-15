@@ -132,6 +132,9 @@ public class LinkedList {
   //non-static Nested Class(= inner class) 활용 예
   // => 특정 클래스의 안에서만 사용될 때
   // => 바깥 클래스의 인스턴스 맴버를 사용할 때
+  // => non-static Nested Class의 특징은?
+  // => 바깥 클래스의 인스턴스 주소를 받는 내장변수가 자동으로 생성되고
+  // => 바깥클래스의 인스턴스 주소를 파라미터로 받는 생성자가 자동으로 생성된다.
   private class ListIterator implements Iterator{
 
     int cursor;

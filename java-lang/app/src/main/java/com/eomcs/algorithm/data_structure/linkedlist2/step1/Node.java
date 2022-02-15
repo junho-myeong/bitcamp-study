@@ -1,6 +1,6 @@
 package com.eomcs.algorithm.data_structure.linkedlist2.step1;
 
-public class Node {
+public class Node { // 열차 한칸이라고 생각하자 
   Node prev;
   Object value;
   Node next;

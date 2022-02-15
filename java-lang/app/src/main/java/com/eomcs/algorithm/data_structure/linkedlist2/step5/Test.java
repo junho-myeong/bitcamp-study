@@ -1,3 +1,5 @@
+// step4와의 차이점은 인스턴스를 한번만 생성하는 것이라면
+// 익명 클래스로 인스턴스를 생성하는것이 좋다.
 package com.eomcs.algorithm.data_structure.linkedlist2.step5;
 
 public class Test {

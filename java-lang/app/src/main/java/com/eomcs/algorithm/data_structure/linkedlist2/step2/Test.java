@@ -1,3 +1,5 @@
+// step1 과의 차이점은 조회 할때 일관된 메서드를 호출하기 위해
+// 인터페이스를 이용하여 메서드를 오버로딩하는것이다.
 package com.eomcs.algorithm.data_structure.linkedlist2.step2;
 
 public class Test {
