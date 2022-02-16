@@ -23,7 +23,7 @@ public class Exam0310 {
     map2.put("aaa", "문자열");
     map2.put(new Integer(100), new Member("홍길동", 20));
 
-    // key: String
+    // key: String, Integer로 많이 사용한다.
     // value: Member
     HashMap<String,Member> map3 = new HashMap<>();
     //    map3.put("aaa", "문자열"); // 컴파일 오류!
