@@ -1,55 +1,86 @@
 // promt함수 생성하는거 다시 확인해보기
 package com.eomcs.app2;
 
-import com.eomcs.app2.handler.ScoreHandler;
-import com.eomcs.util.Prompt;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.net.ServerSocket;
+import java.net.Socket;
+import com.eomcs.app2.table.ScoreTable;
+import com.eomcs.app2.vo.Score;
 
 public class ServerApp {
 
-  ScoreHandler scoreHandler = new ScoreHandler();
+  ScoreTable scoreHandler = new ScoreTable();
   public static void main(String[] args) {
     new ServerApp().service();
   }
   public void service() {
 
-    while (true) {
-      printMenu();
-      String input = Prompt.promptString("명령>");
-      if (checkQuit(input)) {
-        break;
-      }
-      try {
-        switch (input) {
-          case "1": scoreHandler.create(); break;
-          case "2": scoreHandler.list(); break;
-          case "3": scoreHandler.detail(); break;
-          case "4": scoreHandler.update(); break;
-          case "5": scoreHandler.delete(); break;
-          default:
-            System.out.println("올바른 메뉴 번호를 입력하시오");
+    try(ServerSocket serverSocket = new ServerSocket(3306);) {
+      System.out.println("서버실행중.......");
+      while (true) {
+        try (Socket socket = serverSocket.accept();
+            ObjectInputStream in = new ObjectInputStream(socket.getInputStream()); // 클라이언트 요청 읽는 부분
+            ObjectOutputStream out = new ObjectOutputStream(socket.getOutputStream())) // 클라이언트 요청 보내는 부분)
+        {
+          System.out.println("클라이언트가 접속");
+          while (true) {
+            String command = in.readUTF();
+            if (command.equals("quit")) {
+              break;
+            }
+            try {
+              switch (command) {
+                case "insert":
+                  Score score = (Score) in.readObject();
+                  int count = ScoreTable.insert(score);
+                  out.writeUTF("success");
+                  out.writeInt(count);
+                  break;
+                case "selectList":
+                  Score[] scores = ScoreTable.selectList();
+                  out.writeUTF("success");
+                  out.writeObject(scores);
+                  break;
+                case "selectOne":
+                  int no = in.readInt();
+                  score = ScoreTable.selectOne(no);
+                  out.writeUTF("success");
+                  out.writeObject(score);
+                  break;
+                case "update":
+                  no = in.readInt();
+                  score = (Score) in.readObject();
+                  count = ScoreTable.update(no, score);
+                  out.writeUTF("success");
+                  out.writeInt(count);
+                  break;
+                case "delete":
+                  no = in.readInt();
+                  count = ScoreTable.delete(no);
+                  out.writeUTF("success");
+                  out.writeInt(count);
+                  break;
+                default:
+                  out.writeUTF("fail");
+                  out.writeUTF("해당명령을 지원하지 않습니다!");
+              }
+              out.flush();
+            } catch (Exception e) {
+              out.writeUTF("실행오류");
+              out.writeUTF("실행오류:" + e.getMessage());
+              out.flush();
+            }
+          }
+          System.out.println("클라이언트와 연결을 끊었습니다.");
+        }catch (Exception e) {
+          System.out.println("클라이언트와 통신중 오류발생");
         }
-      } catch(Exception e) {
-        System.out.println("실행중 오류 발생: " + e.getMessage());
-      }
-      System.out.println();
-    }
 
+      }
+    } catch (Exception e) {
+      System.out.println("서버 실행중 오류 발생!");
+    }
     System.out.println("종료!");
   }
-
-  private void printMenu() {
-    System.out.println("메뉴:");
-    System.out.println("1. 등록");
-    System.out.println("2. 목록");
-    System.out.println("3. 상세");
-    System.out.println("4. 변경");
-    System.out.println("5. 삭제");
-  }
-
-
-
-  private boolean checkQuit(String input) {
-    return input.equals("quit") || input.equals("exit");
-  }
-
 }

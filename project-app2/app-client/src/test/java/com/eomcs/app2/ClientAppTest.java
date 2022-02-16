@@ -3,9 +3,9 @@ package com.eomcs.app2;
 import static org.junit.Assert.assertNotNull;
 import org.junit.Test;
 
-public class AppTest {
+public class ClientAppTest {
   @Test public void appHasAGreeting() {
-    App classUnderTest = new App();
+    ClientApp classUnderTest = new ClientApp();
     assertNotNull("app should have a greeting", classUnderTest.getGreeting());
   }
 }
