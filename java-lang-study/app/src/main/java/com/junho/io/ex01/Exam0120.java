@@ -27,6 +27,7 @@ public class Exam0120 {
     System.out.printf("감춤폴더: %b\n", currentDir.isHidden());
     System.out.printf("존재여부: %b\n", currentDir.exists());
     System.out.printf("실행가능여부: %b\n", currentDir.canExecute());
+    System.out.println("test");
   }
 
 
