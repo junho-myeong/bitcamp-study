@@ -2,15 +2,14 @@ package com.eomcs.app2.vo;
 
 import java.io.Serializable;
 
-public class Score implements Serializable {
+public class Score implements Serializable{
   private static final long serialVersionUID = 1L;
-
   String name;
-  int kor;
   int eng;
+  int kor;
   int math;
-  int sum;
-  float average;
+  int sum; // getter만 필요하다 조회용으로만 사용
+  float aver;
 
   public static Score fromCSV(String csv) {
     String[] values = csv.split(",");
@@ -21,9 +20,8 @@ public class Score implements Serializable {
     score.setMath(Integer.parseInt(values[3]));
     return score;
   }
-
   public String toCSV() {
-    return String.format("%s,%d,%d,%d", 
+    return String.format("%s,%d,%d,%d",
         this.getName(),
         this.getKor(),
         this.getEng(),
@@ -31,8 +29,8 @@ public class Score implements Serializable {
   }
 
   private void compute() {
-    sum = kor + eng + math;
-    average = sum / 3f;
+    this.sum = this.kor + this.math + this.eng;
+    this.aver = this.sum / 3f;
   }
 
   public String getName() {
@@ -41,13 +39,6 @@ public class Score implements Serializable {
   public void setName(String name) {
     this.name = name;
   }
-  public int getKor() {
-    return kor;
-  }
-  public void setKor(int kor) {
-    this.kor = kor;
-    compute();
-  }
   public int getEng() {
     return eng;
   }
@@ -55,24 +46,31 @@ public class Score implements Serializable {
     this.eng = eng;
     compute();
   }
+  public int getKor() {
+    return kor;
+  }
+  public void setKor(int kor) {
+    this.kor = kor;
+    compute();
+  }
   public int getMath() {
     return math;
   }
   public void setMath(int math) {
     this.math = math;
-    compute();
+    compute();// 입력할때마다 다시 계산하는것이다.
   }
   public int getSum() {
     return sum;
   }
-  public float getAverage() {
-    return average;
+  public float getAver() {
+    return aver;
   }
 
   @Override
   public String toString() {
-    return "Score [name=" + name + ", kor=" + kor + ", eng=" + eng + ", math=" + math + ", sum="
-        + sum + ", average=" + average + "]";
+    return "Score [name=" + name + ", eng=" + eng + ", kor=" + kor + ", math=" + math + ", sum="
+        + sum + ", aver=" + aver + "]";
   }
 
 
