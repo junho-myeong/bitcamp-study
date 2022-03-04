@@ -41,12 +41,12 @@ public class Exam0110 {
     // => MariaDB의 JDBC 드라이버에는 org.mariadb.jdbc.Driver 클래스가 이 구현체이다.
     try {
 
-      // 1) Driver 구현체의 인스턴스를 생성한다.
+      // 1) java.sql.Driver 구현체의 인스턴스를 생성한다.
       java.sql.Driver mariadbDriver = new org.mariadb.jdbc.Driver();
-      java.sql.Driver oracleDriver = new oracle.jdbc.OracleDriver();
+      java.sql.Driver oracleDriver = new oracle.jdbc.OracleDriver(); // gradle 에서 아직 플러그 안했다 
       java.sql.Driver mssqlDriver = new com.microsoft.sqlserver.jdbc.SQLServerDriver();
 
-      // 2) Driver 인스턴스를 드라이버 관리자에 등록한다.
+      // 2) java.sql.Driver 구현체의 인스턴스를 드라이버 관리자에 등록한다.
       DriverManager.registerDriver(mariadbDriver);
       DriverManager.registerDriver(oracleDriver);
       DriverManager.registerDriver(mssqlDriver);
@@ -57,7 +57,7 @@ public class Exam0110 {
       // => DriverManager.getDriver(jdbcUrl);
       // => jdbcUrl
       // jdbc:[DBMS]://서버주소:포트번호/데이터베이스명
-      java.sql.Driver driver = DriverManager.getDriver("jdbc:mariadb://");
+      java.sql.Driver driver = DriverManager.getDriver("jdbc:mariadb://"); // 여기 파라미터는 맘대로 쓰면 안된다 통일된 방식으로 꼭사용해야한다.
       System.out.println(driver);
 
       java.sql.Driver driver2 = DriverManager.getDriver("jdbc:oracle:thin://");
