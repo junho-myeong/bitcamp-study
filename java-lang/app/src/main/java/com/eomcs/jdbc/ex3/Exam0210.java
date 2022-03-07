@@ -21,7 +21,7 @@ public class Exam0210 {
     }
 
     try (Connection con = DriverManager.getConnection(
-        "jdbc:mysql://localhost:3306/studydb?user=study&password=1111");
+        "jdbc:mariadb://localhost:3306/studydb?user=study&password=1111");
         PreparedStatement stmt = con.prepareStatement("insert into x_board(title,contents) values(?,?)")) {
 
       // SQL 삽입 공격
@@ -36,11 +36,13 @@ public class Exam0210 {
       // => ? : 값이 놓일 자리를 의미한다. 'in-parameter' 라 부른다.
       // => in-parameter 에 들어갈 값의 타입에 따라 적절한 setXxx() 메서드를 호출한다.
       //
+      // 이값은 SQL과 따로 보내지기 때문이다.
       stmt.setString(1, title);
       stmt.setString(2, contents);
 
       // => 이미 SQL 을 준비한 상태이기 때문에 실행할 때는 SQL를 줄 필요가 없다.
-      // => 서버에 SQL을 전달할 때는 SQL과 값을 분리해서 보내고,
+      // => 서버에 SQL을 전달할 때 
+      //    SQL과 값을 분리해서 보내고,
       //    서버에서 분리된 값을 따로 처리할 것이기 때문에
       //    SQL 삽입 공격이 불가능한다.
       int count = stmt.executeUpdate();
