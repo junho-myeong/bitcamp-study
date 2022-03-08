@@ -1,8 +1,9 @@
 package com.eomcs.mylist.dao;
 
 import java.io.File;
+import java.util.List;
 import org.springframework.stereotype.Repository;
-import com.eomcs.mylist.domain.Board;
+import com.eomcs.mylist.domain.Book;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 
@@ -18,7 +19,8 @@ public class JsonBookDao extends AbstractBookDao {
   public JsonBookDao() {
     try {
       ObjectMapper mapper = new ObjectMapper();
-      bookList.addAll(mapper.readValue(new File(filename), Board[].class));
+      bookList.addAll(mapper.readValue(new File(filename),
+          mapper.getTypeFactory().constructCollectionType(List.class, Book.class)));
 
     } catch (Exception e) {
       System.out.println("게시글 데이터 로딩 중 오류 발생!");

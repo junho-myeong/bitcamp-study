@@ -18,7 +18,7 @@ public class JsonBoardDao extends AbstractBoardDao {
   public JsonBoardDao() {
     try {
       ObjectMapper mapper = new ObjectMapper();
-      boardList.addAll(mapper.readValue(new File(filename), Board[].class));
+      boardList.addAll(mapper.readValue(new File(filename), mapper.getTypeFactory().constructCollectionType(java.util.List.class,Board.class)));
 
     } catch (Exception e) {
       System.out.println("게시글 데이터 로딩 중 오류 발생!");
