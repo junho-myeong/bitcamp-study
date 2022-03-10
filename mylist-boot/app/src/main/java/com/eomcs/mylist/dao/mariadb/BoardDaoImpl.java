@@ -1,4 +1,4 @@
-package com.eomcs.mylist.dao;
+package com.eomcs.mylist.dao.mariadb;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -7,6 +7,8 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 import org.springframework.stereotype.Repository;
+import com.eomcs.mylist.dao.BoardDao;
+import com.eomcs.mylist.dao.DaoException;
 import com.eomcs.mylist.domain.Board;
 
 
@@ -15,9 +17,9 @@ import com.eomcs.mylist.domain.Board;
 // - 또한 이 객체를 원하는 곳에 자동으로 주입한다.(BoardDao를 원하는 곳에 자동주입)
 // - 이 애노테이션을 붙이는 이유는 이 클래스는 데이터 저장소라는 것을 나가내기 위함이다.
 @Repository
-public class jdbcBoardDao implements BoardDao {
+public class BoardDaoImpl implements BoardDao {
 
-  public jdbcBoardDao() {
+  public BoardDaoImpl() {
     System.out.println("jdbcBoard객체생성");
   }
 
