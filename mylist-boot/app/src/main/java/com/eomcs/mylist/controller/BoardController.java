@@ -24,18 +24,18 @@ public class BoardController {
   BoardDao boardDao; // 실제로 BoardDao인터페이스를 구현한 인스턴스 주소가 담긴다
 
   @RequestMapping("/board/list")
-  public Object list() throws Exception {
+  public Object list() {
     return boardDao.findAll(); 
   }
 
   @RequestMapping("/board/add")
-  public Object add(Board board) throws Exception {
+  public Object add(Board board) {
     return boardDao.insert(board);
   }
 
 
   @RequestMapping("/board/get")
-  public Object get(int no) throws Exception {
+  public Object get(int no) {
     Board board = boardDao.findByNo(no);
     if (board == null) {
       return "";
@@ -45,12 +45,12 @@ public class BoardController {
   }
 
   @RequestMapping("/board/update")
-  public Object update(Board board) throws Exception {
+  public Object update(Board board) {
     return boardDao.update(board);
   }
 
   @RequestMapping("/board/delete")
-  public Object delete(int no) throws Exception {
+  public Object delete(int no) {
     return boardDao.delete(no);
   }
 }

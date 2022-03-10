@@ -13,19 +13,19 @@ public interface BoardDao {
   // 인터페이스에 모든 메서드는 기본적으로 public 이다 그래서 생략 가능하다.
   // 왜냐?
   // => 모든 규칙은 공개 되어야 사람들이 알기 때문이다.
-  int countAll() throws Exception;
+  int countAll();
 
-  List<Board> findAll() throws Exception;
+  List<Board> findAll();
 
-  int insert(Board board) throws Exception;
+  int insert(Board board);
 
-  Board findByNo(int no)throws Exception;
+  Board findByNo(int no);
 
-  int update(Board board) throws Exception;
+  int update(Board board);
 
-  int delete(int no) throws Exception;
+  int delete(int no);
 
-  int increaseViewCount(int no) throws Exception;
+  int increaseViewCount(int no);
 
 
 }
