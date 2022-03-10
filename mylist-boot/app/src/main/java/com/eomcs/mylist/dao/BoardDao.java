@@ -1,6 +1,7 @@
 // 인터페이스 구현하기
 package com.eomcs.mylist.dao;
 
+import java.util.List;
 import com.eomcs.mylist.domain.Board;
 
 public interface BoardDao {
@@ -12,19 +13,19 @@ public interface BoardDao {
   // 인터페이스에 모든 메서드는 기본적으로 public 이다 그래서 생략 가능하다.
   // 왜냐?
   // => 모든 규칙은 공개 되어야 사람들이 알기 때문이다.
-  int countAll();
+  int countAll() throws Exception;
 
-  Object[] findAll();
+  List<Board> findAll() throws Exception;
 
-  void insert(Board board) throws Exception;
+  int insert(Board board) throws Exception;
 
-  Board findByNo(int no);
+  Board findByNo(int no)throws Exception;
 
-  int update(int no, Board board) throws Exception;
+  int update(Board board) throws Exception;
 
   int delete(int no) throws Exception;
 
-  void increaseViewCount(int no) throws Exception;
+  int increaseViewCount(int no) throws Exception;
 
 
 }

@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class App {
 
   public static void main(String[] args) {
-    SpringApplication.run(App.class, args);
+    SpringApplication.run(App.class, args); // 스프링부트를 실행
   }
 
   //@Bean
