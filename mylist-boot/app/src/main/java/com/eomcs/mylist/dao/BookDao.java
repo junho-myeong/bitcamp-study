@@ -4,8 +4,11 @@
 package com.eomcs.mylist.dao;
 
 
+import java.util.List;
+import org.apache.ibatis.annotations.Mapper;
 import com.eomcs.mylist.domain.Book;
 
+@Mapper // Mybatis는 다음 인터페이스에 구현체를 자동으로 생성한다.
 public interface BookDao {
 
   // 인터페이스는 객체의 메서드 호출 규칙을 정의하는 것이기 때문에
@@ -17,15 +20,15 @@ public interface BookDao {
   // => 모든 규칙은 공개 되어야 사람들이 알기 때문이다.
   int countAll();
 
-  Object[] findAll();
+  List<Book> findAll();
 
-  void insert(Book book) throws Exception;
+  void insert(Book book);
 
   Book findByNo(int no);
 
-  int update(int no, Book book) throws Exception;
+  int update(Book book);
 
-  int delete(int no) throws Exception;
+  int delete(int no);
 
 
 

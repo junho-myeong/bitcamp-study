@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  <!--
+    namespace = "인터페이스의 패키지 및 이름"과 일치해야한다. 
+   -->
+<mapper namespace="com.eomcs.mylist.dao.BookDao">
+  
+  <!-- 테이블의 컬럼과 객체필드를 연결한다. -->
+  <resultMap type="Book" id="bookMap">
+    <id column="book_no" property="no"/>
+    <result column="title" property="title"/>
+    <result column="author" property="author"/>
+    <result column="press" property="press"/>
+    <result column="feed" property="feed"/>
+    <result column="read_date" property="readDate"/>
+    <result column="page" property="page"/>
+    <result column="price" property="price"/>
+  </resultMap>
+  
+  <select id ="countAll" parameterType="int">
+    select count(*) from ml_book
+  </select>
+
+  <!--
+    id = 인터페이스에 메서드명과 일치해야한다. 
+   -->
+  <select id="findAll" resultMap="BookMap"> 
+    select
+      book_no,
+      title,
+      author,
+      press
+    from
+      ml_book
+    order by
+      title asc
+  </select>
+  
+  <insert id="insert" parameterType="Book">
+    insert into ml_book(title,author,press,feed,read_date,page,price) 
+    values(#{title},#{author},#{press},#{feed},#{readDate},#{page},#{price})
+  </insert>
+  
+  <!--
+    parameterType => 메서드의 파라미터 타입 및 개수가 일치해야한다. 
+   -->
+  <select id="findByNo" resultMap="bookMap" parameterType="int">
+    select 
+      book_no,
+      title,
+      author,
+      press,
+      feed,
+      read_date,
+      page,
+      price
+    from 
+      ml_book
+    where 
+      book_no=#{no}
+  </select>
+  
+  
+  
+  
+  <update id ="update" parameterType="Book">
+    update ml_book set 
+      title = #{title},
+      author = #{author} 
+      press = #{press} 
+      feed = #{feed} 
+      read_date = #{readDate}
+      page=#{page}
+      price=#{price} 
+    where 
+      book_no = #{no}
+  </update>
+  
+  
+  
+  
+  
+  <delete id="delete" parameterType="int">
+    delete from ml_book 
+    where 
+      book_no=#{no}
+  </delete>
+  
+  
+  
+  <update id ="increaseViewCount" parameterType="int">
+    update ml_book set 
+      view_count = view_count + 1 
+    where 
+      book_no = #{no}
+  </update>
+</mapper>

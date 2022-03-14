@@ -11,8 +11,6 @@ public class BookController {
   @Autowired
   BookDao bookDao;
 
-
-
   @RequestMapping("/book/list")
   public Object list() {
     return bookDao.findAll(); 
@@ -26,8 +24,8 @@ public class BookController {
 
 
   @RequestMapping("/book/get")
-  public Object get(int index) {
-    Book book = bookDao.findByNo(index);
+  public Object get(int no) {
+    Book book = bookDao.findByNo(no);
     if (book == null) {
       return "";
     }
@@ -35,17 +33,13 @@ public class BookController {
   }
 
   @RequestMapping("/book/update")
-  public Object update(int index, Book book) throws Exception {
-    Book old = bookDao.findByNo(index);
-    if (old == null) {
-      return 0;
-    }
-    return bookDao.update(index, book);
+  public Object update(Book book) throws Exception {
+    return bookDao.update(book);
   }
 
   @RequestMapping("/book/delete")
-  public Object delete(int index) throws Exception {
-    return bookDao.delete(index);
+  public Object delete(int no) throws Exception {
+    return bookDao.delete(no);
   }
 }
 
