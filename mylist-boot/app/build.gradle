@@ -18,6 +18,15 @@ dependencies {
   implementation 'org.mariadb.jdbc:mariadb-java-client:3.0.3'
   
   // implementation 'org.springframework:spring-jdbc:5.3.13'
+  
+  // Mybatis 프레임워크 (앱에서 스프링라이브러라사용하는경우, 즉 직접구성하는경우)
+  // implementation 'org.mybatis:mybatis:3.5.9'
+  // implementation 'org.mybatis:mybatis-spring:2.0.7'
+  
+  // Mybatis(스프링부트에서 app을 사용하는경우, 스프링 스타터로 간접구성) 
+  implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:2.2.2'
+  
+  
   // starter는 스프링부트에서 제공하는 편리한 방법들이다
   implementation 'org.springframework.boot:spring-boot-starter-jdbc'
   implementation 'org.springframework.boot:spring-boot-starter-web'
