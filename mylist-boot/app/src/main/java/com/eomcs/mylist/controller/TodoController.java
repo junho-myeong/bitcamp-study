@@ -24,8 +24,8 @@ public class TodoController {
   }
 
   @RequestMapping("/todo/update")
-  public Object update(int index, Todo todo) {
-    Todo todo1 = todoDao.findByNo(index);
+  public Object update(Todo todo) {
+    Todo todo1 = todoDao.findByNo(todo.getNo());
     if (todo == null) {
       return "";
     }
@@ -33,8 +33,8 @@ public class TodoController {
   }
 
   @RequestMapping("/todo/check")
-  public Object check(int index, boolean done) {
-    if (index < 0 || index >= todoDao.countAll()) {
+  public Object check(int no, boolean done) {
+    if (no < 0 || no >= todoDao.countAll()) {
       return 0;  // 인덱스가 무효해서 설정하지 못했다.
     }
 
@@ -43,12 +43,12 @@ public class TodoController {
   }
 
   @RequestMapping("/todo/delete")
-  public Object delete(int index) throws Exception {
-    if (index < 0 || index >= todoDao.countAll()) {
+  public Object delete(int no) throws Exception {
+    if (no < 0 || no >= todoDao.countAll()) {
       return 0;
     }
 
-    todoDao.delete(index);
+    todoDao.delete(no);
     return 1;
   }
 }

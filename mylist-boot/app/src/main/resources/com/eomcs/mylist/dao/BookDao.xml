@@ -26,7 +26,7 @@
   <!--
     id = 인터페이스에 메서드명과 일치해야한다. 
    -->
-  <select id="findAll" resultMap="BookMap"> 
+  <select id="findAll" resultMap="bookMap"> 
     select
       book_no,
       title,
@@ -88,12 +88,4 @@
       book_no=#{no}
   </delete>
   
-  
-  
-  <update id ="increaseViewCount" parameterType="int">
-    update ml_book set 
-      view_count = view_count + 1 
-    where 
-      book_no = #{no}
-  </update>
 </mapper>
