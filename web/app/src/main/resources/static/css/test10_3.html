@@ -9,12 +9,16 @@
     => width와 height를 지정한다.
     => 위,아래,좌,우 margin을 이용하여 위치를 어느정도 조정할 수 있다.
   */
+
+  /* html : 고수준의 문서를 링크와 같은 부가명령을 이용해서 문서의 위치를 알수잇게 만든 명령이다. */
+  /* http : 고수준의 문서를 전달하기 위한 규칙 */
+  /* web: 문서와 문서들이 서로 얶혀잇다해서 거미줄이라는 뜻이다 */
   body {
     border: 1px solid black;
   }
 
   div {
-    border: 1px solid black;
+    border: 1px solid navy;
     margin: 10px;
     padding: 10px;
   }
@@ -30,9 +34,10 @@
   #d2 {
     background-color: green;
     float: left;
-    width: 100px;
+    width: 120px; /* 공중 부양 한놈이 다른 테그에 컨텐츠를 가리게 되면 컨텐츠는 밀리게 된다 그치만 태그 자체가 밀린것은 아니다 */
     height: 50px;
     margin-top: 0px;
+    box-sizing: border-box;
   }
   #d3 {
     background-color: blue;

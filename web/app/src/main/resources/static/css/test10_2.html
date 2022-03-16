@@ -12,7 +12,10 @@
       1) width와 height를 지정하지 않으면, inline 처럼 콘텐츠의 크기에 따라
           너비, 높이가 결정된다.
       2) margin이 서로 겹치지 않고 그대로 유지한다.
-         일반적인 경우 위,아래 margin은 서로 겹쳐 표현한다.
+         일반적인 경우 위,아래 margin은 서로 겹쳐 표현한다!!!!!! 중요 !!! 내가 잘 몰랏던거
+      3) 그리고 float된 테그는 바디 높이에서 제외시킨다
+
+    => ui컴포넌트는 한개 이상의 태그를 가르킬때  ui컴포넌트를 구성할수 잇다 
 
   */
   body {
@@ -34,17 +37,18 @@
   #d1 {background-color: red;}
   #d11 {background-color: orange;}
   #d111 {
-    xfloat: right;
+    float: right;
   }
   #d112 {
-    xfloat: left;
+    float: left;
   }
   #d2 {
     background-color: green;
-    float: left;
+    float: right; /* 공중부양 시키면 margin이 서로 겹치지 않고 간격이 20 px 로 보인다 */
   }
   #d3 {
     background-color: blue;
+    float: left;
   }
   </style>
 </head>
