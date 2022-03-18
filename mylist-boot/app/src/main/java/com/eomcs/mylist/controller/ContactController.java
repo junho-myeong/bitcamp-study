@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.eomcs.mylist.dao.ContactDao;
 import com.eomcs.mylist.domain.Contact;
+import com.eomcs.mylist.domain.ContactTel;
 
 @RestController 
 public class ContactController {
@@ -19,10 +20,17 @@ public class ContactController {
   }
 
   @RequestMapping("/contact/add")
-  public Object add(Contact contact) throws Exception {
+  public Object add(Contact contact, String[] tel) throws Exception {
     //    System.out.println(contact);
+    //    System.out.println();
     contactDao.insert(contact);
-    return contactDao.countAll();
+    for (int i = 0 ; i < tel.length ; i++) {
+      String[] values = tel[i].split(",");
+      contactDao.insertTel(new ContactTel(contact.getNo(),Integer.parseInt(values[0]), values[1]));
+    }
+
+
+    return 1;
   }
 
 

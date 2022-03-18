@@ -6,6 +6,7 @@ package com.eomcs.mylist.dao;
 import java.util.List;
 import org.apache.ibatis.annotations.Mapper;
 import com.eomcs.mylist.domain.Contact;
+import com.eomcs.mylist.domain.ContactTel;
 
 @Mapper // Mybatis 프레임 워크에게 ContactDao는 퍼시스턴스 이다 그래서 인터페이스 자동 구현해라
 public interface ContactDao {
@@ -32,5 +33,14 @@ public interface ContactDao {
   Contact findByEmail(String email);
 
   List<Contact> findByName(String name);
+
+  int insertTel(ContactTel tel);
+
+  int deleteTel(int telNo);
+
+  int updateTel(ContactTel tel);
+
+  List<ContactTel> findByContactNo(int no);
+
 
 }
