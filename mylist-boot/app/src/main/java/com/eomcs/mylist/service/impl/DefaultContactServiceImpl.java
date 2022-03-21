@@ -1,17 +1,20 @@
-package com.eomcs.mylist.service;
+package com.eomcs.mylist.service.impl;
 
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import com.eomcs.mylist.dao.ContactDao;
 import com.eomcs.mylist.domain.Contact;
 import com.eomcs.mylist.domain.ContactTel;
+import com.eomcs.mylist.service.ContactService;
 
 @Service
-public class ContactServiceNonTransaction {
+public class DefaultContactServiceImpl implements ContactService {
   @Autowired
   ContactDao contactDao;
 
+  @Transactional // 다음 메서드는 트랜잭션 안에서 실행하도록 설정한다.
   public int add(Contact contact) {
     contactDao.insert(contact);
     for (ContactTel tel : contact.getTels()) {
@@ -37,6 +40,7 @@ public class ContactServiceNonTransaction {
     return contact;
   }
 
+  @Transactional
   public int update(Contact contact) {
     int count = contactDao.update(contact);
     if (count > 0) {
@@ -48,9 +52,11 @@ public class ContactServiceNonTransaction {
     return count;
   }
 
+  @Transactional
   public int delete(int no) {
     contactDao.deleteTelByContactNo(no);
     return contactDao.delete(no);
   }
 }
+
 
