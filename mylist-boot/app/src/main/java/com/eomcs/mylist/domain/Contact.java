@@ -3,6 +3,7 @@ package com.eomcs.mylist.domain;
 import java.util.List;
 
 public class Contact {
+
   int no;
   String name;
   String email;
@@ -44,6 +45,4 @@ public class Contact {
   public void setTels(List<ContactTel> tels) {
     this.tels = tels;
   }
-
-
 }

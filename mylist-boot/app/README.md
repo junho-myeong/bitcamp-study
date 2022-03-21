@@ -81,7 +81,7 @@ insert into ml_cont_tel(ct_no, contact_no, tt_no, tel)
 insert into ml_cont_tel(ct_no, contact_no, tt_no, tel)
   values(5, 3, 3, '010-1111-3333');    
 ```
-
+  
 ### 3단계 - 연락처 데이터를 다룰 DAO를 준비한다.
 
 - com.eomcs.mylist.dao.ContactDao 인터페이스를 변경한다.

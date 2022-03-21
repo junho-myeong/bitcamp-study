@@ -3,55 +3,44 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
-  <!--
-    namespace = "인터페이스의 패키지 및 이름"과 일치해야한다. 
-   -->
-   <!-- sql mapper파일 -->
 <mapper namespace="com.eomcs.mylist.dao.ContactDao">
-  
-  <!-- 테이블의 컬럼과 객체필드를 연결한다. -->
-  <resultMap type="Contact" id="contactMap">
+
+  <resultMap type="contact" id="contactMap">
     <id column="contact_no" property="no"/>
     <result column="name" property="name"/>
     <result column="email" property="email"/>
     <result column="company" property="company"/>
   </resultMap>
   
-  <resultMap type="ContactTel" id="contactTelMap">
-    <id column="ct_no" property = "no"/>
+  <resultMap type="contactTel" id="contactTelMap">
+    <id column="ct_no" property="no"/>
     <result column="contact_no" property="contactNo"/>
     <result column="tt_no" property="telTypeNo"/>
     <result column="tel" property="tel"/>
   </resultMap>
-  
-  <select id ="countAll" parameterType="int">
+
+  <select id="countAll" resultType="int">
     select count(*) from ml_contact
   </select>
-
-  <!--
-    id = 인터페이스에 메서드명과 일치해야한다. 
-   -->
-   <!-- resultMap은 위에서 우리가 정한 규칙이다 -->
-  <select id="findAll" resultMap="contactMap"> 
-    select
+  
+  <select id="findAll" resultMap="contactMap">
+    select 
       contact_no,
       name,
       email,
       company
-    from
-      ml_contact
-    order by
-      name desc
+    from 
+      ml_contact 
+    order by 
+      name asc
   </select>
   
-  <insert id="insert" parameterType="Contact"  keyProperty="no" keyColumn="contact_no" useGeneratedKeys="true"> <!-- 원래 파라미터 타입은 패키지 이름 다 적어야하는데 application.properties에 우리가 선언해서 그렇다 -->
+  <!-- 자동 증가된 PK 값을 받고 싶을 때! -->
+  <insert id="insert" parameterType="contact" keyProperty="no" keyColumn="contact_no" useGeneratedKeys="true">
     insert into ml_contact(name,email,company) 
     values(#{name},#{email},#{company})
   </insert>
   
-  <!--
-    parameterType => 메서드의 파라미터 타입 및 개수가 일치해야한다. 
-   -->
   <select id="findByNo" resultMap="contactMap" parameterType="int">
     select 
       contact_no,
@@ -59,23 +48,23 @@
       email,
       company
     from 
-      ml_contact
+      ml_contact 
     where 
       contact_no=#{no}
   </select>
-  
-  <select id="findByEamil" resultMap="contactMap" parameterType="string">
+
+  <select id="findByEmail" resultMap="contactMap" parameterType="string">
     select 
       contact_no,
       name,
       email,
       company
     from 
-      ml_contact
+      ml_contact 
     where 
-      eamil=#{email}
+      email=#{email}
   </select>
-  
+
   <select id="findByName" resultMap="contactMap" parameterType="string">
     select 
       contact_no,
@@ -83,55 +72,67 @@
       email,
       company
     from 
-      ml_contact
+      ml_contact 
     where 
       name=#{name}
   </select>
   
-  <update id ="update" parameterType="Contact">
-    update ml_book set 
-      name = #{name},
-      email = #{email},
-      company = #{company}
-    where 
-      contact_no = #{no}
-  </update>
-  
-  <delete id="delete" parameterType="int">
-    delete from ml_contact
+  <update id="update" parameterType="contact">
+    update ml_contact set 
+      name=#{name}, 
+      email=#{email},
+      company=#{company}
     where 
       contact_no=#{no}
+  </update>
+
+  <delete id="delete" parameterType="int">
+    delete from ml_contact 
+    where contact_no=#{no}
   </delete>
-  
-  <select id="findByContactNo" parameterType ="int" resultMap="contactTelMap">
-    select
+
+  <select id="findTelByContactNo" 
+          parameterType="int" resultMap="contactTelMap">
+    select 
       ct_no,
       contact_no,
       tt_no,
       tel
-    from
+    from 
       ml_cont_tel
     where
-      contact_no = #{no}
+      contact_no=#{no}
   </select>
-  
-  <!-- 자동 증가된 pk값을 받고 싶을 때 -->
+
   <insert id="insertTel" parameterType="contactTel">
     insert into ml_cont_tel(contact_no, tt_no, tel)
-    values(#{contactNo}, #{telTypeNo}, #{tel})
+    values(#{contactNo}, #{telTypeNo}, #{tel}) 
   </insert>
   
   <update id="updateTel" parameterType="contactTel">
     update ml_cont_tel set
       tt_no=#{telTypeNo},
       tel=#{tel}
-    where
-      ct_no={no}
+    where 
+      ct_no=#{no}
   </update>
   
   <delete id="deleteTel" parameterType="int">
-    delete from ml_contact_tel
+    delete from ml_cont_tel 
     where ct_no=#{no}
   </delete>
   
+  <delete id="deleteTelByContactNo" parameterType="int">
+    delete from ml_cont_tel 
+    where contact_no=#{no}
+  </delete>
+  
 </mapper>
+
+
+
+
+
+
+
+

@@ -1,23 +1,29 @@
 package com.eomcs.mylist.domain;
 
 public class ContactTel {
-  int no; // 전화 번호 고유번호
-  int contactNo; // 누구 전화 번호인지 저장
-  int telTypeNO; // 전화번호 유형
-  String tel; // 전화번호 저장
+  int no;
+  int contactNo;
+  int telTypeNo;
+  String tel;
 
-  public ContactTel() {
+  public ContactTel() {}
 
-  }
 
-  public ContactTel(int contactNo, int telTypeNO, String tel) {
-    this.contactNo = contactNo;
-    this.telTypeNO = telTypeNO;
+  public ContactTel(int telTypeNo, String tel) {
+    this.telTypeNo = telTypeNo;
     this.tel = tel;
   }
+
+  public ContactTel(int contactNo, int telTypeNo, String tel) {
+    this(telTypeNo, tel);
+    this.contactNo = contactNo;
+  }
+
+
+
   @Override
   public String toString() {
-    return "ContactTel [no=" + no + ", contactNo=" + contactNo + ", telTypeNO=" + telTypeNO
+    return "ContactTel [no=" + no + ", contactNo=" + contactNo + ", telTypeNo=" + telTypeNo
         + ", tel=" + tel + "]";
   }
   public int getNo() {
@@ -32,11 +38,11 @@ public class ContactTel {
   public void setContactNo(int contactNo) {
     this.contactNo = contactNo;
   }
-  public int getTelTypeNO() {
-    return telTypeNO;
+  public int getTelTypeNo() {
+    return telTypeNo;
   }
-  public void setTelTypeNO(int telTypeNO) {
-    this.telTypeNO = telTypeNO;
+  public void setTelTypeNo(int telTypeNo) {
+    this.telTypeNo = telTypeNo;
   }
   public String getTel() {
     return tel;
@@ -44,8 +50,4 @@ public class ContactTel {
   public void setTel(String tel) {
     this.tel = tel;
   }
-
-
-
-
 }
