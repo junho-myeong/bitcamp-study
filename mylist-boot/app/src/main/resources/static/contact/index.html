@@ -26,24 +26,68 @@
 </tbody>
 </table>
 
+<!-- scrpit는 나중에 사용할 html이라서 화면에 뿌리지말라는소리이다. -->
+<!--type에서 핸들바스에서 나중에 사용할 html이라고 알려준다 (다른개발자에게)-->
+<!--여기서 this는 서버에서 가져온 배열을 가르킨다 즉 contacts를 가르킨다-->
+<script id="tr-template" type="text/x-handlebars-template"> 
+  {{#each this}} 
+  <tr>
+    <td>{{no}}</td>
+    <td><a href="./view.html?no{{no}}">{{name}}</a></td>
+    <td>{{email}}</td>
+    <td>{{tels.[0].tel}}</td>
+    <td>{{company}}</td>
+  </tr>
+  {{/each}}
+</script>
+
+<!-- javascript template engine -->
+<script src="../node_modules/handlebars/dist/handlebars.min.js"></script>
+
 <script type="text/javascript">
   var tbody = document.querySelector("#x-contact-table tbody")
+
+  // 템플릿 엔진에서 사용할 html 조각을 가져오기 
+  var trTmeplateEl = document.querySelector('#tr-template');
+
+  // 템플릿 엔진 준비
+  var htmlGenerator = Handlebars.compile(trTmeplateEl.innerHTML)
+
+  
 
   fetch("/contact/list")
     .then(function(response) {
       return response.json();
     })
     .then(function(contacts) {
-      for (var contact of contacts) {
-        var tr = document.createElement("tr");
-        tr.innerHTML = `<td>${contact.no}</td>
-        <td><a href="view.html?no=${contact.no}">${contact.name}</a></td>
-        <td>${contact.email}</td>
-        <td>${contact.tels.length > 0 ? contact.tels[0].tel : ""}</td>
-        <td>${contact.company}</td>`;
-        tbody.appendChild(tr);
-      }
-    });
+      var tbodyContent = "";
+      
+        // 서버에서 받은 연락처 배열을 가지고 
+        tbody.innerHTML = htmlGenerator(contacts);
+        
+      });
+
+
+    
+
+  // handlebars 기본사용법
+  // 템플릿 엔진에서 사용할 html 조각을 가져오기 
+  // var tmeplate1El = document.querySelector('#template1');
+  // console.log(tmeplate1El.innerHTML);
+  // // 템플릿 엔진 준비
+  // var htmlGenerator = Handlebars.compile(tmeplate1El.innerHTML)
+  // // 2) 템플릿 엔진에 값이 들어있는 객체를 줘서 텍스트를 생성한다.
+  // // var obj = {// 자바 스크립트에서 객체생성하는 단축 표기법
+  // //   name : '임꺽정'
+  // // }; 
+    
+  // var str = htmlGenerator({ // 완전 단축한것
+  //   name : '임꺽정'
+  // });
+  // console.log(str);
+
+  
+
 </script>
 
 
