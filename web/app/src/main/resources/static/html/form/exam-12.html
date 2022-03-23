@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>파일 업로드</title>
+</head>
+<body>
+<h1>여러개 파일 업로드</h1>
+
+
+<form action="/html/form/exam12" method="post" enctype="multipart/form-data">
+  이름: <input type="text" name="name"><br>
+  나이: <input type="text" name="age"><br>
+  사진: <input type="file" name="photo" multiple><br> <!-- 속성이름과 같이 같다는것은 이름의 값은 상관 없이 속성이 잇냐 없냐가 중요하다 -->
+  <button>요청</button>
+</form>
+
+</body>
+</html>
