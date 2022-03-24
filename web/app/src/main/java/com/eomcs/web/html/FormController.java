@@ -2,6 +2,7 @@ package com.eomcs.web.html;
 
 import java.io.File;
 import java.util.HashMap;
+import java.util.UUID;
 import javax.servlet.ServletContext;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -63,19 +64,92 @@ public class FormController {
   }
 
   @RequestMapping("/html/form/exam21")
-  public Object exam21(String name, int age) {
+  public Object exam21(String name, int age) throws Exception {
     System.out.println(name);
     System.out.println(age);
-    //    System.out.println(photo.getOriginalFilename());
-    //
-    //    try {
-    //      File photoFile = new File("c:/upload/" + photo.getOriginalFilename());
-    //      photo.transferTo(photoFile);
-    //    } catch (Exception e) {
-    //      e.printStackTrace();
-    //      return "error";
-    //    }
+    //    Thread.sleep(10000); // 비동기 요청이 필요한 이유 때문에 넣은 코드이다.
+    return "ok"; 
+  }
 
+
+  @RequestMapping("/html/form/exam31")
+  public Object exam31(String name, int age, MultipartFile photo) {
+    System.out.println(name);
+    System.out.println(age);
+    if (photo != null && photo.getSize() > 0) {
+      System.out.println(photo.getOriginalFilename());
+      try {
+        File photoFile = new File("c:/upload/" + photo.getOriginalFilename());
+        photo.transferTo(photoFile);
+      } catch (Exception e) {
+        e.printStackTrace();
+        return "error";
+      }
+    }
+    return "ok"; 
+  }
+
+  @RequestMapping("/html/form/exam33")
+  public Object exam33(String name, int age, MultipartFile[] photo) {
+    System.out.println(name);
+    System.out.println(age);
+
+    if (photo != null) {
+      for (MultipartFile part : photo) {
+        try {
+          File photoFile = new File("c:/upload/" + part.getOriginalFilename());
+          part.transferTo(photoFile);
+        } catch (Exception e) {
+          e.printStackTrace();
+          return "error";
+        }
+      }
+    }
+    return "ok"; 
+  }
+
+  @RequestMapping("/html/form/exam41")
+  public Object exam41(String name, int age, MultipartFile[] photo) {
+    System.out.println(name);
+    System.out.println(age);
+
+    if (photo != null) {
+      for (MultipartFile part : photo) {
+        if (part.getSize() == 0) {
+          continue;
+        }
+        try {
+          File photoFile = new File("c:/upload/" + part.getOriginalFilename());
+          part.transferTo(photoFile);
+        } catch (Exception e) {
+          e.printStackTrace();
+          return "error";
+        }
+      }
+    }
+    return "ok"; 
+  }
+
+  @RequestMapping("/html/form/exam51")
+  public Object exam51(String name, int age, MultipartFile[] photo) {
+    System.out.println(name);
+    System.out.println(age);
+
+    if (photo != null) {
+      for (MultipartFile part : photo) {
+        if (part.getSize() == 0) {
+          continue;
+        }
+        try {
+          String filename = UUID.randomUUID().toString();
+          File photoFile = new File("c:/upload/" + filename);
+          part.transferTo(photoFile);
+        } catch (Exception e) {
+          e.printStackTrace();
+          return "error";
+        }
+      }
+    }
     return "ok"; 
   }
 }
