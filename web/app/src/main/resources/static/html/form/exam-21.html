@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>파일 업로드</title>
+</head>
+<body>
+<h1>AJAX 파일 업로드</h1>
+
+
+<!-- form에 액션을 주지 않으면 현재 url을 다시 서버에 요청한다 -->
+<form id="form1">
+  이름: <input type="text" name="name"><br>
+  나이: <input type="text" name="age"><br>
+  사진: <input type="file" name="photo"><br>
+  <!-- button에서 타입 잘봐야한다 type에서 button으로하면 단순 버튼 으로 보고 그게 아니면 기본값(submit)으로 form에 action에 잇는 값으로 서버에 요청한다 -->
+  <!-- AJAX로 보낼때는 submit이 아니고 일반 button이여야 한다. -->
+  <button type="button" id = "btn">요청</button>
+</form>
+
+<script>
+document.querySelector('#btn').addEventListener('click', function() {
+  // 비동기 요청 작업을 시행할 객체를 준비한다.
+  var xhr = new XMLHttpRequest();
+
+  // 서버에 연결한다.
+  xhr.open("post", // 요청 method
+   "/html/form/exam21", // 요청 url
+   false // 비동기 여부(그럼 이상황은 동기 방식이 되는것이다.)
+   );
+
+  // 서버에 post방식으로 데이터를  보내는 경우 다음과 같이 MINE타입을 설정해야 한다..
+  xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded"); 
+
+  // 서버에 요청하기
+  // => 동기 방식일 경우 서버에서 응답이 올 때 까지 리턴하지 않는다.
+  xhr.send("name=aaa&age=22");
+
+  // 서버의 응답을 꺼낸다.
+  console.log(xhr.responseText);
+
+});
+</script>
+  
+</body>
+</html>
