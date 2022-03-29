@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>세션 다루기</title>
+</head>
+<body>
+  <h1>2단계</h1>
+  <form name="form1">
+    나이: <input name="age"><br>
+    <button type="button" class="btn1">다음</button> <!-- type을 버튼으로 단순 버튼 처리된다.-->
+  </form>
+  <script>
+    document.querySelector('.btn1').addEventListener('click', function() {
+      var fd = new FormData(document.forms.namedItem('form1'));
+
+      fetch("/session/step2", {
+        method : "POST",
+        body : new URLSearchParams(fd)
+      }).then(function(response) {
+        return response.text()
+      }).then(function(text) {
+        console.log(text);
+        window.location.href = 'session-step3.html'
+      })
+    })
+  </script>
+</body>
+</html>
