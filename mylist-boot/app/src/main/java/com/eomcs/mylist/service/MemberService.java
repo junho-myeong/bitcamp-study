@@ -6,7 +6,11 @@ public interface MemberService {
 
   int add(Member member);
 
-
 }
+
+
+
+
+
 
 

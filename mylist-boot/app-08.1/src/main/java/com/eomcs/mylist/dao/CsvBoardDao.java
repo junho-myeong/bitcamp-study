@@ -8,10 +8,10 @@ import java.io.PrintWriter;
 import com.eomcs.mylist.domain.Board;
 import com.eomcs.util.ArrayList;
 
-public class CsvBoardDao { // variables initializer
-  ArrayList boardList = new ArrayList(); // 변수 선언 = 변수를 만들라는 명령!!
+public class CsvBoardDao {
+  ArrayList boardList = new ArrayList(); // 변수 선언 = 변수를 만들라는 명령!
 
-  public CsvBoardDao() throws Exception {
+  public CsvBoardDao() {
     try {
       BufferedReader in = new BufferedReader(new FileReader("boards.csv"));
 
@@ -19,24 +19,25 @@ public class CsvBoardDao { // variables initializer
       while ((csvStr = in.readLine()) != null) {
         boardList.add(Board.valueOf(csvStr)); 
       }
+
       in.close();
     } catch (Exception e) {
-      System.out.println("게시글 데이터 로딩중 오류발생");
+      System.out.println("게시글 데이터 로딩 중 오류 발생!");
     }
-
-
   }
+
   private void save() throws Exception {
     PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter("boards.csv")));
 
-    Object[] arr = boardList.toArray();
     for (int i = 0; i < boardList.size(); i++) {
       Board board = (Board) boardList.get(i);
       out.println(board.toCsvString());
     }
-    out.flush(); // 찌끄래기도 다 출력하도록 요구하는것이다.
+    out.flush();
+
     out.close();
   }
+
   public int countAll() {
     return boardList.size();
   }
@@ -44,6 +45,7 @@ public class CsvBoardDao { // variables initializer
   public Object[] findAll() {
     return boardList.toArray();
   }
+
   public void insert(Board board) throws Exception {
     boardList.add(board);
     save();
@@ -73,11 +75,21 @@ public class CsvBoardDao { // variables initializer
     save();
     return 1;
   }
+
   public void increaseViewCount(int no) throws Exception {
     Board board = findByNo(no);
     board.setViewCount(board.getViewCount() + 1);
     save();
   }
-
-
 }
+
+
+
+
+
+
+
+
+
+
+

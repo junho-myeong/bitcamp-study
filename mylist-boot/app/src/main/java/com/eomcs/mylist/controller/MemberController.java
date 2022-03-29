@@ -6,14 +6,23 @@ import org.springframework.web.bind.annotation.RestController;
 import com.eomcs.mylist.domain.Member;
 import com.eomcs.mylist.service.MemberService;
 
-@RestController
+@RestController 
 public class MemberController {
 
   @Autowired
   MemberService memberService;
 
+
+
   @RequestMapping("/member/signup")
-  public Object signup(Member member) {
+  public Object add(Member member) {
     return memberService.add(member);
   }
+
+
+
 }
+
+
+
+

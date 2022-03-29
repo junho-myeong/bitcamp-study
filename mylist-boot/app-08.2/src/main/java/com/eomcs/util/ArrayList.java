@@ -13,6 +13,7 @@ public class ArrayList implements java.io.Serializable {
     this.addAll(arr);
   }
 
+
   // 인스턴스 주소를 앞쪽에서 받으려면 static 키워드를 붙이면 안된다.
   // 즉 non-static 메서드로 정의해야 한다.
   // 그리고 메서드가 호출될 때 받은 인스턴스를 사용하려면 내장 변수 this를 이용해야 한다.
@@ -23,7 +24,6 @@ public class ArrayList implements java.io.Serializable {
     this.list[this.size++] = obj;
   }
 
-  // 배열을 주면 배열에서 한개씩 꺼내서 위에 add()를 호출해서 한개씩 추가한다
   public void addAll(Object[] arr) {
     for (Object obj : arr) {
       this.add(obj);
@@ -86,7 +86,6 @@ public class ArrayList implements java.io.Serializable {
   public Object get(int index) {
     return this.list[index];
   }
-
 }
 
 

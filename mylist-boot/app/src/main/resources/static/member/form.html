@@ -9,39 +9,37 @@
 <h1>회원가입</h1>
 
 <form name="form1">
-이름*: <input name="name" type="text" ><br>
-이메일*: <input name="email" type="email"><br>
-암호*: <input name ="password" type="password"><br>
+이름*: <input id="x-name" name="name" type="text"><br>
+이메일*: <input id="x-email" name="email" type="email"><br>
+패스워드*: <input id="x-password" name="password" type="password"><br>
 별표(*) 항목은 필수 입력입니다.<br>
-<button id="x-add-btn">확인</button>
+<button id="x-add-btn">등록</button>
 <button id="x-cancel-btn" type="button">취소</button>
 </form>
 
 <script type="text/javascript">
-  var xName = document.querySelector("input[name=title]");
-  var xEmail = document.querySelector("input[name=email]");
-  var xPassword = document.querySelector("input[name=password]");
-  
-  document.querySelector("form[name=form1]").onsubmit = function() { // onsubmit에 리턴값이 false가 아닐때만 버튼에 빌트인 submit을 수행한다.
-    if (xName.value == "" || 
-    		xEmail.value == "" ||
-    		xPassword.value == "") {
+  var xName = document.querySelector("#x-name");
+  var xEmail = document.querySelector("#x-email");
+  var xPassword = document.querySelector("#x-password");
+
+  document.querySelector("form[name=form1]").onsubmit = function() {
+    if (xName.value == "" || xEmail.value == "" || xPassword.value == "") {
       window.alert("필수 입력 항목이 비어 있습니다.");
       return false;
     }
-    
-    var fd = new FormData(document.forms.namedItem("form1"))
-    
+
+	  var fd = new FormData(document.forms.namedItem("form1"));
+	  
     fetch("/member/signup", {
-      method : "POST",
-      body: fd
+    	method: "POST",
+    	body: fd
     })
       .then(function(response) {
         return response.text();
       })
       .then(function(text) {
         console.log(text);
-        window.alert("회원가입 성공!")
+        window.alert('회원가입 성공!')
       });
     return false;
   };
@@ -49,7 +47,6 @@
   document.querySelector("#x-cancel-btn").onclick = function() {
     window.location.href = "index.html";
   };
-  
 </script>
 
 </body>

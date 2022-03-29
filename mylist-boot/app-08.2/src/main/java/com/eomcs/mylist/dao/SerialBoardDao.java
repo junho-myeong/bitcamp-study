@@ -9,15 +9,15 @@ import java.io.ObjectOutputStream;
 import com.eomcs.mylist.domain.Board;
 import com.eomcs.util.ArrayList;
 
+//@Repository
 public class SerialBoardDao implements BoardDao {
 
   String filename = "boards.ser";
   ArrayList boardList = new ArrayList(); // 변수 선언 = 변수를 만들라는 명령!
 
-  public SerialBoardDao()  {
+  public SerialBoardDao() {
     try {
       ObjectInputStream in = new ObjectInputStream(new BufferedInputStream(new FileInputStream(filename)));
-
       boardList = (ArrayList) in.readObject();
       in.close();
     } catch (Exception e) {
@@ -27,10 +27,8 @@ public class SerialBoardDao implements BoardDao {
 
   private void save() throws Exception {
     ObjectOutputStream out = new ObjectOutputStream(new BufferedOutputStream(new FileOutputStream(filename)));
-
     out.writeObject(boardList);
     out.flush();
-
     out.close();
   }
 

@@ -17,7 +17,6 @@ public class SerialBoardDao {
   public SerialBoardDao() {
     try {
       ObjectInputStream in = new ObjectInputStream(new BufferedInputStream(new FileInputStream(filename)));
-
       boardList = (ArrayList) in.readObject();
       in.close();
     } catch (Exception e) {
@@ -27,10 +26,8 @@ public class SerialBoardDao {
 
   private void save() throws Exception {
     ObjectOutputStream out = new ObjectOutputStream(new BufferedOutputStream(new FileOutputStream(filename)));
-
     out.writeObject(boardList);
     out.flush();
-
     out.close();
   }
 
@@ -63,7 +60,7 @@ public class SerialBoardDao {
     return 1;
   }
 
-  public int delete(int no) throws Exception {
+  public int remove(int no) throws Exception {
     if (no < 0 || no >= boardList.size()) {
       return 0;
     }
