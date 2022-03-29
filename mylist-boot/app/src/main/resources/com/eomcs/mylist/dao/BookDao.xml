@@ -17,6 +17,7 @@
     <result column="read_date" property="readDate"/>
     <result column="page" property="page"/>
     <result column="price" property="price"/>
+    <result column="photo" property="photo"/>
   </resultMap>
   
   <select id ="countAll" parameterType="int">
@@ -31,7 +32,8 @@
       book_no,
       title,
       author,
-      press
+      press,
+      photo
     from
       ml_book
     order by
@@ -39,8 +41,8 @@
   </select>
   
   <insert id="insert" parameterType="Book">
-    insert into ml_book(title,author,press,feed,read_date,page,price) 
-    values(#{title},#{author},#{press},#{feed},#{readDate},#{page},#{price})
+    insert into ml_book(title,author,press,feed,read_date,page,price,photo) 
+    values(#{title},#{author},#{press},#{feed},#{readDate},#{page},#{price},#{photo})
   </insert>
   
   <!--
@@ -55,7 +57,8 @@
       feed,
       read_date,
       page,
-      price
+      price,
+      photo
     from 
       ml_book
     where 
@@ -68,12 +71,13 @@
   <update id ="update" parameterType="Book">
     update ml_book set 
       title = #{title},
-      author = #{author} 
-      press = #{press} 
-      feed = #{feed} 
-      read_date = #{readDate}
-      page=#{page}
-      price=#{price} 
+      author = #{author}, 
+      press = #{press}, 
+      feed = #{feed}, 
+      read_date = #{readDate},
+      page=#{page},
+      price=#{price},
+      photo=#{photo]
     where 
       book_no = #{no}
   </update>

@@ -11,6 +11,15 @@ public class Book {
   int price;
   Date readDate;
   String feed;
+  String photo;
+
+
+  public String getPhoto() {
+    return photo;
+  }
+  public void setPhoto(String photo) {
+    this.photo = photo;
+  }
   public int getNo() {
     return no;
   }
@@ -62,8 +71,10 @@ public class Book {
   @Override
   public String toString() {
     return "Book [no=" + no + ", title=" + title + ", author=" + author + ", press=" + press
-        + ", page=" + page + ", price=" + price + ", readDate=" + readDate + ", feed=" + feed + "]";
+        + ", page=" + page + ", price=" + price + ", readDate=" + readDate + ", feed=" + feed
+        + ", photo=" + photo + "]";
   }
+
 
 
   // 데이터를 저장할 테이블 생성

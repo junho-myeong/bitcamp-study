@@ -142,6 +142,10 @@ public class FormController {
         }
         try {
           String filename = UUID.randomUUID().toString();
+          int dotIndex = part.getOriginalFilename().lastIndexOf(".");
+          if (dotIndex != -1) {
+            filename += part.getOriginalFilename().substring(dotIndex);
+          }
           File photoFile = new File("c:/upload/" + filename);
           part.transferTo(photoFile);
         } catch (Exception e) {
