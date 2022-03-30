@@ -3,8 +3,43 @@
 <head>
 <meta charset="UTF-8">
 <title>MyList!</title>
+<style>
+  #header {
+    background-color: navy;
+    color: #fff;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    padding: 0 10px;
+  }
+  #log {
+    position: absolute;
+    right: 10px
+  }
+  #app-title {
+    font-size: 1.5em;
+    font-weight: 700;
+  }
+  .container {
+    width: 600px;
+    margin :0 auto;
+  }
+  
+  
+</style>
 </head>
 <body>
+<div class="container">
+<div id=header>
+<span id="app-title">MyList</span>
+<div id=log>
+<button id="login-btn" type="button">로그인</button>
+<button id="logout-btn" type="button">로그아웃</button>
+</div>
+</div>
+
+
 <h1>MyList에 오신 걸 환영합니다!</h1>
 <p>이 프로젝트는 자바 실전 프로그래밍을 경험하기 위해 만든 프로젝트 입니다.</p>
 <ul>
@@ -14,5 +49,18 @@
   <li><a href="book/index.html">독서록</a></li>
   <li><a href="etc/student-selector/index.html">발표자 추첨</a></li>
 </ul>
+</div>
+    
+<script type="text/javascript">
+
+fetch("/member/getLoginUser").then(function(response){
+	return response.json();
+}).then(function(result) {
+	console.log(result);
+});
+
+</script>
+
+
 </body>
 </html>
