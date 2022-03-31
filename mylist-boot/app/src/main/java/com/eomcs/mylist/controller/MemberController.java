@@ -1,5 +1,7 @@
 package com.eomcs.mylist.controller;
 
+import static com.eomcs.mylist.controller.ResultMap.FAIL;
+import static com.eomcs.mylist.controller.ResultMap.SUCCESS;
 import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -41,13 +43,28 @@ public class MemberController {
     Object member = session.getAttribute("loginUser");
     if (member != null) {
       return new ResultMap()
-          // 요세 트렌드로 사용하는 코드 방법이다.
-          .setStatus("success")
+          .setStatus(SUCCESS)
           .setData(member);
     } else {
       return new ResultMap()
-          .setStatus("fail")
+          .setStatus(FAIL)
           .setData("로그인 하지 않았습니다.");
     }
   }
+
+  @RequestMapping("/member/signout")
+  public Object signout(HttpSession session) {
+    session.invalidate();
+    return new ResultMap().setStatus(SUCCESS);
+  }
 }
+
+
+
+
+
+
+
+
+
+

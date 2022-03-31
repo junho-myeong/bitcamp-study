@@ -24,8 +24,8 @@ var xPassword = document.querySelector("input[name=password]");
   
 document.querySelector("form[name=form1]").onsubmit = function() {
   if (xName.value == "" || 
-      xEmail.value == "" ||
-      xPassword.value == "") {
+  		xEmail.value == "" ||
+  		xPassword.value == "") {
     window.alert("필수 입력 항목이 비어 있습니다.");
     return false;
   }
@@ -40,10 +40,10 @@ document.querySelector("form[name=form1]").onsubmit = function() {
       return response.text();
     })
     .then(function(text) {
-      if (text == "success"){
-    	location.href = "signin.html"
+      if (text == "success") {
+    	  location.href = "signin.html";
       } else {
-      window.alert("회원가입 실패!");
+    	  window.alert("회원가입 실패!!");
       }
     });
   return false;
