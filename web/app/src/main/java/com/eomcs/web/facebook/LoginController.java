@@ -1,6 +1,6 @@
 package com.eomcs.web.facebook;
 
-import java.net.URLDecoder;
+import org.apache.commons.text.StringEscapeUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
@@ -24,6 +24,6 @@ public class LoginController {
         accessToken, // URL의 첫번 째 자리에 들어갈 값
         "id,name,email" // 페이스북 측에 요청하는 로그인 사용자 정보
         );  
-    return URLDecoder.decode(result, "UTF-8");
+    return StringEscapeUtils.unescapeJava(result);
   }
 }
