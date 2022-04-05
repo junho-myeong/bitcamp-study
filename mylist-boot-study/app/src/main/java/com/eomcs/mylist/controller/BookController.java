@@ -15,6 +15,7 @@ import org.springframework.web.multipart.MultipartFile;
 import com.eomcs.mylist.domain.Book;
 import com.eomcs.mylist.service.BookService;
 import net.coobird.thumbnailator.Thumbnails;
+import net.coobird.thumbnailator.geometry.Positions;
 
 @RestController 
 public class BookController {
@@ -111,6 +112,7 @@ public class BookController {
       // 썸네일 이미지 파일 생성
       Thumbnails.of(photoFile)
       .size(50, 50)
+      .crop(Positions.CENTER)
       .outputFormat("jpg")
       .toFile(new File("./upload/book/" + "50x50_" + filename));
       return filename;

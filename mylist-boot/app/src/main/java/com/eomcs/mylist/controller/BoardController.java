@@ -18,16 +18,15 @@ public class BoardController {
 
   @RequestMapping("/board/list")
   public Object list() {
-    return boardService.list();
+    return new ResultMap().setStatus(SUCCESS).setData(boardService.list());
   }
 
   @RequestMapping("/board/add")
   public Object add(Board board, HttpSession session) {
+    System.out.println("BoardController.add() 실행됨!");
+    // interceptor 때문에 로그인 검사를 여기서 하지 않고 무조건 로그인 된 상태가 들어온다
+    // 즉 prehandle()이 true일 때만 여기로 넘어온다
     Member member = (Member) session.getAttribute("loginUser");
-    if (member == null) {
-      return new ResultMap().setStatus(FAIL).setData("로그인 하지 않았습니다.");
-    }
-
     board.setWriter(member);
     boardService.add(board);
     return new ResultMap().setStatus(SUCCESS);
@@ -38,17 +37,16 @@ public class BoardController {
   public Object get(int no) {
     Board board = boardService.get(no);
     if (board == null) {
-      return "";
+      return new ResultMap().setStatus(FAIL).setData("해당 번호의 게시글이 없습니다.");
     }
-    return board;
+    return new ResultMap().setStatus(SUCCESS).setData(board);
   }
 
   @RequestMapping("/board/update")
   public Object update(Board board, HttpSession session) {
     Member member = (Member) session.getAttribute("loginUser");
-    if (member == null) {
-      return new ResultMap().setStatus(FAIL).setData("로그인 하지 않았습니다.");
-    }
+    // interceptor 때문에 로그인 검사를 여기서 하지 않고 무조건 로그인 된 상태가 들어온다
+    // 즉 prehandle()이 true일 때만 여기로 넘어온다
 
     board.setWriter(member);
     int count = boardService.update(board);
@@ -63,9 +61,8 @@ public class BoardController {
   @RequestMapping("/board/delete")
   public Object delete(int no, HttpSession session) {
     Member member = (Member) session.getAttribute("loginUser");
-    if (member == null) {
-      return new ResultMap().setStatus(FAIL).setData("로그인 하지 않았습니다.");
-    }
+    // interceptor 때문에 로그인 검사를 여기서 하지 않고 무조건 로그인 된 상태가 들어온다
+    // 즉 prehandle()이 true일 때만 여기로 넘어온다
 
     Board board = new Board();
     board.setNo(no);
