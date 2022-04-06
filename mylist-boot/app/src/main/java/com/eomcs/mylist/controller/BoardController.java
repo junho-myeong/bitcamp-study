@@ -3,6 +3,8 @@ package com.eomcs.mylist.controller;
 import static com.eomcs.mylist.controller.ResultMap.FAIL;
 import static com.eomcs.mylist.controller.ResultMap.SUCCESS;
 import javax.servlet.http.HttpSession;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -13,17 +15,26 @@ import com.eomcs.mylist.service.BoardService;
 @RestController 
 public class BoardController {
 
+  // log를 출력하는 도구를 준비한다.
+  private final static Logger log = LoggerFactory.getLogger(BoardController.class); // 이제 로그를 남길때 파라미터 클래스 이름으로 로그를 남긴다.
+
   @Autowired
   BoardService boardService;
 
   @RequestMapping("/board/list")
   public Object list() {
+    log.error("error!!");
+    log.warn("warn!!");
+    log.info("info!!");
+    log.debug("debug!");
+    log.trace("trace!!");
     return new ResultMap().setStatus(SUCCESS).setData(boardService.list());
   }
 
   @RequestMapping("/board/add")
   public Object add(Board board, HttpSession session) {
-    System.out.println("BoardController.add() 실행됨!");
+    log.info("게시글 등록!"); // 운영자가 확인하기를 원하는 정보
+    log.debug(board.toString()); // 개발자가 확인하기 원하는 정보
     // interceptor 때문에 로그인 검사를 여기서 하지 않고 무조건 로그인 된 상태가 들어온다
     // 즉 prehandle()이 true일 때만 여기로 넘어온다
     Member member = (Member) session.getAttribute("loginUser");

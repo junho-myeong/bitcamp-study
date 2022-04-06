@@ -3,6 +3,8 @@ package com.eomcs.mylist.interceptor;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 import com.eomcs.mylist.controller.ResultMap;
@@ -12,10 +14,12 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 // 사용자 인증 여부를 검사하는 인터셉터
 public class AuthInterceptor implements HandlerInterceptor {
 
+  private final static Logger log = LoggerFactory.getLogger(AuthInterceptor.class);
+
   @Override
   public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
       throws Exception {
-    System.out.println("preHandle() 호출됨!");
+    log.debug("prehandle() 호출됨!");
 
     // 로그인 여부 검사
     HttpSession session = request.getSession();
@@ -35,7 +39,7 @@ public class AuthInterceptor implements HandlerInterceptor {
   @Override
   public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler,
       ModelAndView modelAndView) throws Exception {
-    System.out.println("postHandle() 호출됨!");
+    log.debug("posthandle() 호출됨!");
     HandlerInterceptor.super.postHandle(request, response, handler, modelAndView);
   }
 }
