@@ -38,7 +38,7 @@ public class BoardUpdateController extends HttpServlet {
 
       boardService.update(board);
 
-      response.sendRedirect("list"); 
+      request.setAttribute("viewUrl","redirect:list"); 
 
     } catch (Exception e) {
       request.setAttribute("exception", e);
